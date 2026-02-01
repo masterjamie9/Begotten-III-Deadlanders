@@ -86,3 +86,12 @@ local CLASS = Clockwork.class:New("Hillkeeper");
 	CLASS.defaultPhysDesc = "Wearing dirty clothes and a small satchel";
 	CLASS.coinslotWages = 25;
 CLASS_HILLKEEPER = CLASS:Register();
+
+local CLASS = Clockwork.class:New("Deadlander");
+	CLASS.color = Color(216, 216, 216);
+	CLASS.factions = {FACTION_DEADLANDER};
+	CLASS.isDefault = true;
+	CLASS.description = "A survivor of the apocalypse.";
+	CLASS.defaultPhysDesc = "Wearing dirty clothes and a small satchel";
+	CLASS.coinslotWages = 0;
+CLASS_DEADLANDER = CLASS:Register();

@@ -1719,6 +1719,8 @@ function playerMeta:GetMaxHealth(health)
 			maxHealth = maxHealth + 25
 		elseif subfaction == "Auxiliary" then
 			maxHealth = maxHealth + 20
+		elseif subfaction == "Raiders" then
+			maxHealth = maxHealth + 15	
 		end
 	end
 	
@@ -1768,6 +1770,17 @@ function playerMeta:GetMaxHealth(health)
 		if self:HasBelief("survivalist") then
 			maxHealth = maxHealth + 25;
 		end
+	end
+	
+	if faith == "Faith of the Winds" then	
+		if self:HasBelief("to_balance_the_scales") then
+			maxHealth = maxHealth + 25;
+		end
+		
+		if self:HasBelief("to_tip_the_scales") then
+			maxHealth = maxHealth + 15;
+		end
+		
 	end
 
 	if self:GetCharmEquipped("ring_vitality") then

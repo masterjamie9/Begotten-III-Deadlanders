@@ -252,6 +252,38 @@ local ITEM = Clockwork.item:New();
 ITEM:Register();
 
 local ITEM = Clockwork.item:New();
+	ITEM.name = "Celestial Sigil Stone";
+	ITEM.model = "models/stalker/artifacts/moon.mdl";
+	ITEM.iconoverride = "begotten/ui/itemicons/moon.png";
+	ITEM.weight = 0.1;
+	ITEM.category = "Catalysts";
+	ITEM.description = "A sigil stone that keeps perfect balance in your hand.";
+	ITEM.stackable = true;	
+	
+	-- Called when a player drops the item.
+	function ITEM:OnDrop(player, position) end;
+
+	ITEM.itemSpawnerInfo = {category = "Rituals", rarity = 600, supercrateOnly = true};
+	
+ITEM:Register();
+
+local ITEM = Clockwork.item:New();
+	ITEM.name = "Blood Sigil Stone";
+	ITEM.model = "models/stalker/artifacts/scar.mdl";
+	ITEM.iconoverride = "begotten/ui/itemicons/scar.png";
+	ITEM.weight = 0.1;
+	ITEM.category = "Catalysts";
+	ITEM.description = "A sigil stone that drains the color from your hand.";
+	ITEM.stackable = true;	
+	
+	-- Called when a player drops the item.
+	function ITEM:OnDrop(player, position) end;
+
+	ITEM.itemSpawnerInfo = {category = "Rituals", rarity = 600, supercrateOnly = true};
+	
+ITEM:Register();
+
+local ITEM = Clockwork.item:New();
 	ITEM.name = "Fire Sigil Stone";
 	ITEM.model = "models/srp/items/art_stoneblood.mdl";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/art_stoneblood.png";

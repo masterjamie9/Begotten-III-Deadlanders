@@ -158,3 +158,290 @@ local ITEM = Clockwork.item:New("bodygroup_base")
 	
 	ITEM.components = {breakdownType = "meltdown", items = {"fine_steel_chunks", "fine_steel_chunks", "steel_chunks"}};
 ITEM:Register();
+
+local ITEM = Clockwork.item:New("bodygroup_base")
+    ITEM.name = "Deadlander Rider Helmet"
+    ITEM.model = "models/begotten_prelude/items/khuzait_helmet_k.mdl"
+    ITEM.iconoverride = "materials/begottenprelude/ui/itemicons/khuzait_helmet_k.png"
+    ITEM.weight = 1.3
+    ITEM.uniqueID = "khuzait_helmet_k"
+    ITEM.category = "Helms"
+    ITEM.bodyGroup = 1
+    ITEM.bodyGroupVal = 4
+    ITEM.headSuffix = "_darklander";
+    ITEM.description = "The men of the Deadlands train since birth on motorcycle, horse, and chariot. This helmet is a feared sight to any foot army."
+    ITEM.excludedFactions = {"Goreic Warrior"};
+    ITEM.useSound = "armor/plate_damage_02.wav";
+	ITEM.overlay = "begotten/zomboverlay/new/gorekingschosenhelmet";
+
+    ITEM.conditionScale = 0.75 -- item degrades 1.5x faster with damage related condition loss
+
+    ITEM.effectiveLimbs = {
+        [HITGROUP_HEAD] = true,
+    }
+
+    ITEM.protection = 53
+    ITEM.hitParticle = "MetalSpark";
+    ITEM.type = "plate";
+
+	ITEM.bluntScale = 0.80; -- reduces blunt damage by 20%
+	ITEM.pierceScale = 0.70; -- reduces pierce damage by 30%
+	ITEM.slashScale = 0.65; -- reduces slash damage by 35%
+	ITEM.bulletScale = 0.75; -- reduces bullet damage by 25%
+	ITEM.stabilityScale = 0.65; -- reduces stability damage by 35%
+    ITEM.insulation = 30; -- Adds 6% insulation. Helmets account for 20% of total insulation. Body armor covers the other 80%.
+
+    
+    ITEM.components = {breakdownType = "meltdown", items = {"iron_chunks"}, xp = 30};
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("bodygroup_base")
+    ITEM.name = "Deadlander Officer Helmet"
+    ITEM.model = "models/begotten_prelude/items/khuzait_lord_helmet_c.mdl"
+    ITEM.iconoverride = "materials/begottenprelude/ui/itemicons/khuzait_lord_helmet_c.png"
+    ITEM.weight = 1.2
+    ITEM.uniqueID = "khuzait_lord_helmet_c"
+    ITEM.category = "Helms"
+    ITEM.bodyGroup = 1
+    ITEM.bodyGroupVal = 5
+    ITEM.headSuffix = "_darklander";
+    ITEM.description = "A helmet fit for an officer of the Khan's horde. It is said that their motorized archers have ended all, from Gatekeeper legions to Darklandic mercenary brigades."
+    ITEM.excludedFactions = {"Goreic Warrior"};
+    ITEM.useSound = "armor/plate_damage_02.wav";
+    ITEM.overlay = "begotten/zomboverlay/new/gorekingschosenhelmet";
+	--ITEM.requiredRanks = {"Dread Khan"};
+
+    ITEM.conditionScale = 0.75 -- item degrades 1.5x faster with damage related condition loss
+
+
+    ITEM.effectiveLimbs = {
+        [HITGROUP_HEAD] = true,
+    }
+
+    ITEM.protection = 62
+    ITEM.hitParticle = "MetalSpark";
+    ITEM.type = "plate";
+
+	ITEM.bluntScale = 0.80; -- reduces blunt damage by 20%
+	ITEM.pierceScale = 0.70; -- reduces pierce damage by 30%
+	ITEM.slashScale = 0.65; -- reduces slash damage by 35%
+	ITEM.bulletScale = 0.75; -- reduces bullet damage by 25%
+	ITEM.stabilityScale = 0.65; -- reduces stability damage by 35%
+    ITEM.insulation = 30; -- Adds 6% insulation. Helmets account for 20% of total insulation. Body armor covers the other 80%.
+
+    
+    ITEM.components = {breakdownType = "meltdown", items = {"fine_steel_chunks"}, xp = 30};
+    
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("bodygroup_base")
+    ITEM.name = "Helmet of the Khan"
+    ITEM.model = "models/begotten_prelude/items/deadkhanhelm.mdl"
+    ITEM.iconoverride = "begotten/ui/itemicons/deadkhanhelm.png"
+    ITEM.weight = 1.5
+    ITEM.uniqueID = "khanhelm"
+    ITEM.category = "Helms"
+    ITEM.bodyGroup = 1
+    ITEM.bodyGroupVal = 3
+    ITEM.headSuffix = "_deadlander";
+    ITEM.description = "A helmet covered with jewels and masking its wearer behind a thick plate of bronze. The Dread Khans, trusted generals of the Great Khan, strike fear and fury into the enemy in their leader's name."
+    ITEM.excludedFactions = {"Goreic Warrior"};
+    ITEM.useSound = "armor/plate_damage_02.wav";
+    ITEM.overlay = "begotten/zomboverlay/new/gorekingschosenhelmet";
+	ITEM.requiredRanks = {"Dread Khan"};
+
+    ITEM.conditionScale = 0.75 -- item degrades 1.5x faster with damage related condition loss
+
+
+    ITEM.effectiveLimbs = {
+        [HITGROUP_HEAD] = true,
+    }
+
+    ITEM.protection = 75
+    ITEM.hitParticle = "MetalSpark";
+    ITEM.type = "plate";
+
+	ITEM.bluntScale = 0.80; -- reduces blunt damage by 20%
+	ITEM.pierceScale = 0.75; -- reduces pierce damage by 25%
+	ITEM.slashScale = 0.65; -- reduces slash damage by 35%
+	ITEM.bulletScale = 0.65; -- reduces bullet damage by 45%
+	ITEM.stabilityScale = 0.65; -- reduces stability damage by 35%
+    ITEM.insulation = 30; -- Adds 6% insulation. Helmets account for 20% of total insulation. Body armor covers the other 80%.
+
+    
+    ITEM.components = {breakdownType = "meltdown", items = {"fine_steel_chunks"}, xp = 30};
+    
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("bodygroup_base")
+    ITEM.name = "Deadlander Shemagh"
+    ITEM.model = "models/begotten_prelude/items/deadlanderturban.mdl"
+    ITEM.iconoverride = "begotten/ui/itemicons/deadlanderturban.png"
+    ITEM.weight = 0.2
+    ITEM.uniqueID = "openshemagh"
+    ITEM.category = "Helms"
+    ITEM.bodyGroup = 1
+    ITEM.bodyGroupVal = 1
+    ITEM.headSuffix = "_deadlander";
+    ITEM.description = "Whether dust storms or acid rain, the shemagh has always proved useful for Wanderers and Deadlanders alike to fight off the elements."
+	ITEM.excludedFactions = {"Goreic Warrior"};
+	ITEM.useSound = "npc/combine_soldier/zipline_clothing2.wav";
+	ITEM.itemSpawnerInfo = {category = "Helms", rarity = 800, bNoSupercrate = true};	
+	ITEM.conditionScale = 2 -- item degrades 2x faster with damage related condition loss
+	ITEM.repairCostModifier = 0.3;
+	
+	ITEM.effectiveLimbs = {
+		[HITGROUP_HEAD] = true,
+	}
+
+	ITEM.protection = 25
+	ITEM.hitParticle = "GlassImpact";
+	ITEM.type = "leather";
+
+	ITEM.bluntScale = 0.90; -- reduces blunt damage by 10%
+	ITEM.pierceScale = 0.95; -- reduces pierce damage by 5%
+	ITEM.slashScale = 0.90; -- reduces slash damage by 10%
+	ITEM.stabilityScale = 0.75; -- reduces stability damage by 25%
+	ITEM.insulation = 40;
+
+    
+    ITEM.components = {breakdownType = "breakdown", items = {"cloth", "cloth"}, xp = 1};
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("bodygroup_base")
+    ITEM.name = "Masked Deadlander Shemagh"
+    ITEM.model = "models/begotten_prelude/items/deadlanderturban2.mdl"
+    ITEM.iconoverride = "begotten/ui/itemicons/deadlanderturban2.png"
+    ITEM.weight = 0.5
+    ITEM.uniqueID = "maskshemagh"
+    ITEM.category = "Helms"
+    ITEM.bodyGroup = 1
+    ITEM.bodyGroupVal = 2
+    ITEM.headSuffix = "_deadlander";
+    ITEM.description = "Whether dust storms or acid rain, the shemagh has always proved useful for Wanderers and Deadlanders alike to fight off the elements. This one has been given extra wrapping to cover the face."
+	ITEM.excludedFactions = {"Goreic Warrior"};
+	ITEM.useSound = "npc/combine_soldier/zipline_clothing2.wav";
+	ITEM.itemSpawnerInfo = {category = "Helms", rarity = 800, bNoSupercrate = true};	
+	ITEM.conditionScale = 2 -- item degrades 2x faster with damage related condition loss
+	ITEM.repairCostModifier = 0.5;
+	
+	ITEM.effectiveLimbs = {
+		[HITGROUP_HEAD] = true,
+	}
+
+	ITEM.protection = 30
+	ITEM.hitParticle = "GlassImpact";
+	ITEM.type = "leather";
+
+	ITEM.bluntScale = 0.90; -- reduces blunt damage by 10%
+	ITEM.pierceScale = 0.95; -- reduces pierce damage by 5%
+	ITEM.slashScale = 0.90; -- reduces slash damage by 10%
+	ITEM.stabilityScale = 0.75; -- reduces stability damage by 25%
+	ITEM.insulation = 40;
+
+    
+    ITEM.components = {breakdownType = "breakdown", items = {"cloth", "cloth", "cloth"}, xp = 2};
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("bodygroup_base")
+    ITEM.name = "Kheshig Heavy Helmet"
+    ITEM.model = "models/begotten_prelude/items/khuzaitheavyhelm.mdl"
+    ITEM.iconoverride = "begotten/ui/itemicons/heavydeadlanderhelm.png"
+    ITEM.weight = 2
+    ITEM.uniqueID = "kheshig_helmet"
+    ITEM.category = "Helms"
+    ITEM.bodyGroup = 1
+    ITEM.bodyGroupVal = 6
+    ITEM.headSuffix = "_deadlander";
+    ITEM.description = "The curved helmet of a Deadlander Kheshig, the frontmen of the Horde's assaults. A cloth covering has been used to obscure the wearer's features."
+    ITEM.excludedFactions = {"Goreic Warrior"};
+    ITEM.useSound = "armor/plate_damage_02.wav";
+	ITEM.overlay = "begotten/zomboverlay/new/gorekingschosenhelmet";
+	ITEM.requiredbeliefs = {"hauberk"};
+
+    ITEM.conditionScale = 0.75 -- item degrades 1.5x faster with damage related condition loss
+
+    ITEM.effectiveLimbs = {
+        [HITGROUP_HEAD] = true,
+    }
+
+    ITEM.protection = 72
+    ITEM.hitParticle = "MetalSpark";
+    ITEM.type = "plate";
+
+	ITEM.bluntScale = 0.80; -- reduces blunt damage by 20%
+	ITEM.pierceScale = 0.70; -- reduces pierce damage by 30%
+	ITEM.slashScale = 0.65; -- reduces slash damage by 35%
+	ITEM.bulletScale = 0.75; -- reduces bullet damage by 25%
+	ITEM.stabilityScale = 0.65; -- reduces stability damage by 35%
+    ITEM.insulation = 30; -- Adds 6% insulation. Helmets account for 20% of total insulation. Body armor covers the other 80%.
+
+    
+    ITEM.components = {breakdownType = "meltdown", items = {"steel_chunks", "steel_chunks"}, xp = 30};
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("bodygroup_base")
+	ITEM.name = "Trapper's Hat"
+	ITEM.model = "models/begotten_prelude/items/khuzaittrapperhat.mdl"
+	ITEM.iconoverride = "begotten/ui/itemicons/deadtrapperhelm.png"
+	ITEM.weight = 0.4
+	ITEM.uniqueID = "trapper_hat"
+	ITEM.category = "Helms"
+	ITEM.bodyGroup = 1
+	ITEM.bodyGroupVal = 5
+	ITEM.headSuffix = "_deadlander";
+	ITEM.description = "A thick woolen hat made from mare's hair to insulate against the harshest of ash storms. Though it was introduced by the Deadlanders, this hat is seen commonly through the lands."
+	ITEM.excludedFactions = {"Goreic Warrior"};
+	ITEM.useSound = "npc/combine_soldier/zipline_clothing2.wav";
+	
+	ITEM.conditionScale = 1.1 -- item degrades 1.5x faster with damage related condition loss
+	ITEM.repairCostModifier = 0.5;
+	
+	ITEM.effectiveLimbs = {
+		[HITGROUP_HEAD] = true,
+	}
+
+	ITEM.protection = 35
+	ITEM.hitParticle = "GlassImpact";
+	ITEM.type = "leather";
+
+	ITEM.bluntScale = 0.90; -- reduces blunt damage by 10%
+	ITEM.pierceScale = 0.95; -- reduces pierce damage by 5%
+	ITEM.slashScale = 0.90; -- reduces slash damage by 10%
+	ITEM.stabilityScale = 0.75; -- reduces stability damage by 25%
+	ITEM.insulation = 35;
+	
+	ITEM.components = {breakdownType = "breakdown", items = {"leather", "cloth"}};
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("bodygroup_base")
+	ITEM.name = "Deadlander Raider Helm"
+	ITEM.model = "models/begotten_prelude/items/khuzaitlighthelm.mdl"
+	ITEM.iconoverride = "begotten/ui/itemicons/deadlighthelm.png"
+	ITEM.weight = 1.2
+	ITEM.uniqueID = "deadraiderhelm"
+	ITEM.category = "Helms"
+	ITEM.bodyGroup = 1
+	ITEM.bodyGroupVal = 4
+	ITEM.headSuffix = "_deadlander";
+	ITEM.description = "A simple iron helmet cushioned with leather designed and worn by the Deadlanders."
+	ITEM.excludedFactions = {"Goreic Warrior"};
+	ITEM.useSound = "armor/plate_damage_02.wav";
+
+	ITEM.conditionScale = 1.5 -- item degrades 1.5x faster with damage related condition loss
+	ITEM.repairCostModifier = 0.5;
+
+	ITEM.effectiveLimbs = {
+		[HITGROUP_HEAD] = true,
+	}
+
+	ITEM.protection = 44
+	ITEM.hitParticle = "MetalSpark";
+	ITEM.type = "plate";
+
+	ITEM.bluntScale = 0.90; -- reduces blunt damage by 10%
+	ITEM.pierceScale = 0.85; -- reduces pierce damage by 15%
+	ITEM.slashScale = 0.70; -- reduces slash damage by 30%
+	ITEM.stabilityScale = 0.70; -- reduces stability damage by 30%
+	ITEM.insulation = 40;
+	ITEM:Register();

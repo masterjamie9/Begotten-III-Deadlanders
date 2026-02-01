@@ -128,8 +128,13 @@ local ITEM = item.New(nil, true);
 				
 				local actionTime = weightNum * 5;
 				
-				if cwBeliefs and player:HasBelief("dexterity") then
-					actionTime = math.Round(actionTime * 0.66);
+				if cwBeliefs then
+					if player:HasBelief("dexterity") then
+						actionTime = math.Round(actionTime * 0.66);
+					end
+					if player:HasBelief("sleight_of_hand") then
+						actionTime = math.Round(actionTime * 0.75);
+					end
 				end
 				
 				Clockwork.player:SetAction(player, "taking_off_armor", actionTime, 1, function()
@@ -316,7 +321,9 @@ local ITEM = item.New(nil, true);
 			
 			if self.requiredFaiths and #self.requiredFaiths > 0 then
 				if (!table.HasValue(self.requiredFaiths, player:GetFaith())) then
-					if !self.kinisgerOverride or self.kinisgerOverride and !player:GetCharacterData("apostle_of_many_faces") then
+					if (table.HasValue(self.requiredFaiths, "Faith of the Dark") and player:HasBelief("path_of_the_pale_rider")) then
+					--do not return false
+					elseif !self.kinisgerOverride or self.kinisgerOverride and !player:GetCharacterData("apostle_of_many_faces") then
 						if !player.spawning then
 							Schema:EasyText(player, "chocolate", "You are not the correct faith to equip this armor!")
 						end
@@ -418,8 +425,13 @@ local ITEM = item.New(nil, true);
 					
 					local actionTime = weightNum * 5;
 					
-					if cwBeliefs and player:HasBelief("dexterity") then
-						actionTime = math.Round(actionTime * 0.66);
+					if cwBeliefs then
+						if player:HasBelief("dexterity") then
+							actionTime = math.Round(actionTime * 0.66);
+						end
+						if player:HasBelief("sleight_of_hand") then
+							actionTime = math.Round(actionTime * 0.75);
+						end
 					end
 					
 					Clockwork.player:SetAction(player, "putting_on_armor", actionTime, 1, function()

@@ -727,3 +727,534 @@ ITEM.walkSound = {
 };
 
 ITEM:Register();
+
+local ITEM = Clockwork.item:New("clothes_base");
+ITEM.name = "Deadlander Rider Lamellar";
+ITEM.group = "prelude_deadlanders/khuzaitsoldier";
+ITEM.model = "models/begotten_prelude/items/khuzaitsoldier.mdl"
+ITEM.iconoverride = "materials/begottenprelude/ui/itemicons/khuzaitsoldier.png"
+ITEM.category = "Armor"
+ITEM.conditionScale = 1.1
+ITEM.hitParticle = "GlassImpact";
+ITEM.protection = 40
+ITEM.type = "leather";
+ITEM.weight = 3;
+ITEM.weightclass = "Light";
+ITEM.description = "The white fur-lined coat and leather lamellar of the Deadlander steppe warriors. Light for speed and mobility as they pursue targets.";
+ITEM.useSound = "npc/combine_soldier/zipline_clothing2.wav";
+ITEM.excludedFactions = {"Goreic Warrior"};
+
+ITEM.effectiveLimbs = {
+    [HITGROUP_GENERIC] = true,
+    [HITGROUP_CHEST] = true,
+    [HITGROUP_STOMACH] = true,
+    [HITGROUP_LEFTARM] = true,
+    [HITGROUP_RIGHTARM] = true,
+    [HITGROUP_LEFTLEG] = true,
+    [HITGROUP_RIGHTLEG] = true,
+    [HITGROUP_GEAR] = true
+}
+
+ITEM.bluntScale = 0.90; -- reduces blunt damage by 10%
+ITEM.pierceScale = 0.95; -- reduces pierce damage by 5%
+ITEM.slashScale = 0.90; -- reduces slash damage by 10%
+ITEM.insulation = 60;
+ITEM.components = {breakdownType = "breakdown", items = {"iron_chunks", "iron_chunks", "iron_chunks", "cloth", "cloth"}, xp = 15};
+
+-- Called when a replacement is needed for a player.
+function ITEM:GetReplacement(player)
+
+end;
+
+ITEM.runSound = {
+    "armormovement/body-lobe-1.wav.mp3",
+    "armormovement/body-lobe-2.wav.mp3",
+    "armormovement/body-lobe-3.wav.mp3",
+    "armormovement/body-lobe-4.wav.mp3",
+    "armormovement/body-lobe-5.wav.mp3",
+};
+
+--[[ITEM.walkSound = {
+    "armormovement/body-lobe-b1.wav.mp3",
+    "armormovement/body-lobe-b2.wav.mp3",
+};]]--
+
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("clothes_base");
+ITEM.name = "Deadlander Officer Lamellar";
+ITEM.group = "prelude_deadlanders/khuzaitlord";
+ITEM.model = "models/begotten_prelude/items/khuzaitlord.mdl"
+ITEM.iconoverride = "materials/begottenprelude/ui/itemicons/khuzaitlord.png"
+ITEM.category = "Armor"
+ITEM.conditionScale = 0.70
+ITEM.hitParticle = "MetalSpark";
+ITEM.protection = 65
+ITEM.type = "chainmail";
+ITEM.weight = 5;
+ITEM.weightclass = "Medium";
+ITEM.description = "Armor befitting a veteran of the Horde. This lamellar is used by Deadlandic horde officers, feared for their tactics just as they are feared for their riding excellence.";
+ITEM.useSound = "armormovement/body-armor-b4.WAV.mp3";
+ITEM.excludedFactions = {"Goreic Warrior"};
+--ITEM.requiredRanks = {"Dread Khan"};
+
+ITEM.effectiveLimbs = {
+    [HITGROUP_GENERIC] = true,
+    [HITGROUP_CHEST] = true,
+    [HITGROUP_STOMACH] = true,
+    [HITGROUP_LEFTARM] = true,
+    [HITGROUP_RIGHTARM] = true,
+    [HITGROUP_LEFTLEG] = true,
+    [HITGROUP_RIGHTLEG] = true,
+    [HITGROUP_GEAR] = true
+}
+
+ITEM.damageTypeScales = {
+    [DMG_FALL] = -0.10, -- increases fall damage by 10%
+}
+
+ITEM.bluntScale = 0.90; -- reduces blunt damage by 10%
+ITEM.pierceScale = 0.85; -- reduces pierce damage by 15%
+ITEM.slashScale = 0.70; -- reduces slash damage by 30%
+ITEM.bulletScale = 0.85; -- reduces bullet damage by 15%
+ITEM.insulation = 35;
+ITEM.components = {breakdownType = "meltdown", items = {"fine_steel_chunks", "iron_chunks", "iron_chunks", "iron_chunks", "iron_chunks", "iron_chunks", "iron_chunks", "iron_chunks"}, xp = 30};
+
+-- Called when a replacement is needed for a player.
+function ITEM:GetReplacement(player)
+
+end;
+
+ITEM.runSound = {
+    "armormovement/body-hauberk-1.wav.mp3",
+    "armormovement/body-hauberk-2.wav.mp3",
+    "armormovement/body-hauberk-3.wav.mp3",
+    "armormovement/body-hauberk-4.wav.mp3",
+    "armormovement/body-hauberk-5.wav.mp3",
+};
+
+ITEM.walkSound = {
+    "armormovement/body-hauberk-b4.wav.mp3",
+    "armormovement/body-hauberk-b5.wav.mp3",
+};
+
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("clothes_base");
+ITEM.name = "Deadlander Harness";
+ITEM.group = "prelude_deadlanders/deadlanderlight2";
+ITEM.model = "models/begotten_prelude/items/bandit.mdl"
+ITEM.iconoverride = "begotten/ui/itemicons/bandit.png"
+ITEM.category = "Armor"
+ITEM.conditionScale = 1.5
+ITEM.hitParticle = "GlassImpact";
+ITEM.protection = 35
+ITEM.type = "leather";
+ITEM.weight = 1.5;
+ITEM.weightclass = "Light";
+ITEM.description = "The brown leather clothes of a Deadlander warrior, designed for mobility and freedom of movement. Though it may not protect against most blows, a wise warrior knows when not to take a fight.";
+ITEM.useSound = "npc/combine_soldier/zipline_clothing2.wav";
+ITEM.excludedFactions = {"Goreic Warrior"};
+
+ITEM.effectiveLimbs = {
+    [HITGROUP_GENERIC] = true,
+    [HITGROUP_CHEST] = true,
+    [HITGROUP_STOMACH] = true,
+    [HITGROUP_LEFTARM] = true,
+    [HITGROUP_RIGHTARM] = true,
+    [HITGROUP_LEFTLEG] = true,
+    [HITGROUP_RIGHTLEG] = true,
+    [HITGROUP_GEAR] = true
+}
+
+ITEM.bluntScale = 0.95; -- reduces blunt damage by 5%
+ITEM.pierceScale = 0.95; -- reduces pierce damage by 5%
+ITEM.slashScale = 0.90; -- reduces slash damage by 10%
+ITEM.insulation = 60;
+ITEM.components = {breakdownType = "breakdown", items = {"leather", "leather", "cloth", "cloth"}, xp = 15};
+
+-- Called when a replacement is needed for a player.
+function ITEM:GetReplacement(player)
+
+end;
+
+ITEM.runSound = {
+    "armormovement/body-lobe-1.wav.mp3",
+    "armormovement/body-lobe-2.wav.mp3",
+    "armormovement/body-lobe-3.wav.mp3",
+    "armormovement/body-lobe-4.wav.mp3",
+    "armormovement/body-lobe-5.wav.mp3",
+};
+
+--[[ITEM.walkSound = {
+    "armormovement/body-lobe-b1.wav.mp3",
+    "armormovement/body-lobe-b2.wav.mp3",
+};]]--
+
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("clothes_base");
+ITEM.name = "Golden Horde Plate";
+ITEM.group = "prelude_deadlanders/deadlanderlight";
+ITEM.model = "models/begotten_prelude/items/suede.mdl"
+ITEM.iconoverride = "begotten/ui/itemicons/suede.png"
+ITEM.category = "Armor"
+ITEM.conditionScale = 0.8
+ITEM.hitParticle = "MetalSpark";
+ITEM.protection = 45
+ITEM.type = "plate";
+ITEM.weight = 3.5;
+ITEM.weightclass = "Light";
+ITEM.description = "The yellow dyed robes of the Golden Horde, an ancestral army of the Deadlanders. It is decorated with a colored belt and reinforced with thin plates of steel. Sigils have been engraved into this armor's chestplate and coated with catalystic dust, blessing it with power.";
+ITEM.useSound = "npc/combine_soldier/zipline_clothing2.wav";
+ITEM.attributes = {"bloodletter"};
+ITEM.excludedFactions = {"Goreic Warrior"};
+
+ITEM.effectiveLimbs = {
+    [HITGROUP_GENERIC] = true,
+    [HITGROUP_CHEST] = true,
+    [HITGROUP_STOMACH] = true,
+    [HITGROUP_LEFTARM] = true,
+    [HITGROUP_RIGHTARM] = true,
+    [HITGROUP_LEFTLEG] = true,
+    [HITGROUP_RIGHTLEG] = true,
+    [HITGROUP_GEAR] = true
+}
+
+ITEM.bluntScale = 0.90; -- reduces blunt damage by 10%
+ITEM.pierceScale = 0.90; -- reduces pierce damage by 10%
+ITEM.slashScale = 0.80; -- reduces slash damage by 20%
+ITEM.bulletScale = 0.90; -- reduces bullet damage by 10%
+ITEM.insulation = 60;
+ITEM.components = {breakdownType = "breakdown", items = {"fine_steel_chunks", "leather", "cloth", "cloth"}, xp = 30};
+
+-- Called when a replacement is needed for a player.
+function ITEM:GetReplacement(player)
+
+end;
+
+ITEM.runSound = {
+	"armormovement/body-armor-1.WAV.mp3",
+	"armormovement/body-armor-2.WAV.mp3",
+	"armormovement/body-armor-3.WAV.mp3",
+	"armormovement/body-armor-4.WAV.mp3",
+	"armormovement/body-armor-5.WAV.mp3",
+	"armormovement/body-armor-6.WAV.mp3",
+};
+
+ITEM.walkSound = {
+	"armormovement/body-armor-b4.WAV.mp3",
+	"armormovement/body-armor-b5.WAV.mp3",
+};
+
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("clothes_base");
+ITEM.name = "Steppe Warrior Armor";
+ITEM.group = "prelude_deadlanders/deadlandarcher";
+ITEM.model = "models/begotten_prelude/items/khuzaitarcher.mdl"
+ITEM.iconoverride = "begotten/ui/itemicons/archer.png"
+ITEM.category = "Armor"
+ITEM.conditionScale = 0.75
+ITEM.hitParticle = "GlassImpact";
+ITEM.protection = 55
+ITEM.type = "chainmail";
+ITEM.weight = 5;
+ITEM.weightclass = "Medium";
+ITEM.description = "A padded gambeson and chainmail shirt used by Deadlander raiders in combat. It is often favored by arbalests in the horde.";
+ITEM.useSound = "armormovement/body-armor-b4.WAV.mp3";
+ITEM.excludedFactions = {"Goreic Warrior"};
+
+ITEM.effectiveLimbs = {
+	[HITGROUP_GENERIC] = true,
+	[HITGROUP_CHEST] = true,
+	[HITGROUP_STOMACH] = true,
+	[HITGROUP_LEFTARM] = true,
+	[HITGROUP_RIGHTARM] = true,
+	[HITGROUP_LEFTLEG] = true,
+	[HITGROUP_RIGHTLEG] = true,
+	[HITGROUP_GEAR] = true
+}
+
+ITEM.damageTypeScales = {
+	[DMG_FALL] = -0.10, -- increases fall damage by 10%
+}
+
+ITEM.bluntScale = 0.90; -- reduces blunt damage by 10%
+ITEM.pierceScale = 0.85; -- reduces pierce damage by 15%
+ITEM.slashScale = 0.70; -- reduces slash damage by 30%
+ITEM.bulletScale = 0.85; -- reduces bullet damage by 15%
+ITEM.insulation = 35;
+
+ITEM.components = {breakdownType = "breakdown", items = {"iron_chunks", "iron_chunks", "iron_chunks", "iron_chunks", "iron_chunks", "leather", "cloth"}};
+
+-- Called when a replacement is needed for a player.
+function ITEM:GetReplacement(player)
+
+end;
+
+ITEM.runSound = {
+	"armormovement/body-armor-1.WAV.mp3",
+	"armormovement/body-armor-2.WAV.mp3",
+	"armormovement/body-armor-3.WAV.mp3",
+	"armormovement/body-armor-4.WAV.mp3",
+	"armormovement/body-armor-5.WAV.mp3",
+	"armormovement/body-armor-6.WAV.mp3",
+};
+
+ITEM.walkSound = {
+	"armormovement/body-lobe-b1.wav.mp3",
+	"armormovement/body-lobe-b2.wav.mp3",
+};
+
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("clothes_base");
+ITEM.name = "Wind Walker Lamellar";
+ITEM.group = "prelude_deadlanders/windarmor";
+ITEM.model = "models/begotten_prelude/items/windarmorprop.mdl"
+ITEM.iconoverride = "begotten/ui/itemicons/windarmor.png"
+ITEM.category = "Armor"
+ITEM.conditionScale = 0.65
+ITEM.hitParticle = "GlassImpact";
+ITEM.protection = 57
+ITEM.type = "chainmail";
+ITEM.weight = 5.5;
+ITEM.weightclass = "Medium";
+ITEM.description = "An enchanted rider's lamellar imbued with catalystic energy that grants its user an uncanny ability to dodge blows. Only the followers of the Eternal Heavens are worthy of this armor.";
+ITEM.useSound = "armormovement/body-armor-b4.WAV.mp3";
+ITEM.excludedFactions = {"Goreic Warrior"};
+ITEM.requiredbeliefs = {"carried_by_the_winds"};
+
+ITEM.attributes = {"windwalker"}
+
+ITEM.effectiveLimbs = {
+	[HITGROUP_GENERIC] = true,
+	[HITGROUP_CHEST] = true,
+	[HITGROUP_STOMACH] = true,
+	[HITGROUP_LEFTARM] = true,
+	[HITGROUP_RIGHTARM] = true,
+	[HITGROUP_LEFTLEG] = true,
+	[HITGROUP_RIGHTLEG] = true,
+	[HITGROUP_GEAR] = true
+}
+
+ITEM.damageTypeScales = {
+	[DMG_FALL] = -0.10, -- increases fall damage by 10%
+}
+
+ITEM.bluntScale = 0.90; -- reduces blunt damage by 10%
+ITEM.pierceScale = 0.85; -- reduces pierce damage by 15%
+ITEM.slashScale = 0.70; -- reduces slash damage by 30%
+ITEM.bulletScale = 0.85; -- reduces bullet damage by 15%
+ITEM.insulation = 35;
+
+ITEM.components = {breakdownType = "meltdown", items = {"steel_chunks", "steel_chunks", "steel_chunks", "iron_chunks", "leather", "leather", "cloth"}};
+
+-- Called when a replacement is needed for a player.
+function ITEM:GetReplacement(player)
+
+end;
+
+ITEM.runSound = {
+	"armormovement/body-armor-1.WAV.mp3",
+	"armormovement/body-armor-2.WAV.mp3",
+	"armormovement/body-armor-3.WAV.mp3",
+	"armormovement/body-armor-4.WAV.mp3",
+	"armormovement/body-armor-5.WAV.mp3",
+	"armormovement/body-armor-6.WAV.mp3",
+};
+
+ITEM.walkSound = {
+	"armormovement/body-lobe-b1.wav.mp3",
+	"armormovement/body-lobe-b2.wav.mp3",
+};
+
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("clothes_base");
+ITEM.name = "Kheshig Lamellar";
+ITEM.group = "prelude_deadlanders/deadlanderheavy";
+ITEM.model = "models/begotten_prelude/items/khuzaitheavy.mdl"
+ITEM.iconoverride = "begotten/ui/itemicons/heavydeadlander.png"
+ITEM.category = "Armor"
+ITEM.conditionScale = 0.75
+ITEM.hitParticle = "MetalSpark";
+ITEM.protection = 78;
+ITEM.weight = 7;
+ITEM.weightclass = "Heavy";
+ITEM.type = "chainmail";
+ITEM.description = "The armor of a Deadlander Khesig: a combination of reinforced leather and celestial steel lamellar. Affectionately called the 'Big-rig' by its users.";
+ITEM.useSound = "armormovement/body-armor-b4.WAV.mp3";
+
+ITEM.requiredbeliefs = {"hauberk"};
+
+ITEM.effectiveLimbs = {
+	[HITGROUP_GENERIC] = true,
+	[HITGROUP_CHEST] = true,
+	[HITGROUP_STOMACH] = true,
+	[HITGROUP_LEFTARM] = true,
+	[HITGROUP_RIGHTARM] = true,
+	[HITGROUP_LEFTLEG] = true,
+	[HITGROUP_RIGHTLEG] = true,
+	[HITGROUP_GEAR] = true
+}
+
+ITEM.damageTypeScales = {
+	[DMG_FALL] = -0.25, -- increases fall damage by 25%
+}
+
+ITEM.bluntScale = 0.90; -- reduces blunt damage by 10%
+ITEM.pierceScale = 0.70; -- reduces pierce damage by 30%
+ITEM.slashScale = 0.60; -- reduces slash damage by 40%
+ITEM.bulletScale = 0.75; -- reduces bullet damage by 25%
+ITEM.insulation = 60;
+
+ITEM.components = {breakdownType = "meltdown", items = {"fine_steel_chunks", "steel_chunks", "steel_chunks", "leather", "leather", "leather", "cloth"}};
+
+-- Called when a replacement is needed for a player.
+function ITEM:GetReplacement(player)
+
+end;
+
+ITEM.runSound = {
+	"armormovement/body-hauberk-1.wav.mp3",
+	"armormovement/body-hauberk-2.wav.mp3",
+	"armormovement/body-hauberk-3.wav.mp3",
+	"armormovement/body-hauberk-4.wav.mp3",
+	"armormovement/body-hauberk-5.wav.mp3",
+};
+
+ITEM.walkSound = {
+	"armormovement/body-hauberk-b4.wav.mp3",
+	"armormovement/body-hauberk-b5.wav.mp3",
+};
+
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("clothes_base");
+ITEM.name = "Armor of the Dread Khan";
+ITEM.group = "prelude_deadlanders/khanarmor";
+ITEM.model = "models/begotten_prelude/items/khan.mdl"
+ITEM.iconoverride = "begotten/ui/itemicons/khanarmor.png"
+ITEM.category = "Armor"
+ITEM.conditionScale = 0.75
+ITEM.hitParticle = "MetalSpark";
+ITEM.protection = 70
+ITEM.type = "chainmail";
+ITEM.weight = 7;
+ITEM.weightclass = "Medium";
+ITEM.description = "An ornamental brass armor reinforced with celestial steel, engraved carefully with iconography of the Khan and his importance. The ultimate symbol of authority.";
+ITEM.useSound = "armormovement/body-armor-b4.WAV.mp3";
+ITEM.requiredRanks = {"Dread Khan"};
+
+ITEM.effectiveLimbs = {
+	[HITGROUP_GENERIC] = true,
+	[HITGROUP_CHEST] = true,
+	[HITGROUP_STOMACH] = true,
+	[HITGROUP_LEFTARM] = true,
+	[HITGROUP_RIGHTARM] = true,
+	[HITGROUP_LEFTLEG] = true,
+	[HITGROUP_RIGHTLEG] = true,
+	[HITGROUP_GEAR] = true
+}
+
+ITEM.bluntScale = 0.85; -- reduces blunt damage by 15%
+ITEM.pierceScale = 0.75; -- reduces pierce damage by 25%
+ITEM.slashScale = 0.65; -- reduces slash damage by 35%
+ITEM.bulletScale = 0.55; -- reduces bullet damage by 45%
+ITEM.stabilityScale = 0.70; -- reduces stability damage by 30%
+ITEM.insulation = 45;
+
+ITEM.components = {breakdownType = "meltdown", items = {"fine_steel_chunks", "fine_steel_chunks", "steel_chunks", "steel_chunks", "iron_chunks", "iron_chunks", "iron_chunks"}};
+
+-- Called when a replacement is needed for a player.
+function ITEM:GetReplacement(player)
+
+end;
+
+ITEM.runSound = {
+	"armormovement/body-hauberk-1.wav.mp3",
+	"armormovement/body-hauberk-2.wav.mp3",
+	"armormovement/body-hauberk-3.wav.mp3",
+	"armormovement/body-hauberk-4.wav.mp3",
+	"armormovement/body-hauberk-5.wav.mp3",
+};
+
+ITEM.walkSound = {
+	"armormovement/body-hauberk-b4.wav.mp3",
+	"armormovement/body-hauberk-b5.wav.mp3",
+};
+
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("clothes_base");
+ITEM.name = "Blood Pact Lamellar";
+ITEM.model = "models/begotten/prelude_deadlanders/bloodhoundprop.mdl"
+ITEM.iconoverride = "begotten/ui/itemicons/bloodhound.png"
+ITEM.category = "Armor"
+ITEM.concealsFace = true;
+ITEM.conditionScale = 0.9
+ITEM.hasHelmet = true;
+ITEM.hitParticle = "MetalSpark";
+ITEM.protection = 70;
+ITEM.weight = 8;
+ITEM.weightclass = "Medium";
+ITEM.type = "plate";
+ITEM.description = "An exquisitely smithed set of Blood Pact Lamellar, a darkened hellforged steel armor made by the Pale Riders. It combines the traditional knowledge of the Deadlanders with the corrupted teachings of Satan, he who shan't be named within their culture. It is protective as it is cruel, bringing death and destruction in its wake.";
+ITEM.useSound = "armormovement/body-armor-b4.WAV.mp3";
+ITEM.requiredFaiths = {"Faith of the Dark"};
+ITEM.excludedFactions = {"Goreic Warrior"};
+ITEM.overlay = "begotten/zomboverlay/new/wraithplate";
+
+ITEM.attributes = {"fear"}
+
+-- specifies which hitgroups will be affected by blunt, slash, pierce and other damage type scaling.
+ITEM.effectiveLimbs = {
+	[HITGROUP_GENERIC] = true,
+	[HITGROUP_HEAD] = true,
+	[HITGROUP_CHEST] = true,
+	[HITGROUP_STOMACH] = true,
+	[HITGROUP_LEFTARM] = true,
+	[HITGROUP_RIGHTARM] = true,
+	[HITGROUP_LEFTLEG] = true,
+	[HITGROUP_RIGHTLEG] = true,
+	[HITGROUP_GEAR] = true
+}
+
+ITEM.damageTypeScales = {
+	[DMG_FALL] = -0.10, -- increases fall damage by 10%
+}
+
+ITEM.bluntScale = 0.90; -- reduces blunt damage by 10%
+ITEM.pierceScale = 0.85; -- reduces pierce damage by 15%
+ITEM.slashScale = 0.70; -- reduces slash damage by 30%
+ITEM.bulletScale = 0.80; -- reduces bullet damage by 20%
+ITEM.insulation = 40;
+
+ITEM.components = {breakdownType = "meltdown", items = {"fine_steel_chunks", "fine_steel_chunks", "steel_chunks", "leather", "cloth", "iron_chunks"}};
+
+-- Called when a replacement is needed for a player.
+function ITEM:GetReplacement(player)
+	--if (player:GetGender() == GENDER_FEMALE) then
+		return "models/begotten/prelude_deadlanders/bloodhound.mdl";
+	--else
+		--return "models/begotten/prelude_deadlanders/bloodhound.mdl";
+	--end;
+end;
+
+ITEM.runSound = {
+	"armormovement/body-armor-1.WAV.mp3",
+	"armormovement/body-armor-2.WAV.mp3",
+	"armormovement/body-armor-3.WAV.mp3",
+	"armormovement/body-armor-4.WAV.mp3",
+	"armormovement/body-armor-5.WAV.mp3",
+	"armormovement/body-armor-6.WAV.mp3",
+};
+
+ITEM.walkSound = {
+	"armormovement/body-armor-b4.WAV.mp3",
+	"armormovement/body-armor-b5.WAV.mp3",
+};
+
+ITEM:Register();

@@ -9,6 +9,10 @@ function PLUGIN:Move(player, cmovedata)
 				if not (jumpPower <= 10) then
 					local jumpCost = 15;
 					
+					if player:HasBelief("carried_by_the_winds") then
+						jumpCost = math.Round(jumpCost * 0.667);
+					end
+					
 					if player.GetCharmEquipped and player:GetCharmEquipped("boot_contortionist") then
 						jumpCost = math.Round(jumpCost * 0.333);
 					end

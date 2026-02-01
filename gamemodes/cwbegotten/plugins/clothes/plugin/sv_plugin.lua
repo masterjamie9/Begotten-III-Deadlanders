@@ -341,6 +341,18 @@ function PLUGIN:EntityTakeDamageArmor(player, damageInfo)
 									end
 								end
 								
+								if (attacker:HasBelief("the_baleful_star") or attacker:HasBelief("the_great_hunt")) and damageInfo:GetDamageType() == DMG_VEHICLE and player.bloodBurst and player.bloodBurst[attacker:GetNetVar("Key")] then
+									if attacker:HasBelief("pincushion") and inflictor.isDagger and player.bloodBurst[attacker:GetNetVar("Key")] >= 50 then 
+										armorPiercing = 100; -- 100% Bloodburst with daggers 100% AP
+									else
+										if player.bloodBurst[attacker:GetNetVar("Key")] >= 100 then
+											armorPiercing = armorPiercing + 16
+										elseif player.bloodBurst[attacker:GetNetVar("Key")] >= 25 then
+											armorPiercing = armorPiercing + 8
+										end
+									end
+								end
+								
 								--print("AP Value: "..tostring(armorPiercing));
 								
 								if IsValid(inflictor) then
@@ -535,21 +547,35 @@ function PLUGIN:ModifyPlayerSpeed(player, infoTable)
 
 	if (clothesItem) then
 		if clothesItem.weightclass == "Heavy" then
-			if player:HasBelief("unburdened") then
+			if player:HasBelief("unburdened") and player:HasBelief("carried_by_the_winds") then
+				infoTable.runSpeed = infoTable.runSpeed * 0.85;
+			elseif player:HasBelief("unburdened") or player:HasBelief("carried_by_the_winds")  then
 				infoTable.runSpeed = infoTable.runSpeed * 0.75;
 			else
 				infoTable.runSpeed = infoTable.runSpeed * 0.65;
 			end
 			
-			infoTable.jumpPower = infoTable.jumpPower * 0.7;
+			if player:HasBelief("carried_by_the_winds") then
+				--Do nothing.
+			else
+				infoTable.jumpPower = infoTable.jumpPower * 0.7;
+			end
 		elseif clothesItem.weightclass == "Medium" then
-			if player:HasBelief("unburdened") then
+			if player:HasBelief("unburdened") and player:HasBelief("carried_by_the_winds") then
+				--Do nothing.
+			elseif player:HasBelief("unburdened") or player:HasBelief("carried_by_the_winds") then
 				infoTable.runSpeed = infoTable.runSpeed * 0.95;
 			else
 				infoTable.runSpeed = infoTable.runSpeed * 0.85;
 			end
 			
-			infoTable.jumpPower = infoTable.jumpPower * 0.9;
+			if player:HasBelief("carried_by_the_winds") then
+				infoTable.jumpPower = infoTable.jumpPower * 1.26;
+			else
+				infoTable.jumpPower = infoTable.jumpPower * 0.9;
+			end
+		elseif player:HasBelief("carried_by_the_winds") then
+			infoTable.jumpPower = infoTable.jumpPower * 1.4;
 		end
 		
 		if clothesItem.attributes then
@@ -561,6 +587,8 @@ function PLUGIN:ModifyPlayerSpeed(player, infoTable)
 				infoTable.walkSpeed = infoTable.walkSpeed * 1.03;
 			end
 		end
+	elseif player:HasBelief("carried_by_the_winds") then
+		infoTable.jumpPower = infoTable.jumpPower * 1.2;
 	end
 end
 

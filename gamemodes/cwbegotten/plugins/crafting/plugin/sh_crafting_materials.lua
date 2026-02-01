@@ -203,6 +203,24 @@ local ITEM = Clockwork.item:New();
 ITEM:Register();
 
 local ITEM = Clockwork.item:New();
+	ITEM.name = "Celestial Steel Ingot";
+	ITEM.category = "Crafting Materials";
+	ITEM.model = "models/props_clutter/ingot_moonstone.mdl";
+	ITEM.weight = 0.3;
+	ITEM.uniqueID = "celestial_steel_ingot";
+	ITEM.description = "An ingot of celestial steel forged and perfectly cut by Deadlander smiths. It evokes a strange sense of balance upon the beholder.";
+	ITEM.iconoverride = "begotten/ui/itemicons/ingot_moonstone.png";
+	ITEM.stackable = true;
+	
+	ITEM.itemSpawnerInfo = {category = "Crafting Materials", rarity = 800, supercrateOnly = true};
+	ITEM.components = {breakdownType = "meltdown", items = {"fine_steel_ingot", "fine_steel_ingot"}};
+
+	-- Called when a player drops the item.
+	function ITEM:OnDrop(player, position) end;
+	
+ITEM:Register();
+
+local ITEM = Clockwork.item:New();
 	ITEM.name = "Hellforged Steel Ingot";
 	ITEM.category = "Crafting Materials";
 	ITEM.model = "models/mosi/fallout4/props/junk/components/silver.mdl";

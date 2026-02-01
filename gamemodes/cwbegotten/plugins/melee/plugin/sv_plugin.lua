@@ -293,6 +293,8 @@ function playerMeta:GetMaxStability()
 	
 	if subfaction == "Knights of Sol" then
 		max_stability = max_stability + 25;
+	elseif subfaction == "Raiders" then
+		max_stability = max_stability + 15;
 	elseif subfaction == "Philimaxio" then
 		max_stability = max_stability + 15;
 	end
@@ -301,17 +303,13 @@ function playerMeta:GetMaxStability()
 		if self:HasBelief("litheness_finisher") then
 			max_stability = max_stability + 15;
 		end
+
+		if self:HasBelief("to_balance_the_scales") then
+			max_stability = max_stability + 25;
+		end
 		
 		if self:HasBelief("enduring_bear") then
 			max_stability = max_stability + 25;
-		end
-	end
-	
-	if cwMedicalSystem then
-		local symptoms = self:GetNetVar("symptoms", {});
-		
-		if table.HasValue(symptoms, "Fatigue") then
-			max_stability = max_stability - 20;
 		end
 	end
 	

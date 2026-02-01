@@ -467,6 +467,23 @@ function cwMelee:PlayerThink(player, curTime, infoTable, alive, initialized, ply
 			end
 		end
 		
+		if player.bloodBurst then
+			for k,v in pairs(player.bloodBurst) do
+				--print(k,v)
+				--print('pairs of mytable:')
+				if player.GetCharmEquipped and player:GetCharmEquipped("embalmed_heart") then
+					player.bloodBurst[k] = player.bloodBurst[k] - 2
+				else
+					player.bloodBurst[k] = player.bloodBurst[k] - 1
+				end
+				if player.bloodBurst[k] <= 0 then 
+					player.bloodBurst[k] = nil
+				end
+				player:SetNetVar("bloodburst_"..k, player.bloodBurst[k])
+				--print(player:GetNetVar("bloodburst_"..k, 0))
+			end
+		end
+		
 		if (stability >= max_stability or player:IsRagdolled() or (plyTab.stabilityCooldown and plyTab.stabilityCooldown > curTime)) then
 			plyTab.nextStability = curTime + 1;
 			return;
@@ -653,6 +670,12 @@ function cwMelee:PlayerStabilityFallover(player, falloverTime, bNoBoogie, bNoTex
 			elseif (faction == "Hillkeeper") then
 				if (gender == "his") then
 					player:EmitSound("hkpainsounds/hk_stun"..math.random(1, 4)..".mp3", 90, pitch)
+				else
+					player:EmitSound("voice/female2/female2_stun0"..math.random(1, 4)..".wav", 90, pitch)
+				end
+			elseif (faction == "Deadlander") then
+				if (gender == "his") then
+					player:EmitSound("deadlandervoice/stun_0"..math.random(1, 4)..".mp3", 75, pitch)
 				else
 					player:EmitSound("voice/female2/female2_stun0"..math.random(1, 4)..".wav", 90, pitch)
 				end
@@ -974,6 +997,14 @@ function cwMelee:PlayerPlayPainSound(player, gender, damageInfo, hitGroup)
 					player:EmitSound("voice/female2/female2_pain0"..math.random(1, 6)..".wav", 90, pitch)
 					player.nextPainSound = CurTime()+0.5
 				end
+			elseif faction == "Deadlander" then
+				if gender == "Male" then
+					player:EmitSound("deadlandervoice/man_pain"..math.random(1, 20)..".mp3", 85, pitch)
+					player.nextPainSound = CurTime()+0.5
+				else
+					player:EmitSound("voice/female2/female2_pain0"..math.random(1, 6)..".wav", 90, pitch)
+					player.nextPainSound = CurTime()+0.5
+				end
 			elseif faction == "Hillkeeper" then
 				if gender == "Male" then
 					player:EmitSound("hkpainsounds/hk_pain"..math.random(1, 6)..".mp3", 90, pitch)
@@ -1048,6 +1079,12 @@ function GM:PlayerPlayDeathSound(player, gender)
 		elseif faction == "The Third Inquisition" then
 			if gender == "Male" then
 				player:EmitSound("voice/man4/man4_death0"..math.random(1, 9)..".wav", 90, pitch)
+			else
+				player:EmitSound("voice/female1/female1_death0"..math.random(1, 9)..".wav", 90, pitch)
+			end
+		elseif faction == "Deadlander" then
+			if gender == "Male" then
+				player:EmitSound("deadlandervoice/man_death0"..math.random(1, 12)..".mp3", 85, pitch)
 			else
 				player:EmitSound("voice/female1/female1_death0"..math.random(1, 9)..".wav", 90, pitch)
 			end

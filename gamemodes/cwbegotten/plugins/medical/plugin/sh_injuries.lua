@@ -70,6 +70,14 @@ local INJURY = {};
 cwMedicalSystem:RegisterInjury(INJURY.uniqueID, INJURY);
 
 local INJURY = {};
+	INJURY.uniqueID = "arterybleed";
+	INJURY.name = "Severed Artery";
+	INJURY.description = "You have a severed artery in this limb! You will lose massive amounts of blood if you don't stop the bleeding!";
+	INJURY.symptom = " has a severed artery and is rapidly bleeding out!";
+	INJURY.causesHeavyBleeding = true;
+cwMedicalSystem:RegisterInjury(INJURY.uniqueID, INJURY);
+
+local INJURY = {};
 	INJURY.uniqueID = "gunshot_wound";
 	INJURY.name = "Gunshot Wound";
 	INJURY.description = "You have a bullet lodged inside this limb!";

@@ -111,6 +111,16 @@ local DARK = Schema.faiths:New("dark")
 	DARK.image = "begotten/ui/bgtbtnfaithdark.png";
 Schema.faiths:Register(DARK)
 
+local WINDS = Schema.faiths:New("winds")
+	WINDS.name = "Faith of the Winds";
+	WINDS.color = Color(200, 200, 200, 255);
+	WINDS.subfaiths = {"Path of the Pale Rider", "Path of the Eternal Heavens"};
+	
+	-- for character creation
+	WINDS.description = "The Faith of the Winds is a belief system of pantheism and iconoclasm commonly followed by the death-steppe nomads of the Eastern Deadlands. It's followers worship the world as a complex engine of forces of nature and divine concepts that balance themselves out. Conversely, they reject the concept of 'a god', considering all who claim themselves divinity as mere pretenders and thieves of the true divinity of the world.\n\nIt should be noted that while the followers of the Winds reject gods, they do not share the same view as atheism, for they do still paradoxically believe in them. While the faith views the world as their deity, minor deities are constantly invented amongst it's people. Often portrayed either as thieves, tyrants or other forms of antagonists and their concepts often birth with the coming of setbacks of the faithful. An example could be as simple as drought bringing a village to ruin being explained away by a divine being stealing away the rain. These minor deities are given lives, their own tales and grow with time as more tragedies are attributed to them until eventually their own followers come to slay them in ritualistic sacrifice for their transgressions. Then the cycle begins anew.\n\nWith the death of Him, the Great Pretender, the balance of the world has been lost. The nomads heed the call of the prophesized Great Hunt as they set out to all four corners of the world to bring the deities of the other faiths to the sword. For all Gods who carry a name or face must be killed, and their stolen power scattered to the winds and returned to the heavens.";
+	WINDS.image = "begotten/ui/bgtbtnfaithwinds.png";
+Schema.faiths:Register(WINDS)
+
 local COMMAND = Clockwork.command:New("CharTransferFaith");
 	COMMAND.tip = "Transfer a character to a faith.";
 	COMMAND.text = "<string Name> <string Faith>";

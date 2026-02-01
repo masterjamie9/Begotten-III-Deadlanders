@@ -1118,7 +1118,11 @@ function Schema:ShowSpare1(player)
 			local untieTime = 6;
 		
 			if player.HasBelief and player:HasBelief("dexterity") then
-				untieTime = 4;
+				if player:HasBelief("sleight_of_hand") then
+					untieTime = 3;
+				else
+					untieTime = 4;
+				end
 			end
 		
 			if (target:GetNetVar("tied") != 0) then
@@ -3474,7 +3478,12 @@ function Schema:EntityTakeDamageNew(entity, damageInfo)
 	if (bIsPlayer or entity.isTrainingDummy) and IsValid(attacker) and attacker:IsPlayer() then
 		if IsValid(inflictor) then
 			if inflictor.isDagger then
-				if inflictor.isJavelin then
+				if cwBeliefs and attacker:HasBelief("pincushion") and entity.bloodBurst[attacker:GetNetVar("Key")] then
+					if entity.bloodBurst[attacker:GetNetVar("Key")] >= 50 then
+						damageInfo:ScaleDamage(2);
+						entity:EmitSound("meleesounds/kill1.wav.mp3");
+					end
+				elseif inflictor.isJavelin then
 					if attacker:GetSubfaction() == "Kinisger" then
 						damageInfo:ScaleDamage(1.25);
 					end

@@ -75,6 +75,31 @@ local ITEM = Clockwork.item:New("medical_base");
 ITEM:Register();
 
 local ITEM = Clockwork.item:New("medical_base");
+	ITEM.name = "Good Juice";
+	ITEM.useText = "Inject";
+	ITEM.model = "models/mosi/fnv/props/health/radaway.mdl";
+	ITEM.weight = 0.15;
+	ITEM.description = "An old medical bag filled with the freshly harvested blood of some fucklet. If the writing on the bag is to be believed, this is some good juice.";
+	ITEM.iconoverride = "begotten/ui/itemicons/radaway.png"
+	ITEM.useSound = "begotten/items/meat_inject.mp3";
+	ITEM.uniqueID = "goodjuice"	
+	ITEM.applicable = true;
+	ITEM.healAmount = 5;
+	ITEM.healDelay = 3;
+	ITEM.healRepetition = 4;
+	ITEM.restoresBlood = 500;
+	ITEM.infectchance = 85;
+	ITEM.limbs = "all";
+	ITEM.useXP = 10;
+	ITEM.useTime = 20;
+
+	function ITEM:OnUsed(player, itemEntity)
+		Schema:EasyText(player, "olivedrab","You inject the good juice into your veins. You feel better already.");
+		netstream.Start(self, "Stunned", 2);
+	end;
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("medical_base");
 	ITEM.name = "Antibiotic Paste";
 	ITEM.model = "models/props_c17/TrapPropeller_Lever.mdl";
 	ITEM.weight = 0.3;
@@ -93,6 +118,28 @@ local ITEM = Clockwork.item:New("medical_base");
 	
 	function ITEM:OnUsed(player, itemEntity)
 		Schema:EasyText(player, "olivedrab","You apply the antibiotic paste to your wound.");
+		netstream.Start(self, "Stunned", 2);
+	end;
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("medical_base");
+	ITEM.name = "Healing Salve";
+	ITEM.model = "models/mosi/fnv/props/food/bloodpaste.mdl";
+	ITEM.weight = 0.4;
+	ITEM.useText = "Apply";
+	ITEM.useSound = "ambient/levels/canals/toxic_slime_sizzle2.wav";
+	ITEM.description = "A jar of healing paste made from human blood thickened by a pantheistic catalyst. When applied to damaged skin, it mends the wound within seconds.";
+	ITEM.iconoverride = "begotten/ui/itemicons/bloodpaste.png"
+	ITEM.uniqueID = "healing_salve"
+	
+	ITEM.applicable = true;
+
+	ITEM.curesInjuries = {"infection", "minor_infection", "burn", "frostbite"};
+	ITEM.limbs = {HITGROUP_CHEST, HITGROUP_HEAD, HITGROUP_STOMACH, HITGROUP_LEFTARM, HITGROUP_RIGHTARM, HITGROUP_LEFTLEG, HITGROUP_RIGHTLEG};
+	ITEM.useXP = 25;
+	
+	function ITEM:OnUsed(player, itemEntity)
+		Schema:EasyText(player, "olivedrab","You apply the healing salve to your wound and can hear it sizzle!");
 		netstream.Start(self, "Stunned", 2);
 	end;
 ITEM:Register();
@@ -134,6 +181,41 @@ local ITEM = Clockwork.item:New("medical_base");
 ITEM:Register();
 
 local ITEM = Clockwork.item:New("medical_base");
+	ITEM.name = "Kombucha";
+	ITEM.model = "models/mosi/fnv/props/health/antivenom.mdl";
+	ITEM.weight = 0.4;
+	ITEM.useText = "Drink";
+	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle4.wav";
+	ITEM.description = "A medicinal drink brewed using crushed trinity catalysts. It is often used to treat sick warriors in the Khan's horde.";
+	ITEM.iconoverride = "begotten/ui/itemicons/antivenom.png"
+	ITEM.uniqueID = "kombucha"
+
+	ITEM.ingestible = {orally = true, anally = false};
+	ITEM.useXP = 35;
+	
+	function ITEM:OnUsed(player, itemEntity)
+		if player:Alive() and !player:IsRagdolled() then
+			Schema:EasyText(player, "olivedrab","You drink the elixir and cannot describe the taste. Though bitter, you hope it will cure your ailments..");
+			
+			if player:HasDisease("common_cold") or player:HasDisease("flu") then
+				player:TakeDisease("common_cold");
+				player:TakeDisease("flu");
+			end
+			
+			Clockwork.player:SetMenuOpen(player, false);
+			
+			if cwBeliefs then
+				player:HandleXP(self.useXP);
+			end
+			
+			player:HandleSanity(5);
+			player:EmitSound(self.useSound);
+			player:TakeItem(self, true);
+		end
+	end;
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("medical_base");
 	ITEM.name = "Black Remedy";
 	ITEM.model = "models/weapons/w_oil.mdl";
 	ITEM.weight = 0.2;
@@ -152,7 +234,7 @@ local ITEM = Clockwork.item:New("medical_base");
 			Schema:EasyText(player, "olivedrab","You slurp the disgusting drink, hoping that it will remove what plagues you. After a short time, you feel your mind clear and your skin lighten.");
 			
 			if player:HasDisease("begotten_plague") then
-				player:TakeDisease("begotten_plague", true);
+				player:TakeDisease("begotten_plague");
 			end
 			
 			Clockwork.player:SetMenuOpen(player, false);
@@ -208,8 +290,31 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.useXP = 15;
 	ITEM.useTime = 10;
 
-	ITEM.curesInjuries = {"gash"};
+	ITEM.curesInjuries = {"gash", "arterybleed"};
 	ITEM.itemSpawnerInfo = {category = "Medical", rarity = 225};
+	ITEM.limbs = {HITGROUP_CHEST, HITGROUP_HEAD, HITGROUP_STOMACH, HITGROUP_LEFTARM, HITGROUP_RIGHTARM, HITGROUP_LEFTLEG, HITGROUP_RIGHTLEG};
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("medical_base");
+	ITEM.name = "Healing Powder";
+	ITEM.model = "models/mosi/fnv/props/health/healingpowder.mdl";
+	ITEM.weight = 0.25;
+	ITEM.useText = "Apply";
+	ITEM.useSound = "begotten/items/tinderbox.wav";
+	ITEM.description = "A bag of ground up bones and catalystic binding agent used to staunch open wounds.";
+	ITEM.iconoverride = "begotten/ui/itemicons/healingpowder.png"
+	ITEM.uniqueID = "healingpowder"
+	
+	ITEM.applicable = true;
+	ITEM.healAmount = 4;
+	ITEM.healDelay = 2;
+	ITEM.healRepetition = 5;
+	ITEM.stopsBleeding = true;
+	ITEM.infectionChance = 35;
+	ITEM.useXP = 15;
+	ITEM.useTime = 12;
+
+	ITEM.curesInjuries = {"gash", "arterybleed"};
 	ITEM.limbs = {HITGROUP_CHEST, HITGROUP_HEAD, HITGROUP_STOMACH, HITGROUP_LEFTARM, HITGROUP_RIGHTARM, HITGROUP_LEFTLEG, HITGROUP_RIGHTLEG};
 ITEM:Register();
 
@@ -232,7 +337,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.useXP = 15;
 	ITEM.useTime = 10;
 
-	ITEM.curesInjuries = {"gash"};
+	ITEM.curesInjuries = {"gash", "arterybleed"};
 	ITEM.itemSpawnerInfo = {category = "Medical", rarity = 300, bNoSupercrate = true};
 	ITEM.limbs = {HITGROUP_CHEST, HITGROUP_HEAD, HITGROUP_STOMACH, HITGROUP_LEFTARM, HITGROUP_RIGHTARM, HITGROUP_LEFTLEG, HITGROUP_RIGHTLEG};
 
@@ -279,6 +384,40 @@ local ITEM = Clockwork.item:New("medical_base");
 ITEM:Register();
 
 local ITEM = Clockwork.item:New("medical_base");
+	ITEM.name = "Arkhi";
+	ITEM.model = "models/mosi/fnv/props/drink/antnog.mdl";
+	ITEM.weight = 0.2;
+	ITEM.useText = "Drink";
+	ITEM.description = "A tin can containing fermented blood, spiced. This will clear one's mind, giving them a better grasp of reality.";
+	ITEM.iconoverride = "begotten/ui/itemicons/antnog.png"
+	ITEM.uniqueID = "arkhi";
+	ITEM.useSound = "begotten/ui/sanity_gain.mp3";
+
+	--ITEM.healAmount = 5;
+	--ITEM.healDelay = 4;
+	--ITEM.healRepetition = 5;
+	
+	ITEM.ingestible = {orally = true, anally = false};
+	ITEM.useXP = 25;
+	
+	function ITEM:OnUsed(player, itemEntity)
+		if player:Alive() and !player:IsRagdolled() then
+			Clockwork.player:SetMenuOpen(player, false);
+			
+			if cwBeliefs then
+				player:HandleXP(self.useXP);
+			end
+			
+			player:HandleSanity(45);
+			player:EmitSound(self.useSound);
+			player:TakeItem(self, true);
+			
+			netstream.Start(player, "Stunned", 3);
+		end
+	end;
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("medical_base");
 	ITEM.name = "Crafted Bandage";
 	ITEM.model = "models/props_wasteland/prison_toiletchunk01f.mdl";
 	ITEM.weight = 0.1;
@@ -296,6 +435,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.infectionChance = 15;
 	ITEM.useXP = 8;
 
+	ITEM.curesInjuries = {"arterybleed"};
 	ITEM.limbs = {HITGROUP_CHEST, HITGROUP_HEAD, HITGROUP_STOMACH, HITGROUP_LEFTARM, HITGROUP_RIGHTARM, HITGROUP_LEFTLEG, HITGROUP_RIGHTLEG};
 ITEM:Register();
 
@@ -345,6 +485,7 @@ local ITEM = Clockwork.item:New("medical_base");
 	ITEM.stopsBleeding = true;
 	ITEM.useXP = 5;
 	
+	ITEM.curesInjuries = {"arterybleed"};
 	ITEM.itemSpawnerInfo = {category = "Medical", rarity = 200, bNoSupercrate = true};
 	ITEM.limbs = {HITGROUP_CHEST, HITGROUP_HEAD, HITGROUP_STOMACH, HITGROUP_LEFTARM, HITGROUP_RIGHTARM, HITGROUP_LEFTLEG, HITGROUP_RIGHTLEG};
 
@@ -565,7 +706,7 @@ local ITEM = Clockwork.item:New();
 		ITEM.isMedical = true;
 		ITEM.useOnSelf = true; -- Can use on self.
 		ITEM.limbs = {HITGROUP_CHEST, HITGROUP_HEAD, HITGROUP_STOMACH, HITGROUP_LEFTARM, HITGROUP_RIGHTARM, HITGROUP_LEFTLEG, HITGROUP_RIGHTLEG};
-		ITEM.curesInjuries = {"burn", "gash", "gunshot_wound"};
+		ITEM.curesInjuries = {"burn", "gash", "gunshot_wound", "arterybleed"};
 		
 		ITEM.canSave = true; -- Can save people in critical condition.
 		ITEM.healAmount = 5; -- Amount of HP healed per repetition.
@@ -723,7 +864,7 @@ local ITEM = Clockwork.item:New();
 		ITEM.isMedical = true;
 		ITEM.useOnSelf = true; -- Can use on self.
 		ITEM.limbs = "all";
-		ITEM.curesInjuries = {"burn", "gash", "gunshot_wound"};
+		ITEM.curesInjuries = {"burn", "gash", "gunshot_wound", "arterybleed"};
 		
 		ITEM.canSave = true; -- Can save people in critical condition.
 		ITEM.healAmount = 25; -- Amount of HP healed per repetition.

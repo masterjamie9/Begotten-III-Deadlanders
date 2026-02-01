@@ -28,6 +28,15 @@ if map == "rp_begotten3" then
 			charBodygroup = {1, 2},
 			zone = "wasteland"
 		},
+		["Deadlander"] = {
+			camVector = Vector(-14977.675781, 12599.680664, -1175),
+			camAngles = Angle(2.5, -177.732, 0),
+			closeCamVector = Vector(-15000, 12599.680664, -1185),
+			charVector = Vector(-15050.21875, 12597, -1235),
+			charAngles = Angle(0, 0, 0),
+			charModel = {clothes = "models/begotten/prelude_deadlanders/deadlanderspawn_male.mdl", head = "models/begotten/heads/male_05_deadlander.mdl"},
+			zone = "tower"
+		},
 		["Gatekeeper"] = {
 			camVector = Vector(785, 12221.802734, -1025),
 			camAngles = Angle(0, 0, 0),
@@ -152,6 +161,16 @@ if map == "rp_begotten3" then
 		},
 		["Auxiliary"] = {
 			charModel = {clothes = "models/begotten/gatekeepers/gatekeeperlight_black_male.mdl", head = "models/begotten/heads/male_04_glaze.mdl"},
+			camVector = Vector(804, 12202, -1033),
+			camAngles = Angle(0, 0, 0),
+		},
+		["Raiders"] = {
+			charModel = {clothes = "models/begotten/prelude_deadlanders/deadlanderspawn_male.mdl", head = "models/begotten/heads/male_05_deadlander.mdl"},
+			camVector = Vector(804, 12202, -1033),
+			camAngles = Angle(0, 0, 0),
+		},
+		["Tuners"] = {
+			charModel = {clothes = "models/begotten/prelude_deadlanders/deadlanderspawn_male.mdl", head = "models/begotten/heads/male_05_deadlander.mdl"},
 			camVector = Vector(804, 12202, -1033),
 			camAngles = Angle(0, 0, 0),
 		},

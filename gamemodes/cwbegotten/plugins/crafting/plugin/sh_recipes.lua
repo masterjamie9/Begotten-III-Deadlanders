@@ -733,6 +733,34 @@ function cwRecipes:ClockworkInitialized()
 		end;
 	RECIPE:Register()
 
+	RECIPE = cwRecipes.recipes:New("driedmeat");
+		RECIPE.name = "Human Si'Usun";
+		RECIPE.requiresHeatSource = false;
+		RECIPE.requiredBeliefs = {"cookist"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["humanmeat"] = {amount = 1},
+		};
+		RECIPE.result = {
+			["driedmeat"] = {amount = 1},
+		};
+		RECIPE.category = "Cooking"
+		RECIPE.finishSound = "npc/barnacle/barnacle_tongue_pull1.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 20
+		RECIPE.craftVerb = "drying"
+		RECIPE.experience = 10;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
 	RECIPE = cwRecipes.recipes:New("cooked_yummy_meat");
 		RECIPE.name = "Cooked Yummy Meat";
 		RECIPE.requiresHeatSource = true;
@@ -930,6 +958,35 @@ function cwRecipes:ClockworkInitialized()
 		end;
 	RECIPE:Register()
 
+	RECIPE = cwRecipes.recipes:New("red_kumyz");
+		RECIPE.name = "Red Kumyz";
+		RECIPE.requiresHeatSource = false;
+		RECIPE.requiredBeliefs = {"cookist"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["blood_bottle"] = {amount = 1},
+			["carton_of_milk"] = {amount = 1},
+		};
+		RECIPE.result = {
+			["red_kumyz"] = {amount = 1},
+		};
+		RECIPE.category = "Cooking"
+		RECIPE.finishSound = "npc/barnacle/barnacle_die2.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 20
+		RECIPE.craftVerb = "fermenting"
+		RECIPE.experience = 40;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
 	RECIPE = cwRecipes.recipes:New("unfuckedmeat");
 		RECIPE.name = "Unfucked Meat";
 		RECIPE.requiresHeatSource = true;
@@ -1017,6 +1074,149 @@ function cwRecipes:ClockworkInitialized()
 		-- MEDICAL
 		--
 		--
+
+	RECIPE = cwRecipes.recipes:New("goodjuice");
+		RECIPE.name = "Good Juice";
+		RECIPE.requiredBeliefs = {"doctor"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["blood_bottle"] = {amount = 2},
+		};
+		RECIPE.result = {
+			["goodjuice"] = {amount = 1},
+		};
+		RECIPE.category = "Medical"
+		RECIPE.finishSound = "ambient/levels/canals/toxic_slime_gurgle2.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "filling"
+		RECIPE.experience = 25;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("healing_salve");
+		RECIPE.name = "Healing Salve (3x)";
+		RECIPE.requiredBeliefs = {"doctor"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["pantheistic_catalyst"] = {amount = 1},
+			["blood_bottle"] = {amount = 1}
+		};
+		RECIPE.result = {
+			["healing_salve"] = {amount = 3},
+			["empty_bottle"] = {amount = 1},
+		};
+		RECIPE.category = "Medical"
+		RECIPE.finishSound = "npc/barnacle/barnacle_tongue_pull3.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 15
+		RECIPE.craftVerb = "crafting"
+		RECIPE.experience = 25;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("kombucha");
+		RECIPE.name = "Kombucha";
+		RECIPE.requiredBeliefs = {"doctor"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requiresHeatSource = true;
+		RECIPE.requirements = {
+			["trinity_catalyst"] = {amount = 1},
+			["purified_water"] = {amount = 1}
+		};
+		RECIPE.result = {
+			["kombucha"] = {amount = 1},
+			["empty_bottle"] = {amount = 1},
+		};
+		RECIPE.category = "Medical"
+		RECIPE.finishSound = "ambient/levels/canals/toxic_slime_sizzle1.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 10
+		RECIPE.craftVerb = "brewing"
+		RECIPE.experience = 25;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("healingpowder");
+		RECIPE.name = "Healing Powder (4x)";
+		RECIPE.requiredBeliefs = {"doctor"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["light_catalyst"] = {amount = 1},
+			["human_bone"] = {amount = 8}
+		};
+		RECIPE.result = {
+			["healingpowder"] = {amount = 4},
+		};
+		RECIPE.category = "Medical"
+		RECIPE.finishSound = "ambient/levels/canals/toxic_slime_sizzle1.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 10
+		RECIPE.craftVerb = "crafting"
+		RECIPE.experience = 25;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("arkhi");
+		RECIPE.name = "Arkhi (x2)";
+		RECIPE.requiredBeliefs = {"doctor"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["blood_bottle"] = {amount = 1},
+			["spice"] = {amount = 1}
+		};
+		RECIPE.result = {
+			["arkhi"] = {amount = 2},
+			["empty_bottle"] = {amount = 1},
+		};
+		RECIPE.category = "Medical"
+		RECIPE.finishSound = "ambient/levels/canals/toxic_slime_sizzle2.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 15
+		RECIPE.craftVerb = "fermenting"
+		RECIPE.experience = 25;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
 
 	RECIPE = cwRecipes.recipes:New("crafted_bandage");
 		RECIPE.name = "Crafted Bandage";
@@ -2028,7 +2228,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Claymore";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 4},
 			["fine_steel_ingot"] = {amount = 1},
@@ -2058,7 +2258,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Steel Longsword";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 3},
 			["fine_steel_ingot"] = {amount = 1},
@@ -2088,7 +2288,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "(Upgrade) Steel Longsword";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 1},
 			["fine_steel_ingot"] = {amount = 1},
@@ -2321,7 +2521,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
 		RECIPE.requiredFaiths = {"Faith of the Dark"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["fine_steel_ingot"] = {amount = 2},
 			["wood"] = {amount = 4},
@@ -2772,7 +2972,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Flanged Mace";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"mechanic"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 4},
 		};
@@ -2800,7 +3000,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "(Upgrade) Flanged Mace";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"mechanic"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 2},
 			["begotten_1h_morningstar"] = {amount = 1},
@@ -3237,7 +3437,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Iron Shortsword";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"craftsman"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["iron_ingot"] = {amount = 2},
 			["wood"] = {amount = 1},
@@ -3266,7 +3466,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Iron Arming Sword";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"mechanic"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["iron_ingot"] = {amount = 3},
 			["wood"] = {amount = 1},
@@ -3295,7 +3495,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Steel Arming Sword";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 3},
 			["leather"] = {amount = 1},
@@ -3324,7 +3524,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "(Upgrade) Steel Arming Sword";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 1},
 			["iron_ingot"] = {amount = 1},
@@ -3355,7 +3555,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "(Upgrade) Steel Arming Sword";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 1},
 			["leather"] = {amount = 1},
@@ -3472,7 +3672,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Flail of Atonement";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requiredFaiths = {"Faith of the Light"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 4},
@@ -3757,7 +3957,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Twisted Club";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"craftsman"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requiredFaiths = {"Faith of the Dark"};
 		RECIPE.requirements = {
 			["iron_ingot"] = {amount = 1},
@@ -3841,7 +4041,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Poleaxe";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["fine_steel_ingot"] = {amount = 1},
 			["wood"] = {amount = 2},
@@ -3870,7 +4070,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "(Upgade) Poleaxe";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 1},
 			["begotten_polearm_billhook"] = {amount = 1},
@@ -3899,7 +4099,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Billhook";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"craftsman"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["iron_ingot"] = {amount = 3},
 			["wood"] = {amount = 2},
@@ -3929,7 +4129,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Lucerne";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["fine_steel_ingot"] = {amount = 1},
 			["steel_ingot"] = {amount = 2},
@@ -3960,7 +4160,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "(Upgrade) Lucerne";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["fine_steel_ingot"] = {amount = 1},
 			["steel_ingot"] = {amount = 1},
@@ -3991,7 +4191,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Halberd";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"mechanic"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 3},
 			["leather"] = {amount = 2},
@@ -4050,7 +4250,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Polehammer";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 5},
 			["leather"] = {amount = 1},
@@ -4166,7 +4366,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Elegant Epee";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["fine_steel_ingot"] = {amount = 2},
 			["gold_ingot"] = {amount = 1},
@@ -4196,7 +4396,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Iron Rapier";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"mechanic"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["iron_ingot"] = {amount = 2},
 		};
@@ -4224,7 +4424,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Glaive";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"mechanic"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 2},
 			["wood"] = {amount = 4},
@@ -4647,7 +4847,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Pilum";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"mechanic"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 1},
 			["wood"] = {amount = 2},
@@ -4676,7 +4876,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "(Upgrade) Pilum";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"mechanic"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["iron_ingot"] = {amount = 1},
 			["begotten_javelin_iron_javelin"] = {amount = 1},
@@ -4847,7 +5047,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"mechanic"};
 		RECIPE.requiredFaiths = {"Faith of the Dark"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 4},
 			["down_catalyst"] = {amount = 1},
@@ -4937,7 +5137,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
 		RECIPE.requiredFaiths = {"Faith of the Dark"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 3},
 			["down_catalyst"] = {amount = 2},
@@ -4967,7 +5167,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
 		RECIPE.requiredFaiths = {"Faith of the Dark"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 4},
 			["down_catalyst"] = {amount = 2},
@@ -4997,7 +5197,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
 		RECIPE.requiredFaiths = {"Faith of the Dark"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["hellforged_steel_ingot"] = {amount = 1},
 			["steel_ingot"] = {amount = 1},
@@ -5034,7 +5234,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
 		RECIPE.requiredFaiths = {"Faith of the Dark"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["hellforged_steel_ingot"] = {amount = 1},
 			["iron_ingot"] = {amount = 2},
@@ -5065,7 +5265,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
 		RECIPE.requiredFaiths = {"Faith of the Dark"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["iron_ingot"] = {amount = 5},
 			["unholy_sigil_stone"] = {amount = 1},
@@ -5095,7 +5295,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
 		RECIPE.requiredFaiths = {"Faith of the Dark"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["hellforged_steel_ingot"] = {amount = 4},
 			["unholy_sigil_stone"] = {amount = 1},
@@ -5125,6 +5325,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = false;
 		RECIPE.requiredBeliefs = {"artisan"};
 		RECIPE.requiredFaiths = {"Faith of the Dark"};
+		RECIPE.excludedFactions = {"Deadlander"};
 		RECIPE.requirements = {
 			["begotten_2h_unholysigilsword"] = {amount = 1},
 			["fire_sigil_stone"] = {amount = 2},
@@ -5154,6 +5355,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = false;
 		RECIPE.requiredBeliefs = {"artisan"};
 		RECIPE.requiredFaiths = {"Faith of the Dark"};
+		RECIPE.excludedFactions = {"Deadlander"};
 		RECIPE.requirements = {
 			["begotten_2h_unholysigilsword"] = {amount = 1},
 			["ice_sigil_stone"] = {amount = 2},
@@ -5302,7 +5504,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
 		RECIPE.requiredFaiths = {"Faith of the Light"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["maximilian_steel_ingot"] = {amount = 3},
 			["ice_sigil_stone"] = {amount = 2},
@@ -5332,7 +5534,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
 		RECIPE.requiredFaiths = {"Faith of the Light"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["gold_ingot"] = {amount = 1},
 			["maximilian_steel_ingot"] = {amount = 1},
@@ -5364,7 +5566,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
 		RECIPE.requiredFaiths = {"Faith of the Dark"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 1},
 			["ice_sigil_stone"] = {amount = 1},
@@ -5394,7 +5596,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
 		RECIPE.requiredFaiths = {"Faith of the Dark"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 1},
 			["fire_sigil_stone"] = {amount = 1},
@@ -5606,6 +5808,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
 		RECIPE.requiredFaiths = {"Faith of the Dark"};
+		RECIPE.excludedFactions = {"Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 7},
 			["pentagram_catalyst"] = {amount = 1},
@@ -5780,7 +5983,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Steel Tower Shield";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 5},
 			["leather"] = {amount = 1},
@@ -5788,6 +5991,36 @@ function cwRecipes:ClockworkInitialized()
 		};
 		RECIPE.result = {
 			["shield16"] = {amount = 1},
+		};
+		RECIPE.category = "Weapons"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 130;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("deadlandershield");
+		RECIPE.name = "Deadlander Shield";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"artisan"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["steel_ingot"] = {amount = 3},
+			["leather"] = {amount = 1},
+			["wood"] = {amount = 3},
+		};
+		RECIPE.result = {
+			["deadlandershield"] = {amount = 1},
 		};
 		RECIPE.category = "Weapons"
 		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
@@ -6040,6 +6273,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"mechanic"};
 		RECIPE.excludedSubfactions = {"Clan Gore", "Clan Harald", "Clan Reaver", "Clan Crast", "Clan Grock"};
+		RECIPE.excludedFactions = {"Deadlander"};
 		RECIPE.requirements = {
 			["iron_ingot"] = {amount = 2},
 			["scrap"] = {amount = 3},
@@ -6129,6 +6363,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"mechanic"};
 		RECIPE.excludedSubfactions = {"Clan Gore", "Clan Harald", "Clan Reaver", "Clan Crast", "Clan Grock"};
+		RECIPE.excludedFactions = {"Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 1},
 			["iron_ingot"] = {amount = 2},
@@ -6246,6 +6481,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
 		RECIPE.requiredFaiths = {"Faith of the Dark"};
+		RECIPE.excludedFactions = {"Deadlander"};
 		RECIPE.requirements = {
 			["begotten_jezail_short"] = {amount = 1},
 			["fine_steel_ingot"] = {amount = 1},
@@ -8355,7 +8591,7 @@ function cwRecipes:ClockworkInitialized()
 	RECIPE = cwRecipes.recipes:New("exile_knight_armor");
 		RECIPE.name = "Exile Knight Armor";
 		RECIPE.requiredBeliefs = {"craftsman"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["knight_plate"] = {amount = 1},
 			["knight_helmet"] = {amount = 1},
@@ -8440,7 +8676,7 @@ function cwRecipes:ClockworkInitialized()
 	RECIPE = cwRecipes.recipes:New("light_brigandine_armor");
 		RECIPE.name = "Light Brigandine Armor";
 		RECIPE.requiredBeliefs = {"mechanic"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["cloth"] = {amount = 2},
 			["leather"] = {amount = 3},
@@ -8470,7 +8706,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Wanderer Mail";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"mechanic"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["leather"] = {amount = 2},
 			["iron_ingot"] = {amount = 6},
@@ -8499,7 +8735,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Wanderer Crude Plate";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 3},
 			["iron_ingot"] = {amount = 2},
@@ -8615,7 +8851,7 @@ function cwRecipes:ClockworkInitialized()
 	RECIPE = cwRecipes.recipes:New("brigandine_armor");
 		RECIPE.name = "Brigandine Armor";
 		RECIPE.requiredBeliefs = {"mechanic"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["light_brigandine_armor"] = {amount = 1},
 			["leather"] = {amount = 1},
@@ -8644,7 +8880,7 @@ function cwRecipes:ClockworkInitialized()
 	RECIPE = cwRecipes.recipes:New("plague_doctor_robes");
 		RECIPE.name = "Plague Doctor Robes";
 		RECIPE.requiredBeliefs = {"ingenious", "plague_doctor"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["cloth"] = {amount = 8},
 		};
@@ -8672,6 +8908,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Scrapper Grunt Plate";
 		RECIPE.requiredBeliefs = {"craftsman"};
 		RECIPE.excludedSubfactions = {"Clan Gore", "Clan Harald", "Clan Reaver", "Clan Crast", "Clan Grock"};
+		RECIPE.excludedFactions = {"Deadlander"};
 		RECIPE.requirements = {
 			["scrap"] = {amount = 5},
 			["cloth"] = {amount = 1},
@@ -8700,6 +8937,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Scrapper Machinist Plate";
 		RECIPE.requiredBeliefs = {"mechanic"};
 		RECIPE.excludedSubfactions = {"Clan Gore", "Clan Harald", "Clan Reaver", "Clan Crast", "Clan Grock"};
+		RECIPE.excludedFactions = {"Deadlander"};
 		RECIPE.requirements = {
 			["scrapper_grunt_plate"] = {amount = 1},
 			["scrap"] = {amount = 6},
@@ -8728,6 +8966,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Wanderer Oppressor Armor";
 		RECIPE.requiredBeliefs = {"artisan"};
 		RECIPE.excludedSubfactions = {"Clan Gore", "Clan Harald", "Clan Reaver", "Clan Crast", "Clan Grock"};
+		RECIPE.excludedFactions = {"Deadlander"};
 		RECIPE.requirements = {
 			["scrapper_grunt_plate"] = {amount = 1},
 			["leather"] = {amount = 4},
@@ -8785,7 +9024,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Wanderer Crude Plate Helm";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["fine_steel_ingot"] = {amount = 1},
 			["steel_ingot"] = {amount = 1},
@@ -8874,7 +9113,7 @@ function cwRecipes:ClockworkInitialized()
 	RECIPE = cwRecipes.recipes:New("hood");
 		RECIPE.name = "Hood";
 		RECIPE.requiredBeliefs = {"ingenious"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["cloth"] = {amount = 2},
 		};
@@ -8901,7 +9140,7 @@ function cwRecipes:ClockworkInitialized()
 	RECIPE = cwRecipes.recipes:New("hood_mask");
 		RECIPE.name = "Masked Hood";
 		RECIPE.requiredBeliefs = {"ingenious"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["cloth"] = {amount = 1},
 			["hood"] = {amount = 1},
@@ -8957,6 +9196,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Scrap Helmet";
 		RECIPE.requiredBeliefs = {"craftsman"};
 		RECIPE.excludedSubfactions = {"Clan Gore", "Clan Harald", "Clan Reaver", "Clan Crast", "Clan Grock"};
+		RECIPE.excludedFactions = {"Deadlander"};
 		RECIPE.requirements = {
 			["scrap"] = {amount = 4},
 		};
@@ -8984,6 +9224,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Scrapper Machinist Plate Helmet";
 		RECIPE.requiredBeliefs = {"mechanic"};
 		RECIPE.excludedSubfactions = {"Clan Gore", "Clan Harald", "Clan Reaver", "Clan Crast", "Clan Grock"};
+		RECIPE.excludedFactions = {"Deadlander"};
 		RECIPE.requirements = {
 			["scrap_helmet"] = {amount = 1},
 			["scrap"] = {amount = 6},
@@ -9013,6 +9254,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Scrapper Smog Priest Helmet";
 		RECIPE.requiredBeliefs = {"mechanic"};
 		RECIPE.excludedSubfactions = {"Clan Gore", "Clan Harald", "Clan Reaver", "Clan Crast", "Clan Grock"};
+		RECIPE.excludedFactions = {"Deadlander"};
 		RECIPE.requirements = {
 			["scrap_helmet"] = {amount = 1},
 			["steel_ingot"] = {amount = 1},
@@ -9043,7 +9285,7 @@ function cwRecipes:ClockworkInitialized()
 	RECIPE = cwRecipes.recipes:New("wanderer_cap");
 		RECIPE.name = "Wanderer Cap";
 		RECIPE.requiredBeliefs = {"ingenious"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["leather"] = {amount = 2},
 		};
@@ -9071,7 +9313,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Mail Coif";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"craftsman"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["iron_ingot"] = {amount = 2},
 		};
@@ -9099,7 +9341,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Plate Helmet & Mail Coif";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"mechanic"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["mail_coif"] = {amount = 1},
 			["iron_ingot"] = {amount = 2},
@@ -9128,7 +9370,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Spangenhelm";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"mechanic"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 3},
 			["leather"] = {amount = 1},
@@ -9729,6 +9971,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"mechanic"};
 		RECIPE.excludedSubfactions = {"Clan Gore", "Clan Harald", "Clan Reaver", "Clan Crast", "Clan Grock"};
+		RECIPE.excludedFactions = {"Deadlander"};
 		RECIPE.requirements = {
 			["iron_ingot"] = {amount = 1},
 			["gunpowder"] = {amount = 1},
@@ -9758,6 +10001,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"mechanic"};
 		RECIPE.excludedSubfactions = {"Clan Gore", "Clan Harald", "Clan Reaver", "Clan Crast", "Clan Grock"};
+		RECIPE.excludedFactions = {"Deadlander"};
 		RECIPE.requirements = {
 			["iron_ingot"] = {amount = 1},
 			["gunpowder"] = {amount = 2},
@@ -10661,7 +10905,7 @@ function cwRecipes:ClockworkInitialized()
 	RECIPE = cwRecipes.recipes:New("padded_coat");
 		RECIPE.name = "Padded Gambeson";
 		RECIPE.requiredBeliefs = {"craftsman"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requirements = {
 			["cloth"] = {amount = 4},
 			["leather"] = {amount = 5},
@@ -10690,7 +10934,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Faithling Chainmail";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"mechanic"};
-		RECIPE.excludedFactions = {"Goreic Warrior"};
+		RECIPE.excludedFactions = {"Goreic Warrior", "Deadlander"};
 		RECIPE.requiredFaiths = {"Faith of the Family"};
 		RECIPE.requirements = {
 			["leather"] = {amount = 2},

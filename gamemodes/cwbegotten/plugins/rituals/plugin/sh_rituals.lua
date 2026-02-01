@@ -139,7 +139,7 @@ RITUAL:Register()
 RITUAL = cwRituals.rituals:New("tortured_spirit_rite");
 	RITUAL.name = "(T2) Tortured Spirit Rite";
 	RITUAL.description = "Trap a bright spirit suffering its eternity of agony and utilize it as a source of forbidden power. Performing this ritual summons a Tortured Spirit item. Incurs 5 corruption.";
-	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin"}; -- Tier II Faith of the Dark Ritual
+	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin", "to_tip_the_scales"}; -- Tier II Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"down_catalyst", "belphegor_catalyst", "belphegor_catalyst"};
 	RITUAL.result = {
@@ -162,7 +162,7 @@ RITUAL:Register()
 RITUAL = cwRituals.rituals:New("pentagram_catalyst_rite");
 	RITUAL.name = "(T2) Pentagram Catalyst Rite";
 	RITUAL.description = "Fear, pain, and the screams of the unhappy crystalized in your palm. Performing this ritual summons a Pentagram Catalyst item. Incurs 5 corruption.";
-	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin"}; -- Tier II Faith of the Dark Ritual
+	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin", "to_tip_the_scales"}; -- Tier II Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"down_catalyst", "belphegor_catalyst", "down_catalyst"};
 	RITUAL.result = {
@@ -231,7 +231,7 @@ RITUAL:Register()
 RITUAL = cwRituals.rituals:New("unholy_sigil_stone_rite");
 	RITUAL.name = "(T2) Unholy Sigil Stone Rite";
 	RITUAL.description = "You laugh in the face of all that is good and righteous. Performing this ritual summons an Unholy Sigil Stone item. Incurs 5 corruption.";
-	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin"}; -- Tier II Faith of the Dark Ritual
+	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin", "to_tip_the_scales"}; -- Tier II Faith of the Dark Ritual
 
 	RITUAL.requirements = {"down_catalyst", "belphegor_catalyst", "pentagram_catalyst"};
 	RITUAL.result = {
@@ -254,7 +254,7 @@ RITUAL:Register()
 RITUAL = cwRituals.rituals:New("fire_sigil_stone_rite");
 	RITUAL.name = "(T3) Fire Sigil Stone Rite";
 	RITUAL.description = "Create a sigil of flame. Performing this ritual summons a Fire Sigil Stone item. Incurs 5 corruption.";
-	RITUAL.onerequiredbelief = {"sorcerer", "watchful_raven", "emissary", "extinctionist"}; -- Tier III Shared Ritual
+	RITUAL.onerequiredbelief = {"sorcerer", "watchful_raven", "emissary", "extinctionist", "hemomancer"}; -- Tier III Shared Ritual
 	
 	RITUAL.requirements = {"light_catalyst", "belphegor_catalyst", "xolotl_catalyst"};
 	RITUAL.result = {
@@ -277,7 +277,7 @@ RITUAL:Register()
 RITUAL = cwRituals.rituals:New("ice_sigil_stone_rite");
 	RITUAL.name = "(T3) Ice Sigil Stone Rite";
 	RITUAL.description = "Create a sigil of ice. Performing this ritual summons an Ice Sigil Stone item. Incurs 5 corruption.";
-	RITUAL.onerequiredbelief = {"sorcerer", "watchful_raven", "emissary", "extinctionist"}; -- Tier III Shared Ritual
+	RITUAL.onerequiredbelief = {"sorcerer", "watchful_raven", "emissary", "extinctionist", "hemomancer"}; -- Tier III Shared Ritual
 	
 	RITUAL.requirements = {"ice_catalyst", "ice_catalyst", "xolotl_catalyst"};
 	RITUAL.result = {
@@ -426,7 +426,7 @@ RITUAL:Register()
 RITUAL = cwRituals.rituals:New("bloodhowl");
 	RITUAL.name = "(T2) Bloodhowl";
 	RITUAL.description = "The thrill of battle empowers you! Performing this ritual will make your war cries restore 50 points of stamina and drain 150 points of blood for 40 minutes. Incurs 10 corruption.";
-	RITUAL.onerequiredbelief = {"man_become_beast", "one_with_the_druids", "daring_trout", "shedskin"}; -- Tier II Faith of the Family Ritual
+	RITUAL.onerequiredbelief = {"man_become_beast", "one_with_the_druids", "daring_trout", "shieldwall", "shedskin"}; -- Tier II Faith of the Family Ritual
 	
 	RITUAL.requirements = {"down_catalyst", "familial_catalyst", "pantheistic_catalyst"};
 	RITUAL.corruptionCost = 10;
@@ -458,7 +458,7 @@ RITUAL:Register()
 RITUAL = cwRituals.rituals:New("bloodwings");
 	RITUAL.name = "(T3) Bloodwings";
 	RITUAL.description = "The skies bleed when the angels flap their wings. Performing this ritual grants the ability to double-jump at the cost of 15 blood for the next 30 minutes. Incurs 10 corruption.";
-	RITUAL.onerequiredbelief = {"sorcerer"}; -- Tier III Faith of the Dark Ritual
+	RITUAL.onerequiredbelief = {"sorcerer", "hemomancer"}; -- Tier III Faith of the Dark Ritual
 	RITUAL.requiredBeliefsSubfactionOverride = {["Rekh-khet-sa"] = {"embrace_the_darkness"}}; -- Tier III Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"belphegor_catalyst", "up_catalyst", "up_catalyst"};
@@ -611,7 +611,7 @@ RITUAL:Register()
 RITUAL = cwRituals.rituals:New("call_to_darkness");
 	RITUAL.name = "(T2) Call to Darkness";
 	RITUAL.description = "To open oneself whole to a dark host is the ultimate sign of dedication to one's masters. Dark powers commonly use mortals as temporary vessels to more directly carry out their will. Performing this ritual will invite one to use your body as a vessel, and force it to heed your commands. Incurs 40 corruption.";
-	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin"}; -- Tier II Faith of the Dark Ritual
+	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin", "to_tip_the_scales"}; -- Tier II Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"down_catalyst", "down_catalyst", "pentagram_catalyst"};
 	RITUAL.corruptionCost = 40;
@@ -632,7 +632,7 @@ RITUAL:Register()
 RITUAL = cwRituals.rituals:New("cherished_by_evil");
 	RITUAL.name = "(T2) Cherished By Evil";
 	RITUAL.description = "Insanity is for the weak, and your soul surely won't be taken without a reasonable sum. Performing this ritual instantly restores your sanity to full, replenishes 50% of your maximum blood level and cleanses all corruption.";
-	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin"}; -- Tier II Faith of the Dark Ritual
+	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin", "to_tip_the_scales"}; -- Tier II Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"ice_catalyst", "purifying_stone", "elysian_catalyst"};
 	RITUAL.corruptionCost = -100;
@@ -654,7 +654,7 @@ RITUAL:Register()
 RITUAL = cwRituals.rituals:New("cloak_of_always_burning");
 	RITUAL.name = "(T2) Cloak of Always Burning";
 	RITUAL.description = "With an offering of catalysts, runestones and wicker branches you will be infused with a resistance to the natural and unnatural forces of life. Performing this ritual will grant you 100% resistance to fire and ice damage for 40 minutes. Incurs 10 corruption.";
-	RITUAL.onerequiredbelief = {"man_become_beast", "one_with_the_druids", "daring_trout", "shedskin"}; -- Tier II Faith of the Family Ritual
+	RITUAL.onerequiredbelief = {"man_become_beast", "one_with_the_druids", "daring_trout", "shieldwall", "shedskin"}; -- Tier II Faith of the Family Ritual
 	
 	RITUAL.requirements = {"belphegor_catalyst", "ice_catalyst", "familial_catalyst"};
 	RITUAL.corruptionCost = 10;
@@ -781,7 +781,7 @@ RITUAL:Register()]]--
 RITUAL = cwRituals.rituals:New("empowered_blood");
 	RITUAL.name = "(T2) Empowered Blood";
 	RITUAL.description = "Bloodlines mean all to the Children of Satan, especially those which have descent from ancient kings and sorcerers. Those with the purest bloodlines can draw on the strength of their ancestors to temporarily increase their maximum health by 50 for 20 minutes. Incurs 10 corruption.";
-	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin"}; -- Tier II Faith of the Dark Ritual
+	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin", "to_tip_the_scales"}; -- Tier II Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"pentagram_catalyst", "belphegor_catalyst", "elysian_catalyst"};
 	RITUAL.corruptionCost = 10;
@@ -844,7 +844,7 @@ RITUAL:Register()
 RITUAL = cwRituals.rituals:New("hail_prince_thieves");
 	RITUAL.name = "(T1) Hail Be to the Prince of Thieves";
 	RITUAL.description = "From the slums of the Darklands to the chaste fields of the County Districts, thieves all pray to the same prince. Performing this ritual makes lockpicking significantly easier and increases the chance of finding loot from locked containers by 10% for the next 30 minutes. Incurs 5 corruption.";
-	RITUAL.onerequiredbelief = {"soothsayer", "witch", "witch_druid"}; -- Tier I Faith of the Dark Ritual
+	RITUAL.onerequiredbelief = {"soothsayer", "witch", "witch_druid", "the_baleful_star"}; -- Tier I Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"down_catalyst", "ice_catalyst", "ice_catalyst"};
 	RITUAL.corruptionCost = 5;
@@ -876,7 +876,7 @@ RITUAL:Register()
 RITUAL = cwRituals.rituals:New("hear_me");
 	RITUAL.name = "(T1) Hear Me";
 	RITUAL.description = "You aren't anything at all until you've made yourself known. Performing this ritual grants you 300 faith (experience). Incurs 10 corruption.";
-	RITUAL.onerequiredbelief = {"soothsayer", "witch", "witch_druid"}; -- Tier I Faith of the Dark Ritual
+	RITUAL.onerequiredbelief = {"soothsayer", "witch", "witch_druid", "the_baleful_star"}; -- Tier I Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"belphegor_catalyst", "belphegor_catalyst", "belphegor_catalyst"};
 	RITUAL.corruptionCost = 10;
@@ -903,7 +903,7 @@ RITUAL:Register()
 RITUAL = cwRituals.rituals:New("hellgorge");
 	RITUAL.name = "(T1) Hellgorge";
 	RITUAL.description = "With just a simple offering, you will be given the smallest of bites from the horn of plenty. It may be enough to sate you, but it will surely leave you with a desire for more. Performing this ritual will instantly reduce your hunger, thirst, and fatigue to zero. It will also reduce your corruption by 15 points.";
-	RITUAL.onerequiredbelief = {"soothsayer", "witch", "witch_druid"}; -- Tier I Faith of the Dark Ritual
+	RITUAL.onerequiredbelief = {"soothsayer", "witch", "witch_druid", "the_baleful_star"}; -- Tier I Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"up_catalyst", "down_catalyst", "belphegor_catalyst"};
 	RITUAL.corruptionCost = -15;
@@ -1073,7 +1073,7 @@ RITUAL:Register()
 RITUAL = cwRituals.rituals:New("mark_of_the_devil");
 	RITUAL.name = "(T2) Mark of the Devil";
 	RITUAL.description = "The fate of those who offend the Dark Lord or His servants is a gruesome and horrific death, for they shall be marked for death by the hands of the Children of Satan. Performing this ritual will mark a character for death, highlighting them to all followers of the Faith of the Dark when nearby. Killing marked characters will give great rewards, especially if they are sacrificed.";
-	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin"}; -- Tier II Faith of the Dark Ritual
+	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin", "to_tip_the_scales"}; -- Tier II Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"down_catalyst", "pentagram_catalyst", "down_catalyst"};
 	--RITUAL.corruptionCost = 30; -- Corruption gets added once the UI is closed.
@@ -1135,7 +1135,7 @@ RITUAL:Register()
 RITUAL = cwRituals.rituals:New("mark_of_the_devil_target");
 	RITUAL.name = "(T2) Mark of the Devil (Target)";
 	RITUAL.description = "The fate of those who offend the Dark Lord or His servants is a gruesome and horrific death, for they shall be marked for death by the hands of the Children of Satan. Performing this ritual will mark a character for death, highlighting them to all followers of the Faith of the Dark when nearby. Killing marked characters will give great rewards, especially if they are sacrificed. This ritual is silent.";
-	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin"}; -- Tier II Faith of the Dark Ritual
+	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin", "to_tip_the_scales"}; -- Tier II Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"pentagram_catalyst", "down_catalyst", "down_catalyst"};
 	--RITUAL.corruptionCost = 30; -- Corruption gets added once the UI is closed.
@@ -2871,7 +2871,7 @@ RITUAL:Register()
 RITUAL = cwRituals.rituals:New("upstaged");
 	RITUAL.name = "(T2) Upstaged";
 	RITUAL.description = "Don't dare try to match a jester's dance. One misstep and you'll be banished to hell. Performing this ritual causes riposte attacks to disarm your opponent. This lasts 40 minutes. Incurs 5 corruption.";
-	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin"}; -- Tier II Faith of the Dark Ritual
+	RITUAL.onerequiredbelief = {"soothsayer", "heretic", "shedskin", "to_tip_the_scales"}; -- Tier II Faith of the Dark Ritual
 	
 	RITUAL.requirements = {"up_catalyst", "belphegor_catalyst", "belphegor_catalyst"};
 	RITUAL.corruptionCost = 5;
@@ -3057,6 +3057,166 @@ RITUAL = cwRituals.rituals:New("ascension_house_kinisger");
 		
 			return false;
 		end
+	end;
+	function RITUAL:EndRitual(player)
+	end;
+RITUAL:Register()
+
+RITUAL = cwRituals.rituals:New("gift_from_the_heavens");
+	RITUAL.name = "(T1) Gift from the Heavens";
+	RITUAL.description = "Return what belongs to the Eternal Heavens. Performing this ritual divides faith (experience) to yourself and everyone of the Faith of the Winds standing within talking radius. The amount of faith granted equals 250 + 150 for every extra person and caps out at 1300 faith. You must be outside to cast this ritual. Incurs 10 corruption.";
+	RITUAL.onerequiredbelief = {"the_baleful_star", "the_great_hunt"}; -- Tier I Faith of the Winds Ritual
+	
+	RITUAL.requirements = {"elysian_catalyst", "elysian_catalyst", "elysian_catalyst"};
+	RITUAL.corruptionCost = 10;
+	RITUAL.ritualTime = 10;
+	--RITUAL.experience = 300; 
+	
+	function RITUAL:OnPerformed(player)	
+		local valid_players = {};
+					
+		for k, v in pairs (ents.FindInSphere(player:GetPos(), config.Get("talk_radius"):Get())) do
+			if v:IsPlayer() and v:GetFaith() == "Faith of the Winds" and !v.cwObserverMode then
+				table.insert(valid_players, v);
+			end
+		end
+		local ritualXP = 100 + (150 * math.min(#valid_players, 8))
+
+		if #valid_players < 2 then
+			player:HandleXP(ritualXP);
+		else
+			local xpPerPlayer = math.Round(ritualXP / #valid_players);
+			
+			for i = 1, #valid_players do
+				valid_players[i]:HandleXP(xpPerPlayer);
+			end
+		end
+		
+		Clockwork.chatBox:AddInTargetRadius(player, "me", "performs a ritual rite and scatters catalytic energy to the winds. The skies glisten with twilight as rays of light descend down from the heavens, empowering those standing nearby.", player:GetPos(), config.Get("talk_radius"):Get());
+
+	end;
+	function RITUAL:OnFail(player)
+	end;
+	function RITUAL:StartRitual(player)
+		if !util.TraceLine(util.GetPlayerTrace(player, player:GetUp())).HitSky then
+			Schema:EasyText(player, "peru", "You must be standing under the open sky to cast this ritual!")
+
+			return false
+		
+		end
+	end;
+	function RITUAL:EndRitual(player)
+	end;
+RITUAL:Register()
+
+RITUAL = cwRituals.rituals:New("featherfall");
+	RITUAL.name = "(T2) Featherfall";
+	RITUAL.description = "Perfect the balance between sky and ground, and you may walk upon the clouds, yet land like a feather. Performing this ritual will prevent you from taking fall damage - so long as you do not land in a body of water - for the next 30 minutes. Falling from great heights will temporarilly disable sprinting based on how much damage was prevented. Incurs 10 corruption.";
+	RITUAL.onerequiredbelief = {"to_tip_the_scales", "to_balance_the_scales"}; -- Tier II Faith of the Winds
+	
+	RITUAL.requirements = {"up_catalyst", "elysian_catalyst", "up_catalyst"};
+	RITUAL.corruptionCost = 10;
+	RITUAL.ritualTime = 10;
+	RITUAL.experience = 50;
+
+	function RITUAL:OnPerformed(player)
+		player:SetNetVar("featherfallActive", true);
+		local endtime = CurTime() + 1800
+		UpdateActiveRituals(player, "Featherfall", endtime);
+
+		timer.Create("featherfallTimer_"..player:EntIndex(), 1800, 1, function()
+			if IsValid(player) then
+				if player:GetNetVar("featherfallActive", false) then
+					player:SetNetVar("featherfallActive", false);
+					UpdateActiveRituals(player, "Featherfall", nil);
+					Clockwork.hint:Send(player, "The 'Featherfall' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+				end
+			end
+		end);
+	end;
+	function RITUAL:OnFail(player)
+	end;
+	function RITUAL:StartRitual(player)
+	end;
+	function RITUAL:EndRitual(player)
+	end;
+RITUAL:Register()
+
+RITUAL = cwRituals.rituals:New("hemor_rage");
+	RITUAL.name = "(T2) Hemor Rage";
+	RITUAL.description = "Cry out for blood and let the rivers run red! Performing this ritual upgrades your warcry for the next 20 minutes, causing a buildup of 40 'Bloodburst' upon those afflicted by it. Incurs 10 corruption.";
+	RITUAL.onerequiredbelief = {"to_tip_the_scales", "to_balance_the_scales"}; -- Tier II Faith of the Winds
+	
+	RITUAL.requirements = {"trinity_catalyst", "belphegor_catalyst", "elysian_catalyst"};
+	RITUAL.corruptionCost = 10;
+	RITUAL.ritualTime = 10;
+	RITUAL.experience = 50;
+
+	function RITUAL:OnPerformed(player)
+		player.hemorRageActive = true;
+		local endtime = CurTime() + 1200
+		UpdateActiveRituals(player, "Hemor Rage", endtime);
+
+		timer.Create("hemorRageTimer_"..player:EntIndex(), 1200, 1, function()
+			if IsValid(player) then
+				if player.hemorRageActive then
+					player.hemorRageActive = nil;
+					UpdateActiveRituals(player, "Hemor Rage", nil);
+
+					Clockwork.hint:Send(player, "The 'Hemor Rage' ritual has worn off...", 10, Color(175, 100, 100), true, true);
+				end
+			end
+		end);
+	end;
+	function RITUAL:OnFail(player)
+	end;
+	function RITUAL:StartRitual(player)
+	end;
+	function RITUAL:EndRitual(player)
+	end;
+RITUAL:Register()
+
+RITUAL = cwRituals.rituals:New("blood_sigil_stone_rite");
+	RITUAL.name = "(T2) Blood Sigil Stone Rite";
+	RITUAL.description = "Create a sigil of blood. Performing this ritual summons a Blood Sigil Stone item. Incurs 5 corruption.";
+	RITUAL.onerequiredbelief = {"to_tip_the_scales", "to_balance_the_scales"}; -- Tier III Shared Ritual
+	
+	RITUAL.requirements = {"trinity_catalyst", "xolotl_catalyst", "trinity_catalyst"};
+	RITUAL.result = {
+		["blood_sigil_stone"] = {amount = 1},
+	};
+	RITUAL.corruptionCost = 5; -- Corruption incurred from performing rituals.
+	RITUAL.ritualTime = 10; -- Time it takes for the ritual action bar to complete.
+	RITUAL.experience = 75; -- XP gained from performing the ritual.
+	
+	function RITUAL:OnPerformed(player)
+	end;
+	function RITUAL:OnFail(player)
+	end;
+	function RITUAL:StartRitual(player)
+	end;
+	function RITUAL:EndRitual(player)
+	end;
+RITUAL:Register()
+
+RITUAL = cwRituals.rituals:New("celestial_sigil_stone_rite");
+	RITUAL.name = "(T3) Celestial Sigil Stone Rite";
+	RITUAL.description = "Create a sigil of balance. Performing this ritual summons a Celestial Sigil Stone item. Incurs 5 corruption.";
+	RITUAL.onerequiredbelief = {"carried_by_the_winds"}; -- Tier III Shared Ritual
+	
+	RITUAL.requirements = {"light_catalyst", "purifying_stone", "belphegor_catalyst"};
+	RITUAL.result = {
+		["celestial_sigil_stone"] = {amount = 1},
+	};
+	RITUAL.corruptionCost = 5; -- Corruption incurred from performing rituals.
+	RITUAL.ritualTime = 10; -- Time it takes for the ritual action bar to complete.
+	RITUAL.experience = 75; -- XP gained from performing the ritual.
+	
+	function RITUAL:OnPerformed(player)
+	end;
+	function RITUAL:OnFail(player)
+	end;
+	function RITUAL:StartRitual(player)
 	end;
 	function RITUAL:EndRitual(player)
 	end;

@@ -250,6 +250,10 @@ function SWEP:Hitscan()
 		meleerange = attacktable["meleerange"] or 1;
 	end
 	
+	if self.Owner:HasBelief("wind_warrior") then
+		meleerange = meleerange * 1.1
+	end
+	
 	local tr = util.TraceLine( {
 		start = self.Owner:GetShootPos(),
 		endpos = self.Owner:GetShootPos() + ( self.Owner:GetAimVector() * (meleerange) / 10),

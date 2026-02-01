@@ -659,6 +659,10 @@ concommand.Add("begotten_raise", function(player)
 					if player:HasBelief("dexterity") then
 						actionTime = actionTime * 0.66;
 					end
+					
+					if player:HasBelief("sleight_of_hand") then
+						actionTime = actionTime * 0.75;
+					end
 
 					activeWeapon.nextFire = activeWeapon:GetNextPrimaryFire();
 					activeWeapon:SetNextPrimaryFire(curTime + 60);
@@ -1473,6 +1477,19 @@ function GM:GetFallDamage(player, velocity)
 		if player.GetCharmEquipped and player:GetCharmEquipped("boot_contortionist") then
 			damage = damage * 0.5;
 		end
+	end
+	
+	if (player:GetNetVar("featherfallActive", false) == true and !player.opponent) then
+		player:EmitSound("fall/fall.wav")
+		if player:GetNetVar("runningDisabled", false) == false and (damage > 30) then
+			player:SetNetVar("runningDisabled", true);
+			timer.Create("GroundedSprintTimer_"..tostring(player:EntIndex()), 0.2 + damage * 0.01, 1, function()
+				if IsValid(player) then
+					player:SetNetVar("runningDisabled", nil);
+				end 
+			end);
+		end
+		return 0
 	end
 
 	if (damage > 30) and !player:IsRagdolled() then

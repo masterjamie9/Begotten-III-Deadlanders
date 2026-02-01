@@ -847,12 +847,15 @@ local faithcolors = {
 	["SISTER"] = "lightsteelblue",
 	["YOUNG SON"] = "darkgrey",
 	["SATANISM"] = "crimson",
+	["PALE RIDER"] = "lightslateblue",
+	["ETERNAL HEAVENS"] = "teal"
 }
 
 local ringcolors = {
 	["LIGHT"] = "gold",
 	["DARK"] = "firebrick",
 	["FAMILY"] = "grey",
+	["WINDS"] = "white"
 }
 
 -- Called when the command has been run.
@@ -872,6 +875,7 @@ function COMMAND:OnRun(player, arguments)
 			local subfaith = player:GetSubfaith();
 			
 			faith_str = string.upper(string.gsub(subfaith, "Faith of the ", ""));
+			faith_str = string.upper(string.gsub(subfaith, "Path of the ", ""))
 			
 			local ringcolor = "ivory";
 			local color = "ivory";
@@ -1118,6 +1122,11 @@ local COMMAND = Clockwork.command:New("Warcry");
 			elseif player:GetNetVar("kinisgerOverride") == "Hillkeeper" then
 				warcry_beliefs = {}
 				player_has_belief = true;
+			elseif player:GetNetVar("kinisgerOverride") == "Deadlander" then
+				faith = "Faith of the Winds";
+				sanity_debuff = -10;
+				warcry_beliefs = {};
+				player_has_belief = true;
 			else
 				sanity_debuff = -35;
 				warcry_beliefs = {"sadism"};
@@ -1131,6 +1140,10 @@ local COMMAND = Clockwork.command:New("Warcry");
 					sanity_debuff = -10;
 					warcry_beliefs = {"father", "mother", "old_son", "young_son", "sister"};
 				end
+			elseif faith == "Faith of the Winds" then
+				sanity_debuff = -10;
+				warcry_beliefs = {"path_of_the_pale_rider", "path_of_the_eternal_heavens"};
+				player_has_belief = true;
 			elseif faith == "Faith of the Dark" then
 				sanity_debuff = -35;
 				warcry_beliefs = {"sadism"};
@@ -1308,6 +1321,51 @@ local COMMAND = Clockwork.command:New("Warcry");
 										v:Disorient(2.5);
 									end
 								end
+							elseif faith == "Faith of the Winds" then
+								if player.hemorRageActive then
+									if !v.bloodBurst then
+										v.bloodBurst = {}
+									end
+									local attackerKey = player:GetNetVar("Key")	
+									local bloodBurstValue = v.bloodBurst[attackerKey] or 0
+
+									--if (bloodBurstValue == nil) then
+									--	bloodBurstValue = 0
+									--end
+									newBloodburst = math.Clamp(bloodBurstValue + 30, 0, 125);
+									v.bloodBurst[attackerKey] = newBloodburst
+									v:SetNetVar("bloodburst_"..attackerKey, newBloodburst)		
+								end
+
+								if faction == vFaction then
+									immune = true;
+								elseif v.banners then
+									for k2, v2 in pairs(v.banners) do
+										if v2 == "glazic" then
+											if vFaction == "Gatekeeper" or vFaction == "Pope Adyssa's Gatekeepers" or vFaction == "Hillkeeper" or vFaction == "Holy Hierarchy" then
+												immune = true;
+											
+												break;
+											end
+										end
+									end
+								end
+
+								if !immune then
+									if Schema.towerSafeZoneEnabled or !v:InTower() then
+										-- Cooldown for getting sanity debuff.
+										if !v.lastWarCried or v.lastWarCried < curTime - 60 then
+											v.lastWarCried = curTime;
+											
+											if v:HasBelief("prudence") then
+												v:HandleSanity(math.Round(sanity_debuff / 2));
+											else
+												v:HandleSanity(sanity_debuff);
+											end
+										end
+									end
+									v:Disorient(1);
+								end
 							--[[elseif faith == "Faith of the Light" then
 								if vFaction == "Hillkeeper" or vFaction == "Gatekeeper" or vFaction == "Holy Hierarchy" then
 									immune = true
@@ -1365,6 +1423,16 @@ local COMMAND = Clockwork.command:New("Warcry");
 						player:EmitSound("warcries/grock_warcry"..math.random(1, 11)..".ogg", 100, math.random(60, 75));
 						Clockwork.chatBox:AddInTargetRadius(player, "me", "barbarically shouts out!", playerPos, radius);
 					end
+				elseif (faction == "Deadlander" and faith ~= "Faith of the Dark") or faith == "Faith of the Winds" then
+					local warcryText = "screams in rage!"
+					local warcryPitch = math.random(85, 95)
+
+					if player.hemorRageActive then
+						warcryText = "screams in demand for blood!"
+						warcryPitch = math.random(70, 80)
+					end
+					player:EmitSound("deadlandervoice/yell_0" .. math.random(1,14) .. ".ogg", 100, warcryPitch);
+					Clockwork.chatBox:AddInTargetRadius(player, "me", warcryText, playerPos, radius);
 				-- Kinisgers can FotF warcry if not disguised as a reaver.
 				elseif faith == "Faith of the Family" then
 					local warcryText = "lets out a feral warcry!"

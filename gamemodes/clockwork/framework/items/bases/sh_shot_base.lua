@@ -76,6 +76,10 @@ local ITEM = item.New(nil, true);
 				consumeTime = math.Round(consumeTime * 0.67);
 			end
 			
+			if player:HasBelief("sleight_of_hand") then
+				consumeTime = math.Round(consumeTime * 0.85);
+			end
+			
 			if player.holyPowderkegActive then
 				consumeTime = math.Round(consumeTime * 0.33);
 			end

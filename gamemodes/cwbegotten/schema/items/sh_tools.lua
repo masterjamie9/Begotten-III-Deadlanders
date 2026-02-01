@@ -453,7 +453,11 @@ local ITEM = Clockwork.item:New();
 			local tieTime = 6;
 			
 			if player.HasBelief and player:HasBelief("dexterity") then
-				tieTime = 4;
+				if player:HasBelief("sleight_of_hand") then
+					tieTime = 3;
+				else
+					tieTime = 4;
+				end
 			end
 			
 			if (target) then
@@ -1007,6 +1011,79 @@ local ITEM = Clockwork.item:New();
 						end
 						
 						player:EmitSound("warhorns/gore_warhorn_retreat.mp3", 100, math.random(88, 108));
+					end;
+
+				elseif faction == "Deadlander" then
+					if (name == "Sound Attack") then
+						for k, v in pairs(ents.FindInSphere(playerPos, radius)) do
+							if v:IsPlayer() then
+								local vFaction = v:GetFaction();
+								
+								if vFaction == faction then
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, signalling an attack!");
+								else
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, but its signal is unknown to you!");
+								end
+							end
+						end
+						
+						player:EmitSound("deadlanderwarhorn/attack.wav", 100, math.random(88, 108));
+					elseif (name == "Sound Rally") then
+						for k, v in pairs(ents.FindInSphere(playerPos, radius)) do
+							if v:IsPlayer() then
+								local vFaction = v:GetFaction();
+								
+								if vFaction == faction then
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, signalling a rally!");
+								else
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, but its signal is unknown to you!");
+								end
+							end
+						end
+						
+						player:EmitSound("deadlanderwarhorn/rally.wav", 100, math.random(88, 108));
+					elseif (name == "Sound Rally - Marching Formation") then
+						for k, v in pairs(ents.FindInSphere(playerPos, radius)) do
+							if v:IsPlayer() then
+								local vFaction = v:GetFaction();
+								
+								if vFaction == faction then
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, signalling a rally in a marching formation!");
+								else
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, but its signal is unknown to you!");
+								end
+							end
+						end
+						
+						player:EmitSound("deadlanderwarhorn/rally_marching.wav", 100, math.random(95, 118));
+					elseif (name == "Sound Rally - Shieldwall") then
+						for k, v in pairs(ents.FindInSphere(playerPos, radius)) do
+							if v:IsPlayer() then
+								local vFaction = v:GetFaction();
+								
+								if vFaction == faction then
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, signalling a rally in a shieldwall formation!");
+								else
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, but its signal is unknown to you!");
+								end
+							end
+						end
+						
+						player:EmitSound("deadlanderwarhorn/rally_shieldwall.wav", 100, math.random(77, 86));
+					elseif (name == "Sound Retreat") then
+						for k, v in pairs(ents.FindInSphere(playerPos, radius)) do
+							if v:IsPlayer() then
+								local vFaction = v:GetFaction();
+								
+								if vFaction == faction then
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, signalling a retreat!");
+								else
+									Clockwork.chatBox:Add(v, nil, "localevent", player:Name().." blows their warhorn, but its signal is unknown to you!");
+								end
+							end
+						end
+						
+						player:EmitSound("deadlanderwarhorn/retreat.wav", 100, math.random(88, 108));
 					end;
  
 				else

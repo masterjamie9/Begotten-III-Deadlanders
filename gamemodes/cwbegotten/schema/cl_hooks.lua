@@ -1039,6 +1039,27 @@ function Schema:DrawTargetPlayerSubfaction(target, alpha, x, y)
 						subfactionText = "A member of the Smog City pirates.";
 					end
 				end
+			elseif Clockwork.Client:GetFaction() == "Deadlander" and target:GetFaction() == "Deadlander" then
+				if target:GetModel() == "models/begotten/prelude_deadlanders/khanarmor_male.mdl" then
+					subfactionText = "Your divine leader, the glorious Dread Khan!";
+					textColor = Color(34, 152, 182);
+				end
+			elseif playerFaction == "Deadlander" then
+				if targetSubfaction == "Raiders" then
+					if playerSubfaction == targetSubfaction then
+						subfactionText = "A fellow raider in the Khan's horde.";
+						textColor = Color(0, 255, 0, 255);
+					else
+						subfactionText = "A raider in the Khan's horde.";
+					end
+				elseif targetSubfaction == "Tuners" then
+					if playerSubfaction == targetSubfaction then
+						subfactionText = "A fellow tuner in the Khan's horde.";
+						textColor = Color(0, 255, 0, 255);
+					else
+						subfactionText = "A tuner in the Khan's horde.";
+					end
+				end
 			elseif playerFaction ~= "Wanderer" and playerFaction == targetFaction then
 				if playerSubfaction == targetSubfaction then
 					subfactionText = "A fellow member of the "..targetSubfaction..".";
@@ -1187,6 +1208,43 @@ function Schema:DrawTargetSanityLevel(target, alpha, x, y)
 		
 	if sanityText then
 		return Clockwork.kernel:DrawInfo(Clockwork.kernel:ParseData(sanityText), x, y, textColor, alpha);
+	end
+end
+
+-- Called when the target's bloodburst level should be drawn.
+function Schema:DrawTargetBloodburstLevel(target, alpha, x, y)
+	if target:Alive() then
+		--local player = Clockwork.entity:GetPlayer(entity)
+		local attackerKey = Clockwork.Client:GetNetVar("Key")
+		local targetBloodburst = target:GetNetVar("bloodburst_"..attackerKey, 0)
+		local playerHasBelief = (Clockwork.Client:HasBelief("the_great_hunt") or Clockwork.Client:HasBelief("the_baleful_star"))
+	
+		if(target:GetSharedVar("isThrall")) or !playerHasBelief then return; end
+		
+		local bloodburstText
+		local textColor
+	
+		if targetBloodburst >= 100 then
+			bloodburstText = "This one's arteries are about to burst like a balloon!"
+			textColor = Color(255, 0, 0, 255);
+		elseif targetBloodburst < 100 and targetBloodburst > 75 then
+			bloodburstText = "This one's blood vessels are swollen and ready to pop!"
+			textColor = Color(255, 60, 60, 255);
+		elseif targetBloodburst <= 75 and targetBloodburst > 50 then
+			bloodburstText = "This one's blood is beginning to boil and bubble."
+			textColor = Color(255, 100, 100, 255);
+		elseif targetBloodburst <= 50 and targetBloodburst > 25 then
+			bloodburstText = "This one's bloodpressure has risen up."
+			textColor = Color(255, 140, 140, 255);
+		elseif targetBloodburst <= 25 then
+			bloodburstText = "This one's blood is unafflicted."
+			textColor = Color(200, 200, 200, 255);
+		end
+	
+		
+		if bloodburstText then
+			return Clockwork.kernel:DrawInfo(Clockwork.kernel:ParseData(bloodburstText), x, y, textColor, alpha);
+		end
 	end
 end
 
@@ -1415,6 +1473,8 @@ function Schema:PlayerDoesRecognisePlayer(target, status, isAccurate, realValue)
 	elseif targetFaction == "Goreic Warrior" and playerFaction == "Goreic Warrior" then
 		return true;
 	elseif targetFaction == "Smog City Pirate" and playerFaction == "Smog City Pirate" then
+		return true;
+	elseif targetFaction == "Deadlander" and playerFaction == "Deadlander" then
 		return true;
 	elseif targetFaction == "The Third Inquisition" and playerFaction == "The Third Inquisition" then
 		return true;
@@ -3241,6 +3301,14 @@ function Schema:ModifyItemMarkupTooltip(category, maximumWeight, weight, conditi
 
 			if table.HasValue(itemTable.attributes, "miracle_doctor") then
 				frame:AddText("Miracle Doctor: Any healing items that would normally cure only bleeding will now also cure gashes.", Color(110, 30, 30), nil, 0.9);
+			end
+
+			if table.HasValue(itemTable.attributes, "bloodletter") then
+				frame:AddText("Bloodletter: 25% increase to inflicting 'Bloodburst'.", Color(110, 30, 30), nil, 0.9);
+			end
+
+			if table.HasValue(itemTable.attributes, "windwalker") then
+				frame:AddText("Wind Walker: Has a 15% chance of completely avoiding damage when taking damage from any source, stackable with the 'Lucky' belief and 'Distorted Ring' charm.", Color(110, 30, 30), nil, 0.9);
 			end
 		end
 		

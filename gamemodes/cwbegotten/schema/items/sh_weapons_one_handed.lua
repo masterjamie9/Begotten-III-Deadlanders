@@ -1059,3 +1059,49 @@ local ITEM = Clockwork.item:New("weapon_base");
 	ITEM.components = {breakdownType = "meltdown", items = {"iron_chunks"}};
 	ITEM.attributes = {"versatile"};
 ITEM:Register();
+
+local ITEM = Clockwork.item:New("weapon_base");
+	ITEM.name = "Deadlander Butterfly Sword";
+	ITEM.model = "models/props/begotten/melee/butterfly_sword.mdl";
+	ITEM.weight = 1;
+	ITEM.uniqueID = "begotten_1h_butterflysword";
+	ITEM.category = "Melee";
+	ITEM.description = "A short broadsword made of steel. The blade's hilt carries engravings of Deadlander design.";
+	ITEM.iconoverride = "materials/begotten/ui/itemicons/butterfly_sword.png"
+	ITEM.meleeWeapon = true;
+	ITEM.isAttachment = true;
+	ITEM.attachmentBone = "ValveBiped.Bip01_L_Thigh";
+	ITEM.attachmentOffsetAngles = Angle(92.49, 255.58, 6.96);
+	ITEM.attachmentOffsetVector = Vector(3.54, 1.41, 4.24);
+	ITEM.attachmentBoneOffhand = "ValveBiped.Bip01_L_Thigh";
+	ITEM.attachmentOffsetAnglesOffhand = Angle(92.49, 255.58, 6.96);
+	ITEM.attachmentOffsetVectorOffhand = Vector(4.24, 1.41, 4.24);
+	ITEM.canUseOffhand = true;
+	ITEM.canUseShields = true;
+	
+	ITEM.components = {breakdownType = "meltdown", items = {"steel_chunks", "steel_chunks"}}; -- use "breakdown" for other type
+	ITEM.itemSpawnerInfo = {category = "Melee", rarity = 800, supercrateOnly = true, supercrateItems = {["begotten_1h_butterflysword"] = {min = 1, max = 1}}}; -- Always drop in pairs.
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("weapon_base");
+	ITEM.name = "Deadlander Iron Jian";
+	ITEM.model = "models/begotten/weapons/goose/hanjian.mdl";	
+	ITEM.weight = 1.1;
+	ITEM.uniqueID = "begotten_1h_ironjian";
+	ITEM.category = "Melee";
+	ITEM.description = "A crudely made yet robust iron sword, equally suited to slashing or stabbing.";
+	ITEM.iconoverride = "materials/begotten/ui/itemicons/iron_jian.png"
+	ITEM.meleeWeapon = true;
+	ITEM.isAttachment = true;
+	ITEM.attachmentBone = "ValveBiped.Bip01_L_Thigh";
+	ITEM.attachmentOffsetAngles = Angle(14.92, 360, 202.87);
+	ITEM.attachmentOffsetVector = Vector(2.12, 5.66, -3.54);
+	ITEM.attachmentBoneOffhand = "ValveBiped.Bip01_R_Thigh";
+	ITEM.attachmentOffsetAnglesOffhand = Angle(-14.92, 360, 202.87);
+	ITEM.attachmentOffsetVectorOffhand = Vector(-2.12, 5.66, -3.54);
+	ITEM.canUseOffhand = true;
+	ITEM.canUseShields = true;
+	
+	ITEM.components = {breakdownType = "meltdown", items = {"iron_chunks", "iron_chunks", "wood"}}; -- use "breakdown" for other type
+	--ITEM.itemSpawnerInfo = {category = "Melee", rarity = 4500, bNoSupercrate = true};
+ITEM:Register();

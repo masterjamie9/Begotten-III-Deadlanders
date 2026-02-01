@@ -95,6 +95,11 @@ function cwMedicalSystem:PlayerThink(player, curTime, infoTable, alive, initiali
 								if injuryTable.causesBleeding then
 									bloodLoss = bloodLoss + bloodLossPerLimb * 0.5;
 								end
+								
+								if injuryTable.causesHeavyBleeding then
+									bloodLoss = bloodLoss + bloodLossPerLimb * 15;
+								end
+								
 							end
 						end
 						

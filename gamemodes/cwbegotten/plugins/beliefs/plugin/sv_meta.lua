@@ -40,6 +40,8 @@ function playerMeta:HandleXP(amount, bIgnoreModifiers)
 			
 			if subfaction == "Auxiliary" or subfaction == "Rekh-khet-sa" or subfaction == "Servus" then
 				newAmount = newAmount + (amount * 0.25);
+			elseif subfaction == "Tuners" then
+				newAmount = newAmount + (amount * 0.33);
 			elseif subfaction == "Inquisition" then
 				newAmount = newAmount + (amount * 0.5);
 			elseif subfaction == "Low Ministry" then

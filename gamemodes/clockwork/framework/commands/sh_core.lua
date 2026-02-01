@@ -834,8 +834,13 @@ local COMMAND = Clockwork.command:New("CharGetUp");
 			if (hook.Run("PlayerCanGetUp", player)) then
 				local get_up_time = 5;
 				
-				if cwBeliefs and player:HasBelief("dexterity") then
-					get_up_time = get_up_time * 0.67;
+				if cwBeliefs then
+					if player:HasBelief("dexterity") then
+						get_up_time = get_up_time * 0.67;
+					end
+					if player:HasBelief("sleight_of_hand") then
+						get_up_time = get_up_time * 0.75;
+					end
 				end
 				
 				Clockwork.player:SetUnragdollTime(player, get_up_time);

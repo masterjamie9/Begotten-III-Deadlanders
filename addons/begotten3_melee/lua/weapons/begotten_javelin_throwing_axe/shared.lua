@@ -118,11 +118,18 @@ function SWEP:FireJavelin()
 		javelin:Activate()
 
 		local phys = javelin:GetPhysicsObject()
-		
-		if owner.GetCharmEquipped and owner:GetCharmEquipped("hurlers_talisman") then
-			phys:SetVelocity(owner:GetAimVector() * 1380);
+		if owner.HasBelief and (owner:HasBelief("bolt_thrower_dark") or owner:HasBelief("bolt_thrower_heavens")) then
+			if owner.GetCharmEquipped and owner:GetCharmEquipped("hurlers_talisman") then
+				phys:SetVelocity(owner:GetAimVector() * 1700);
+			else
+				phys:SetVelocity(owner:GetAimVector() * 1380);
+			end
 		else
-			phys:SetVelocity(owner:GetAimVector() * 1000);
+			if owner.GetCharmEquipped and owner:GetCharmEquipped("hurlers_talisman") then
+				phys:SetVelocity(owner:GetAimVector() * 1380);
+			else
+				phys:SetVelocity(owner:GetAimVector() * 1000);
+			end
 		end
 	end
 	

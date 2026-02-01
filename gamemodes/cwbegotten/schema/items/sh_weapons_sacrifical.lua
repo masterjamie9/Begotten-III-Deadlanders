@@ -236,6 +236,31 @@ local ITEM = Clockwork.item:New("weapon_base");
 ITEM:Register();
 
 local ITEM = Clockwork.item:New("weapon_base");
+	ITEM.name = "Celestial Soulslayer";
+	ITEM.model = "models/props/begotten/melee/celestial_soulslayer.mdl";
+	ITEM.weight = 7.5;
+	ITEM.uniqueID = "begotten_2h_great_celestialsoulslayer";
+	ITEM.category = "Melee";
+	ITEM.description = "A massive, celestial steel greataxe engraved in Deadlander runes. It is said that a cut from this axe is capable of severing it's victim's soul from the cycle of reincarnation.";
+	ITEM.iconoverride = "materials/begotten/ui/itemicons/celestial_soulslayer.png"
+	ITEM.meleeWeapon = true;
+	ITEM.isAttachment = true;
+	ITEM.isSacrifical = true;
+	ITEM.attachmentBone = "ValveBiped.Bip01_Spine2";
+ITEM.attachmentOffsetAngles = Angle(0.99, 339.12, 357.16);
+	ITEM.attachmentOffsetVector = Vector(7.78, 2.83, -24.04);
+	
+	ITEM.itemSpawnerInfo = {category = "Melee", rarity = 2500, supercrateOnly = true};
+
+	ITEM.attributes = {"splinter"};
+	ITEM.components = {breakdownType = "meltdown", items = {"fine_steel_chunks", "fine_steel_chunks", "fine_steel_chunks", "fine_steel_chunks"}}; -- use "breakdown" for other type
+	ITEM.requiredbeliefs = {"strength"};
+	ITEM.onerequiredbelief = {"to_tip_the_scales", "to_balance_the_scales"};
+	ITEM.requiredFaiths = {"Faith of the Winds"};
+	ITEM.kinisgerOverride = true;
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("weapon_base");
 	ITEM.name = "Ordained Gorefeller";
 	ITEM.model = "models/props/begotten/melee/ordained_gorefeller.mdl";
 	ITEM.weight = 7.5;

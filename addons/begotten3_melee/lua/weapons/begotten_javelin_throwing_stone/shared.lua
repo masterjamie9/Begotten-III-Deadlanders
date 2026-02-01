@@ -126,6 +126,12 @@ function SWEP:FireJavelin()
 			else
 				phys:SetVelocity(owner:GetAimVector() * 1500);
 			end
+		elseif owner.HasBelief and (owner:HasBelief("bolt_thrower_dark") or owner:HasBelief("bolt_thrower_heavens")) then
+			if owner.GetCharmEquipped and owner:GetCharmEquipped("hurlers_talisman") then
+				phys:SetVelocity(owner:GetAimVector() * 2000);
+			else
+				phys:SetVelocity(owner:GetAimVector() * 1700);
+			end
 		else
 			if owner.GetCharmEquipped and owner:GetCharmEquipped("hurlers_talisman") then
 				phys:SetVelocity(owner:GetAimVector() * 1700);

@@ -201,6 +201,13 @@ function cwDueling:PlayerExitedDuel(player)
 		player:SetLocalVar("Hatred", player:GetCharacterData("Hatred"));
 	end
 	
+	if player.bloodBurst then
+		for k,v in pairs(player.bloodBurst) do
+			player:SetNetVar("bloodburst_"..k, nil)
+		end
+		player.bloodBurst = nil;
+	end
+	
 	player.opponent = nil;
 	
 	netstream.Start(player, "SetPlayerDueling", false);

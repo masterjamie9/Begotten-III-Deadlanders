@@ -3614,6 +3614,108 @@ AttackTables.HatchetAttackTable = {
 	["punchstrength"] = Angle(0,1,0),
 };
 
+-- Deadlander
+
+AttackTables.CelestialSoulslayerAttackTable = {
+	["primarydamage"] = 100,
+	["dmgtype"] = 4,
+	["attacktype"] = "reg_swing",
+	["canaltattack"] = false,
+	["altattackdamagemodifier"] = nil,
+	["altattackpoisedamagemodifier"] = nil,
+	["armorpiercing"] = 45,
+	["altarmorpiercing"] = nil,
+	["poisedamage"] = 45,
+	["stabilitydamage"] = 40,
+	["takeammo"] = 15,
+	["delay"] = 2.4,
+	["striketime"] = 0.95,
+	["meleearc"] = 55,
+	["meleerange"] = 1100,
+	["punchstrength"] = Angle(0,7,0),
+};
+
+AttackTables.SwordstaffAttackTable = {
+	["primarydamage"] = 70,
+	["dmgtype"] = 4,
+	["attacktype"] = "reg_swing",
+	["canaltattack"] = true,
+	["altattackdamagemodifier"] = 0.75,
+	["altattackpoisedamagemodifier"] = 0.1,
+	["altmeleearc"] = 15,
+	["armorpiercing"] = 26,
+	["altarmorpiercing"] = 41,
+	["poisedamage"] = 35,
+	["stabilitydamage"] = 0,
+	["takeammo"] = 6,
+	["delay"] = 1.4,
+	["striketime"] = 0.45,
+	["meleearc"] = 60,
+	["meleerange"] = 1125,
+	["punchstrength"] = Angle(1,3,1),
+};
+
+
+AttackTables.SteelLongJianAttackTable = {
+	["primarydamage"] = 70,
+	["dmgtype"] = 4,
+	["attacktype"] = "reg_swing",
+	["canaltattack"] = true,
+	["altattackdamagemodifier"] = 0.86,
+	["altattackpoisedamagemodifier"] = 0.25,
+	["altmeleearc"] = 15,
+	["armorpiercing"] = 18,
+	["altarmorpiercing"] = 39,
+	["poisedamage"] = 25,
+	["stabilitydamage"] = 0,
+	["takeammo"] = 5,
+	["delay"] = 1.15,
+	["striketime"] = 0.6,
+	["meleearc"] = 50,
+	["meleerange"] = 1070,
+	["punchstrength"] = Angle(0,1,0),
+};
+
+AttackTables.ButterflySwordAttackTable = {
+	["primarydamage"] = 42,
+	["dmgtype"] = 4,
+	["attacktype"] = "reg_swing",
+	["canaltattack"] = true,
+	["altattackdamagemodifier"] = 0.65,
+	["altattackpoisedamagemodifier"] = 0.1,
+	["altmeleearc"] = 15,
+	["armorpiercing"] = 25,
+	["altarmorpiercing"] = 30,
+	["poisedamage"] = 15,
+	["stabilitydamage"] = 0,
+	["takeammo"] = 3,
+	["delay"] = 0.75,
+	["striketime"] = 0.3,
+	["meleearc"] = 35,
+	["meleerange"] = 625,
+	["punchstrength"] = Angle(0,1,0),
+};
+
+AttackTables.IronJianAttackTable = {
+	["primarydamage"] = 43,
+	["dmgtype"] = 4,
+	["attacktype"] = "reg_swing",
+	["canaltattack"] = true,
+	["altattackdamagemodifier"] = 0.75,
+	["altattackpoisedamagemodifier"] = 0.1,
+	["altmeleearc"] = 15,
+	["armorpiercing"] = 15,
+	["altarmorpiercing"] = 33,
+	["poisedamage"] = 15,
+	["stabilitydamage"] = 0,
+	["takeammo"] = 3,
+	["delay"] = 0.9,
+	["striketime"] = 0.35,
+	["meleearc"] = 40,
+	["meleerange"] = 795,
+	["punchstrength"] = Angle(0,1,0),
+};
+
 -- Admin
 
 AttackTables.DemonClawsAttackTable = {
@@ -3874,6 +3976,11 @@ AddTable("DemonKnightSwordAttackTable", AttackTables.DemonKnightSwordAttackTable
 AddTable("DemonKnightSwordAttackTableFire", AttackTables.DemonKnightSwordAttackTableFire)
 AddTable("DemonKnightSwordAttackTableIce", AttackTables.DemonKnightSwordAttackTableIce)
 AddTable("GrocklingSwordAttackTable", AttackTables.GrocklingSwordAttackTable) 
+AddTable("SwordstaffAttackTable", AttackTables.SwordstaffAttackTable) 
+AddTable("CelestialSoulslayerAttackTable", AttackTables.CelestialSoulslayerAttackTable)
+AddTable("SteelLongJianAttackTable", AttackTables.SteelLongJianAttackTable)
+AddTable("ButterflySwordAttackTable", AttackTables.ButterflySwordAttackTable)
+AddTable("IronJianAttackTable", AttackTables.IronJianAttackTable)
 
 -- Block Stat Tables
 
@@ -6459,6 +6566,98 @@ BlockTables.GrocklingSwordBlockTable = {
 	["candeflect"] = true,
 };
 
+-- Deadlander
+
+BlockTables.CelestialSoulslayerBlockTable = {
+	["guardblockamount"] = 10,
+	["specialeffect"] = false,
+	["blockeffect"] = "MetalSpark",
+	["blockeffectforward"] = 25,
+	["blockeffectpos"] = (Vector(0, -10, 65)),
+	["blockcone"] = 180,
+	["blockdamagetypes"] = {DMG_SLASH, DMG_CLUB, DMG_VEHICLE},
+	["partialbulletblock"] = false,
+	["poiseresistance"] = 25,
+	["raisespeed"] = 2,
+	["instantraise"] = false,
+	["parrydifficulty"] = 0.2,
+	["parrytakestamina"] = 30,
+	["canparry"] = true,
+	["candeflect"] = true,
+};
+
+BlockTables.SwordstaffBlockTable = {
+	["guardblockamount"] = 10,
+	["specialeffect"] = false,
+	["blockeffect"] = "GlassImpact",
+	["blockeffectforward"] = 25,
+	["blockeffectpos"] = (Vector(0, 0, 50)),
+	["blockcone"] = 180,
+	["blockdamagetypes"] = {DMG_SLASH, DMG_CLUB, DMG_VEHICLE},
+	["partialbulletblock"] = false,
+	["poiseresistance"] = 15,
+	["raisespeed"] = 1.75,
+	["instantraise"] = false,
+	["parrydifficulty"] = 0.2,
+	["parrytakestamina"] = 15,
+	["canparry"] = true,
+	["candeflect"] = true,
+};
+
+BlockTables.SteelLongJianBlockTable = {
+	["guardblockamount"] = 10,
+	["specialeffect"] = false,
+	["blockeffect"] = "MetalSpark",
+	["blockeffectforward"] = 25,
+	["blockeffectpos"] = (Vector(0, -10, 65)),
+	["blockcone"] = 180,
+	["blockdamagetypes"] = {DMG_SLASH, DMG_CLUB, DMG_VEHICLE},
+	["partialbulletblock"] = false,
+	["poiseresistance"] = 25,
+	["raisespeed"] = 1.75,
+	["instantraise"] = false,
+	["parrydifficulty"] = 0.25,
+	["parrytakestamina"] = 15,
+	["canparry"] = true,
+	["candeflect"] = true,
+};
+
+BlockTables.ButterflySwordBlockTable = {
+	["guardblockamount"] = 10,
+	["specialeffect"] = false,
+	["blockeffect"] = "MetalSpark",
+	["blockeffectforward"] = 15,
+	["blockeffectpos"] = (Vector(0, 0, 65)),
+	["blockcone"] = 180,
+	["blockdamagetypes"] = {DMG_SLASH, DMG_CLUB, DMG_VEHICLE},
+	["partialbulletblock"] = false,
+	["poiseresistance"] = 10,
+	["raisespeed"] = 0.75,
+	["instantraise"] = false,
+	["parrydifficulty"] = 0.2,
+	["parrytakestamina"] = 15,
+	["canparry"] = true,
+	["candeflect"] = true,
+};
+
+BlockTables.IronJianBlockTable = {
+	["guardblockamount"] = 10,
+	["specialeffect"] = false,
+	["blockeffect"] = "MetalSpark",
+	["blockeffectforward"] = 15,
+	["blockeffectpos"] = (Vector(0, 0, 65)),
+	["blockcone"] = 180,
+	["blockdamagetypes"] = {DMG_SLASH, DMG_CLUB, DMG_VEHICLE},
+	["partialbulletblock"] = false,
+	["poiseresistance"] = 13,
+	["raisespeed"] = 0.75,
+	["instantraise"] = false,
+	["parrydifficulty"] = 0.2,
+	["parrytakestamina"] = 15,
+	["canparry"] = true,
+	["candeflect"] = true,
+};
+
 AddTable("DefaultBlockTable", BlockTables.DefaultBlockTable) 
 AddTable("AdminTwistedMacheteBlockTable", BlockTables.AdminTwistedMacheteBlockTable)
 AddTable("FistBlockTable", BlockTables.FistBlockTable) 
@@ -6602,6 +6801,11 @@ AddTable("OrdainedGorefellerBlockTable", BlockTables.OrdainedGorefellerBlockTabl
 AddTable("GunAxeBlockTable", BlockTables.GunAxeBlockTable) 
 AddTable("DemonKnightSwordBlockTable", BlockTables.DemonKnightSwordBlockTable)
 AddTable("GrocklingSwordBlockTable", BlockTables.GrocklingSwordBlockTable)
+AddTable("CelestialSoulslayerBlockTable", BlockTables.CelestialSoulslayerBlockTable)
+AddTable("SwordstaffBlockTable", BlockTables.SwordstaffBlockTable)
+AddTable("SteelLongJianBlockTable", BlockTables.SteelLongJianBlockTable)  
+AddTable("ButterflySwordBlockTable", BlockTables.ButterflySwordBlockTable)
+AddTable("IronJianBlockTable", BlockTables.IronJianBlockTable)
 
 -- Shield Stat Tables
 
@@ -8274,6 +8478,118 @@ BlockTables.shieldhathood5 = { -- Clan Gore Shield
 	},
 };
 
+BlockTables.deadlandershield = { -- Deadlander Shield
+    ["name"] = "Deadlander Shield",
+    ["guardblockamount"] = 5,
+    ["damagereduction"] = 0.8,
+    ["specialeffect"] = false,
+    ["blockeffect"] = "MetalSpark",
+    ["blockeffectforward"] = 30,
+    ["blockeffectpos"] = (Vector(0, -10, 45)),
+    ["blockcone"] = 200,
+    ["blockdamagetypes"] = {DMG_SLASH, DMG_CLUB, DMG_VEHICLE, DMG_BULLET, DMG_BUCKSHOT},
+    ["blockanim"] = "a_sword_shield_block_pursuer",
+    ["blocksoundtable"] = "MetalShieldSoundTable",
+    ["partialbulletblock"] = false,
+    ["poiseresistance"] = 35,
+    ["raisespeed"] = 1.75,
+    ["instantraise"] = false,
+    ["parrydifficulty"] = 0.2,
+    ["parrytakestamina"] = 30,
+    ["canparry"] = true,
+    ["candeflect"] = true,
+    ["ironsights"] = {
+        ["models/v_onehandedbegotten.mdl"] = {pos = Vector(9.56, -8.242, 6.199), ang = Vector(-1.407, -5.628, -3.518)},
+        ["models/v_begottenknife.mdl"] = {pos = Vector(2.96, -5.428, 3.72), ang = Vector(-5.628, -16.181, -4.926)},
+        ["models/weapons/cstrike/c_knife_t.mdl"] = {pos = Vector(4.88, -9.447, 4.039), ang = Vector(0, 1.406, -14.775)},
+    },
+    ["ViewModelBoneMods"] = {
+        ["models/v_onehandedbegotten.mdl"] = {
+            ["ValveBiped.Bip01_L_UpperArm"] = { scale = Vector(1, 1, 1), pos = Vector(0, -15, 0), angle = Angle(0, 0, 0) },
+        },
+        ["models/v_begottenknife.mdl"] = {
+            ["ValveBiped.Bip01_L_UpperArm"] = { scale = Vector(1, 1, 1), pos = Vector(6.852, -9.815, -3.149), angle = Angle(0, 0, 0) }
+        },
+    },
+    ["VElements"] = {
+        ["models/v_onehandedbegotten.mdl"] = {
+            ["shield6"] = { type = "Model", model = "models/begotten_prelude/shields/griffin2.mdl", bone = "ValveBiped.Bip01_L_Hand", rel = "", pos = Vector(-2, -14.027, 1.5), angle = Angle(-146.105, 71.299, 72), size = Vector(.9, .9, .9), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} },
+        },
+        ["models/v_begottenknife.mdl"] = {
+            ["shield6"] = { type = "Model", model = "models/begotten_prelude/shields/griffin2.mdl", bone = "ValveBiped.Bip01_L_Hand", rel = "", pos = Vector(2.675, -5.792, 3.831), angle = Angle(178.83, -132.079, -25.235), size = Vector(1, 1, 1), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} }
+        },
+        ["models/weapons/cstrike/c_knife_t.mdl"] = {
+            ["shield6"] = { type = "Model", model = "models/begotten_prelude/shields/griffin2.mdl", bone = "ValveBiped.Bip01_L_Forearm", rel = "", pos = Vector(17.064, -0.519, -0.519), angle = Angle(20, -30, -115), size = Vector(.9, .9, .9), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} }
+        },
+    },
+    ["WElements"] = {
+        ["shield6"] = { type = "Model", model = "models/begotten_prelude/shields/griffin2.mdl", bone = "ValveBiped.Bip01_L_Hand", rel = "", pos = Vector(1.5, 1.5, 0), angle = Angle(-15, -33, -87.662), size = Vector(1.05, 1.05, 1.05), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} }
+    },
+};
+
+BlockTables.deadlanderrattanshield = { -- Deadlander Rattan Shield
+	["name"] = "Deadlander Rattan Shield",
+	["guardblockamount"] = 5,
+	["damagereduction"] = 0.9,
+	["specialeffect"] = false,
+	["blockeffect"] = "GlassImpact",
+	["blockeffectforward"] = 25,
+	["blockeffectpos"] = (Vector(0, -10, 50)),
+	["blockcone"] = 200,
+	["blockdamagetypes"] = {DMG_SLASH, DMG_CLUB, DMG_VEHICLE, DMG_BUCKSHOT},
+	["blockanim"] = "a_sword_shield_block_pursuer",
+	["blocksoundtable"] = "WoodenShieldSoundTable",
+	["partialbulletblock"] = true,
+	["poiseresistance"] = 30,
+	["raisespeed"] = 1.25,
+	["instantraise"] = false,
+	["parrydifficulty"] = 0.2,
+	["parrytakestamina"] = 20,
+	["canparry"] = true,
+	["candeflect"] = true,
+	["ironsights"] = {
+		["models/v_onehandedbegotten.mdl"] = {pos = Vector(9.1, -1.005, 3.92), ang = Vector(-4.926, -6.332, -9.146)},
+		["models/v_begottenknife.mdl"] = {pos = Vector(7.479, -5.428, -0.4), ang = Vector(3.517, -10.9, -6.332)},
+		["models/weapons/cstrike/c_knife_t.mdl"] = {pos = Vector(8.879, -5.628, 2.639), ang = Vector(-2.112, 1.406, -0.704)},
+		["models/weapons/ageofchivalry/c_begotten_flail.mdl"] = {pos = Vector(6.881, -12.277, 2.821), ang = Vector(0, 0, -14.775)},
+		["models/weapons/ageofchivalry/c_begotten_solflail.mdl"] = {pos = Vector(6.881, -12.277, 2.821), ang = Vector(0, 0, -14.775)},
+	},
+	["ViewModelBoneMods"] = {
+		["models/v_onehandedbegotten.mdl"] = {
+			["ValveBiped.Bip01_L_UpperArm"] = { scale = Vector(1, 1, 1), pos = Vector(0, -15, 0), angle = Angle(0, 0, 0) },
+		},
+		["models/v_begottenknife.mdl"] = {
+			["ValveBiped.Bip01_L_UpperArm"] = { scale = Vector(1, 1, 1), pos = Vector(6.852, -9.815, -3.149), angle = Angle(0, 0, 0) }
+		},
+		["models/weapons/ageofchivalry/c_begotten_flail.mdl"] = {
+			["ValveBiped.Bip01_L_UpperArm"] = { scale = Vector(1, 1, 1), pos = Vector(0, -10, 0), angle = Angle(0, 0, 0) }
+		},
+		["models/weapons/ageofchivalry/c_begotten_solflail.mdl"] = {
+			["ValveBiped.Bip01_L_UpperArm"] = { scale = Vector(1, 1, 1), pos = Vector(0, -10, 0), angle = Angle(0, 0, 0) }
+		},
+	},
+	["VElements"] = {
+		["models/v_onehandedbegotten.mdl"] = {
+			["deadlanderrattanshield"] = { type = "Model", model = "models/begotten/weapons/rattanshield.mdl", bone = "ValveBiped.Bip01_L_Hand", rel = "", pos = Vector(-4.676, -14.027, 0.518), angle = Angle(-141.43, 68.96, -29.222), size = Vector(0.9, 0.9, 0.9), material = "", skin = 0, bodygroup = {} },
+		},
+		["models/v_begottenknife.mdl"] = {
+			["deadlanderrattanshield"] = { type = "Model", model = "models/begotten/weapons/rattanshield.mdl", bone = "ValveBiped.Bip01_L_Hand", rel = "", pos = Vector(-1.558, -7.792, 5.714), angle = Angle(174.156, -136.754, -122.727), size = Vector(1, 1, 1), material = "", skin = 0, bodygroup = {} }
+		},
+		["models/weapons/cstrike/c_knife_t.mdl"] = {
+			["deadlanderrattanshield"] = { type = "Model", model = "models/begotten/weapons/rattanshield.mdl", bone = "ValveBiped.Bip01_L_Forearm", rel = "", pos = Vector(15.064, -2.901, -0.519), angle = Angle(153.117, 150.779, -26.883), size = Vector(1, 1, 1), material = "", skin = 0, bodygroup = {} }
+		},
+		["models/weapons/ageofchivalry/c_begotten_flail.mdl"] = {
+			["deadlanderrattanshield"] = { type = "Model", model = "models/begotten/weapons/rattanshield.mdl", bone = "ValveBiped.Bip01_L_Hand", rel = "", pos = Vector(2.596, 1.557, 0.518), angle = Angle(0, 90, 0), size = Vector(0.8, 0.8, 0.8), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} }
+		},
+		["models/weapons/ageofchivalry/c_begotten_solflail.mdl"] = {
+			["deadlanderrattanshield"] = { type = "Model", model = "models/begotten/weapons/rattanshield.mdl", bone = "ValveBiped.Bip01_L_Hand", rel = "", pos = Vector(2.596, 1.557, 0.518), angle = Angle(0, 90, 0), size = Vector(0.8, 0.8, 0.8), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} }
+		},
+	},
+	["WElements"] = {
+		["deadlanderrattanshield"] = { type = "Model", model = "models/begotten/weapons/rattanshield.mdl", bone = "ValveBiped.Bip01_L_Hand", rel = "", pos = Vector(3.635, 0.99, 0), angle = Angle(-90, -36.235, -183.144), size = Vector(0.9, 0.9, 0.9), material = "", skin = 0, bodygroup = {} }
+	},
+};
+
 AddTable("shield1", BlockTables.shield1)
 AddTable("shield2", BlockTables.shield2)
 AddTable("shield3", BlockTables.shield3)
@@ -8303,6 +8619,8 @@ AddTable("shieldhathood2", BlockTables.shieldhathood2)
 AddTable("shieldhathood3", BlockTables.shieldhathood3)
 AddTable("shieldhathood4", BlockTables.shieldhathood4)
 AddTable("shieldhathood5", BlockTables.shieldhathood5)
+AddTable("deadlandershield", BlockTables.deadlandershield)
+AddTable("deadlanderrattanshield", BlockTables.deadlanderrattanshield)
 
 -- Dummy tables for use with tooltips that have the min/max values.
 local meleemax = {};

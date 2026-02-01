@@ -176,7 +176,11 @@ function cwPickupObjects:KeyPress(player, key)
 									local pickupTime = 5;
 									
 									if player.HasBelief and player:HasBelief("dexterity") then
-										pickupTime = 3;
+										if player:HasBelief("sleight_of_hand") then
+											pickupTime = 2;
+										else
+											pickupTime = 3;
+										end
 									end
 
 									Clockwork.player:SetAction(player, "pickupragdoll", pickupTime, 5, function()
@@ -214,7 +218,11 @@ function cwPickupObjects:KeyPress(player, key)
 									local pickupTime = 5;
 									
 									if player.HasBelief and player:HasBelief("dexterity") then
-										pickupTime = 3;
+										if player:HasBelief("sleight_of_hand") then
+											pickupTime = 2;
+										else
+											pickupTime = 3;
+										end
 									end
 									
 									if player.cloaked then
@@ -266,8 +274,13 @@ function cwPickupObjects:KeyPress(player, key)
 								
 								local pickupTime = math.min(10, entity:GetPhysicsObject():GetMass() / 5);
 								
-								if player.HasBelief and player:HasBelief("dexterity") then
-									pickupTime = pickupTime * 0.67;
+								if player.HasBelief then
+									if player:HasBelief("dexterity") then
+										pickupTime = pickupTime * 0.67;
+									end
+									if player:HasBelief("sleight_of_hand") then
+										pickupTime = pickupTime * 0.75;
+									end
 								end
 								
 								if player.cloaked then

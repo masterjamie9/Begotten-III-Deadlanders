@@ -5,7 +5,7 @@
 	Other credits: kurozael, Alex Grist, Mr. Meow, zigbomb
 --]]
 
-local head_suffixes = {"_glaze", "_gore", "_satanist", "_wanderer", "_hill", "_preludegore", "_kinggore"};
+local head_suffixes = {"_glaze", "_gore", "_satanist", "_wanderer", "_hill", "_preludegore", "_kinggore", "_deadlander"};
 
 local ITEM = Clockwork.item:New(nil, true)
 	ITEM.name = "Bodygroup Base"
@@ -169,7 +169,9 @@ local ITEM = Clockwork.item:New(nil, true)
 			
 			if self.requiredFaiths and #self.requiredFaiths > 0 then
 				if (!table.HasValue(self.requiredFaiths, player:GetFaith())) then
-					if !self.kinisgerOverride or self.kinisgerOverride and !player:GetCharacterData("apostle_of_many_faces") then
+					if (table.HasValue(self.requiredFaiths, "Faith of the Dark") and player:HasBelief("path_of_the_pale_rider")) then
+						--do not return false
+					elseif !self.kinisgerOverride or self.kinisgerOverride and !player:GetCharacterData("apostle_of_many_faces") then
 						if !player.spawning then
 							Schema:EasyText(player, "chocolate", "You are not the correct faith to equip this helmet!")
 						end

@@ -1742,3 +1742,52 @@ local ITEM = Clockwork.item:New();
 	-- Called when a player drops the item.
 	function ITEM:OnDrop(player, position) end;
 ITEM:Register();
+
+local ITEM = Clockwork.item:New();
+	ITEM.name = "Human Si'Usun";
+	ITEM.model = "models/mosi/fnv/props/food/doggietreat.mdl";
+	ITEM.weight = 0.15;
+	ITEM.plural = "Human Si'Usun";
+	ITEM.useText = "Devour";
+	ITEM.useSound = "npc/barnacle/barnacle_crunch3.wav";
+	ITEM.category = "Food";
+	ITEM.description = "Dried human meat preserved in a traditional deadlandic method.";
+	ITEM.iconoverride = "begotten/ui/itemicons/doggietreat.png"
+	ITEM.stackable = true;
+	ITEM.uniqueID = "driedmeat"
+	ITEM.infectchance = 2;
+	ITEM.cauldronQuality = 1;
+	
+	ITEM.needs = {hunger = 50, thirst = 5};
+	
+	function ITEM:OnSetup()
+		if cwWarmth and cwWarmth.systemEnabled then
+			ITEM:AddData("freezing", 0, true);
+		end
+	end
+
+	-- Called when a player uses the item.
+	function ITEM:OnUse(player, itemEntity)
+		local freezing = self:GetData("freezing");
+		
+		if freezing and freezing > 25 then
+			Schema:EasyText(player, "lightslateblue", "This food is frozen solid and needs to be thawed before it can be consumed!");
+		
+			return false;
+		end
+	
+		if player:HasBelief("savage") then
+			Schema:EasyText(player, "olivedrab", "You enjoy the dried taste of your fellow man.");
+			player:HandleSanity(2);
+			player:SetHealth(math.Clamp(player:Health() + 3, 0, player:GetMaxHealth()));
+		else
+			Schema:EasyText(player, "olivedrab", "This meat is dry and tasteless, but you know what animal it is from.");
+			player:HandleSanity(-2);
+		end
+		
+		player:HandleXP(cwBeliefs.xpValues["food"]);
+	end
+
+	-- Called when a player drops the item.
+	function ITEM:OnDrop(player, position) end;
+ITEM:Register();

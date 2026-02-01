@@ -1033,3 +1033,61 @@ local ITEM = Clockwork.item:New();
 	-- Called when a player drops the item.
 	function ITEM:OnDrop(player, position) end;
 ITEM:Register();
+
+local ITEM = Clockwork.item:New();
+	ITEM.name = "Red Kumyz";
+	ITEM.model = "models/mosi/fnv/props/drink/alcohol/moonshine.mdl";
+	ITEM.weight = 0.50;
+	ITEM.useText = "Drink";
+	ITEM.category = "Drinks";
+	ITEM.useSound = "ambient/levels/canals/toxic_slime_gurgle8.wav";
+	ITEM.description = "A gallon jug of fermented blood and milk, a cornerstone of Deadlandic cuisine. This stuff will last months or even years without expiring.";
+	ITEM.iconoverride = "begotten/ui/itemicons/moonshine.png"
+	ITEM.stackable = true;
+	ITEM.cauldronQuality = -1;
+	
+	ITEM.needs = {thirst = 85};
+	
+	function ITEM:OnSetup()
+		if cwWarmth and cwWarmth.systemEnabled then
+			ITEM:AddData("freezing", 0, true);
+		end
+	end
+
+	-- Called when a player uses the item.
+	function ITEM:OnUse(player, itemEntity)	
+		local freezing = self:GetData("freezing");
+		
+		if freezing and freezing > 25 then
+			Schema:EasyText(player, "lightslateblue", "This drink is frozen solid and needs to be thawed before it can be consumed!");
+		
+			return false;
+		end
+
+		player:GiveItem(Clockwork.item:CreateInstance("empty_bottle"), true);
+	
+		if player:HasBelief("the_paradox_riddle_equation") or player:HasBelief("the_storm") then
+			Schema:EasyText(player, "maroon", "You chug the fermented blood, but it begins to short-circuit your insides!");
+			Schema:DoTesla(player, true);	
+			player:HandleSanity(-5);			
+			return;
+		end
+		
+		if !player:HasBelief("heart_eater") then
+			Schema:EasyText(player, "olive", "The fermented blood oozes out the jug and down your throat.. You feel repulsed, both physically and spiritually..");
+			player:HandleSanity(-10);
+			player:HandleXP(cwBeliefs.xpValues["drink"]);
+		elseif player:HasBelief("heart_eater") and !player:HasBelief("savage_animal") then
+			Schema:EasyText(player, "lawngreen", "The fermented blood oozes out the jug and down your throat.. You find the initial thickness strange, but the aftertaste is to die for!");
+			player:HandleSanity(15);
+		else
+			Schema:EasyText(player, "lawngreen", "The fermented blood oozes out the jug and down your throat.. Utterly delicious!");
+			player:HandleSanity(20);
+		end
+		
+		player:HandleXP(cwBeliefs.xpValues["drink"]);
+	end;
+
+	-- Called when a player drops the item.
+	function ITEM:OnDrop(player, position) end;
+ITEM:Register();

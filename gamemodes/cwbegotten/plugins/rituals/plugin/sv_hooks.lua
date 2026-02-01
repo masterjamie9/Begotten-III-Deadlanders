@@ -612,6 +612,29 @@ function cwRituals:PlayerCharacterLoaded(player)
 		end
 	end
 	
+	if player:GetNetVar("featherfallActive") then
+		player:SetNetVar("featherfallActive", false);
+		
+		if timer.Exists("featherfallTimer_"..entIndex) then
+			timer.Remove("featherfallTimer_"..entIndex);
+		end
+	end
+
+	if player.hemorRageActive then
+		player.hemorRageActive = nil;
+		
+		if timer.Exists("hemorRageTimer_"..entIndex) then
+			timer.Remove("hemorRageTimer_"..entIndex);
+		end
+	end
+	
+	if player.bloodBurst then
+		for k,v in pairs(player.bloodBurst) do
+			player:SetNetVar("bloodburst_"..k, nil)
+		end
+		player.bloodBurst = nil;
+	end
+	
 	--[[
 	if player:GetNetVar("enlightenmentActive") then
 		player:SetNetVar("enlightenmentActive", false);
@@ -922,6 +945,24 @@ function cwRituals:PlayerDeath(player)
 			end
 		end
 		
+		if timer.Exists("featherfallTimer_"..entIndex) then
+			timer.Remove("featherfallTimer_"..entIndex);
+			
+			player:SetNetVar("featherfallActive", false);
+		end
+
+		if player.hemorRageActive then
+			player.hemorRageActive = nil;
+			
+			player:SetNetVar("hemorRageActive", false);
+		end
+		
+		if player.bloodBurst then
+			for k,v in pairs(player.bloodBurst) do
+				player:SetNetVar("bloodburst_"..k, nil)
+			end
+			player.bloodBurst = nil;
+		end
 		--[[
 		if player:GetNetVar("enlightenmentActive") then
 			player:SetNetVar("enlightenmentActive", false);

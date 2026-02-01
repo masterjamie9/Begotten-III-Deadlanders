@@ -1285,6 +1285,78 @@ function Clockwork.animation:AddWandererTabardArms(model)
 	});
 end;
 
+function Clockwork.animation:AddKhanArms(model)
+	self:AddHandsModel(model, {
+		body = 0000000,
+		model = "models/begotten/arms/c_khuzaitlord2.mdl",
+		skin = 0
+	});
+end;
+
+function Clockwork.animation:AddArcherArms(model)
+	self:AddHandsModel(model, {
+		body = 0000000,
+		model = "models/begotten/arms/aserai_archer.mdl",
+		skin = 0
+	});
+end;
+
+function Clockwork.animation:AddBanditArms(model)
+	self:AddHandsModel(model, {
+		body = 0000000,
+		model = "models/begotten/arms/bandit_khuzait.mdl",
+		skin = 0
+	});
+end;
+
+function Clockwork.animation:AddHeavyKhuzaitArms(model)
+	self:AddHandsModel(model, {
+		body = 0000000,
+		model = "models/begotten/arms/heavy_khuzait.mdl",
+		skin = 0
+	});
+end;
+
+function Clockwork.animation:AddKhanKhuzaitArms(model)
+	self:AddHandsModel(model, {
+		body = 0000000,
+		model = "models/begotten/arms/khan_khuzait.mdl",
+		skin = 0
+	});
+end;
+
+function Clockwork.animation:AddSpawnKhuzaitArms(model)
+	self:AddHandsModel(model, {
+		body = 0000000,
+		model = "models/begotten/arms/spawn_khuzait.mdl",
+		skin = 0
+	});
+end;
+
+function Clockwork.animation:AddSuedeArms(model)
+	self:AddHandsModel(model, {
+		body = 0000000,
+		model = "models/begotten/arms/suede_khuzait.mdl",
+		skin = 0
+	});
+end;
+
+function Clockwork.animation:AddWindArms(model)
+	self:AddHandsModel(model, {
+		body = 0000000,
+		model = "models/begotten/arms/aserai_archer.mdl",
+		skin = 0
+	});
+end;
+
+function Clockwork.animation:AddBloodhoundArms(model)
+	self:AddHandsModel(model, {
+		body = 0000000,
+		model = "models/begotten/arms/c_wraitharms.mdl",
+		skin = 0
+	});
+end;
+
 -- A function to check for stored hands info by model.
 function Clockwork.animation:CheckHands(model, animTable)
 	local info = animTable.hands or {
@@ -1477,7 +1549,6 @@ Clockwork.animation:AddArmoredFursArms("models/begotten/wanderers/armoredfurs");
 Clockwork.animation:AddQuebecoisChainmail("models/begotten/prelude_gores/chaingore3_male.mdl");
 Clockwork.animation:AddEastmanArmor("models/begotten/prelude_gores/braveset_male.mdl");
 Clockwork.animation:AddHaraldrEast("models/begotten/prelude_gores/chaingore4_male.mdl");
-Clockwork.animation:AddHaraldrEast("models/begotten/prelude_gores/haraldnew");
 Clockwork.animation:AddShagalaxScale("models/begotten/prelude_gores/scalegore_male.mdl");
 Clockwork.animation:AddReaverChain("models/begotten/prelude_gores/chaingore2_male.mdl");
 Clockwork.animation:AddFrenziedChain("models/begotten/prelude_gores/battaniansash_male.mdl");
@@ -1492,3 +1563,13 @@ Clockwork.animation:AddNewDoctorArms("models/begottenprelude/goose/plague.mdl");
 Clockwork.animation:AddWandererGambesonArms("models/begotten/prelude_wanderers/wanderergambeson");
 Clockwork.animation:AddFaithlingChainmailArms("models/begotten/prelude_wanderers/romanmail");
 Clockwork.animation:AddWandererTabardArms("models/begotten/prelude_wanderers/wanderertabard");
+
+Clockwork.animation:AddKhanArms("models/begotten/prelude_deadlanders/khuzaitlord");
+Clockwork.animation:AddArcherArms("models/begotten/prelude_deadlanders/deadlandarcher");
+Clockwork.animation:AddHeavyKhuzaitArms("models/begotten/prelude_deadlanders/deadlanderheavy");
+Clockwork.animation:AddBanditArms("models/begotten/prelude_deadlanders/deadlanderlight2");
+Clockwork.animation:AddSuedeArms("models/begotten/prelude_deadlanders/deadlanderlight");
+Clockwork.animation:AddSpawnKhuzaitArms("models/begotten/prelude_deadlanders/deadlanderspawn");
+Clockwork.animation:AddKhanKhuzaitArms("models/begotten/prelude_deadlanders/khanarmor");
+Clockwork.animation:AddBloodhoundArms("models/begotten/prelude_deadlanders/bloodhound");
+Clockwork.animation:AddWindArms("models/begotten/prelude_deadlanders/windarmor");

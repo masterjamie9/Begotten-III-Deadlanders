@@ -535,3 +535,38 @@ local ITEM = Clockwork.item:New("shield_base");
 	ITEM.components = {breakdownType = "breakdown", items = {"steel_chunks", "wood", "wood", "wood"}};
 	ITEM.requiredSubfactions = {"Clan Harald"};
 ITEM:Register();
+
+local ITEM = Clockwork.item:New("shield_base");
+    ITEM.name = "Deadlander Shield";
+    ITEM.model = "models/begotten_prelude/shields/griffin2.mdl";
+    ITEM.weight = 4;
+    ITEM.uniqueID = "deadlandershield";
+    ITEM.description = "A round shield made with well-balanced steel. The Deadlander smiths place great importance upon the ability to smith perfectly round shields, and the quality of this one reflects that.";
+    ITEM.iconoverride = "begotten/ui/itemicons/shield.png"
+    ITEM.isAttachment = true;
+    ITEM.attachmentBone = "ValveBiped.Bip01_Spine2";
+    ITEM.attachmentOffsetAngles = Angle(98.45, 0, 176.02);
+    ITEM.attachmentOffsetVector = Vector(0, 2.2, 0);
+	ITEM.bulletConditionScale = 0.25;
+	ITEM.conditionScale = 0.50;
+    
+    ITEM.components = {breakdownType = "meltdown", items = {"fine_steel_chunks", "steel_chunks", "leather", "wood"}};
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("shield_base");
+    ITEM.name = "Deadlander Rattan Shield";
+    ITEM.model = "models/begotten/weapons/rattanshield.mdl";
+    ITEM.weight = 2.5;
+    ITEM.uniqueID = "deadlanderrattanshield";
+    ITEM.description = "A round shield made of hardened, woven wood. It's design is particularly resilient for a shield that is otherwise unreinforced by iron. The emblem of a wheel is emblazoned upon the shield.";
+    ITEM.iconoverride = "begotten/ui/itemicons/shield.png"
+    ITEM.isAttachment = true;
+    ITEM.attachmentBone = "ValveBiped.Bip01_Spine2";
+    ITEM.attachmentOffsetAngles = Angle(98.45, 0, 176.02);
+    ITEM.attachmentOffsetVector = Vector(0, 2.2, 0);
+	ITEM.bulletConditionScale = 0.5;
+	ITEM.conditionScale = 1;
+	ITEM.fireplaceFuel = 180;
+    
+    ITEM.components = {breakdownType = "meltdown", items = {"wood", "wood", "wood", "wood"}};
+ITEM:Register();

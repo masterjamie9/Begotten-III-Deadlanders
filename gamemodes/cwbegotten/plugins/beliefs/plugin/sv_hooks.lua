@@ -926,9 +926,14 @@ function cwBeliefs:EntityTakeDamageNew(entity, damageInfo)
 		
 		if entity:IsPlayer() and entity:Alive() and !entity.flagellating then
 			local chance = 0;
+			local clothesItem = entity:GetClothesEquipped();
 			
 			if entity:HasBelief("lucky") then
 				chance = chance + 5;
+			end
+
+			if clothesItem and clothesItem.attributes and table.HasValue(clothesItem.attributes, "windwalker") then
+				chance = chance + 15;
 			end
 			
 			if entity.GetCharmEquipped and entity:GetCharmEquipped("ring_distorted") then
@@ -1225,6 +1230,18 @@ function cwBeliefs:EntityTakeDamageNew(entity, damageInfo)
 						end
 					end
 					
+					if entity:IsPlayer() and entity:Alive() and (attacker:HasBelief("bleed_them_dry_dark") or attacker:HasBelief("bleed_them_dry_heavens")) then
+						local bloodLevel = entity:GetCharacterData("BloodLevel")
+						
+						if bloodLevel <= 4750 and bloodLevel > 4250 then
+							newDamage = newDamage + (originalDamage * 0.10);
+						elseif bloodLevel <= 4250 and bloodLevel > 3500 then
+							newDamage = newDamage + (originalDamage * 0.20);
+						elseif bloodLevel <= 3500 then
+							newDamage = newDamage + (originalDamage * 0.30);					
+						end
+					end
+
 					if attacker:HasBelief("unrelenting") then
 						if string.find(attackerWeapon.Category, "Two Handed") or string.find(attackerWeapon.Category, "Great Weapon") or string.find(attackerWeapon.Category, "Scythe") then
 							newDamage = newDamage + (originalDamage * 0.10);
@@ -1362,6 +1379,33 @@ function cwBeliefs:EntityTakeDamageNew(entity, damageInfo)
 						newDamage = newDamage + (originalDamage * 0.25);
 					elseif attacker:HasBelief("fearsome_wolf") then
 						newDamage = newDamage + (originalDamage * 0.2);
+					end
+				end
+				
+				if attacker:HasBelief("the_baleful_star") or attacker:HasBelief("the_great_hunt")then
+					local attackerKey = attacker:GetNetVar("Key")
+					if entity.bloodBurst and damageInfo:GetDamageType() == DMG_VEHICLE and entity.bloodBurst[attackerKey] then
+						local activeWeapon = attacker:GetActiveWeapon()
+						local bloodBurstValue = math.min(entity.bloodBurst[attackerKey], 100)
+						if attacker:HasBelief("pincushion") and activeWeapon.isDagger and bloodBurstValue >= 50 then
+							if attackerWeapon.realHoldType == "wos-begotten_dual" then
+								newDamage = newDamage + (originalDamage);
+							else
+								newDamage = newDamage + (originalDamage * 0.5);
+							end
+						elseif attackerWeapon.realHoldType == "wos-begotten_dual" then 
+							if bloodBurstValue >= 100 then
+								newDamage = newDamage + (originalDamage);
+							elseif bloodBurstValue >= 25 then
+								newDamage = newDamage + (originalDamage * (bloodBurstValue * 0.008));
+							end
+						else
+							if bloodBurstValue >= 100 then
+								newDamage = newDamage + (originalDamage * 0.5);
+							elseif bloodBurstValue >= 25 then
+								newDamage = newDamage + (originalDamage * (bloodBurstValue * 0.004));
+							end
+						end
 					end
 				end
 			elseif entity:IsNextBot() or entity:IsNPC() then
@@ -1509,7 +1553,18 @@ function cwBeliefs:FuckMyLife(entity, damageInfo)
 								end
 							end
 							
-							if (attacker:GetFaction() == "Gatekeeper" and subfaction == "Legionary") or (attacker:GetFaction() == "Hillkeeper" and subfaction == "Watchman") then
+							if attacker:HasBelief("path_of_the_pale_rider") or attacker:HasBelief("path_of_the_eternal_heavens") then
+								local bloodLevel = entity:GetCharacterData("BloodLevel")
+								if bloodLevel <= 4750 and bloodLevel > 4250 then
+									damageXP = damageXP * 1.33
+								elseif bloodLevel <= 4250 and bloodLevel > 3500 then
+									damageXP = damageXP * 1.67
+								elseif bloodLevel <= 3500 then
+									damageXP = damageXP * 2
+								end
+							end
+							
+							if (attacker:GetFaction() == "Gatekeeper" and subfaction == "Legionary") or (attacker:GetFaction() == "Hillkeeper" and subfaction == "Watchman") or (attacker:GetFaction() == "Deadlander" and subfaction == "Raiders") then
 								damageXP = damageXP * 2;
 							end
 						
@@ -1621,6 +1676,129 @@ function cwBeliefs:FuckMyLife(entity, damageInfo)
 								end
 							end);
 						end
+					end
+				end
+				
+				if (attacker:HasBelief("the_great_hunt") or attacker:HasBelief("the_baleful_star")) and entity:IsPlayer() then
+					if !entity.bloodBurst then
+						entity.bloodBurst = {}
+					end
+					local attackerWeapon = attacker:GetActiveWeapon();
+					local attackerKey = attacker:GetNetVar("Key")	
+					local bloodBurstValue = entity.bloodBurst[attackerKey]
+					if (bloodBurstValue == nil) then
+						bloodBurstValue = 0
+					end
+					if damageInfo:GetDamageType() == DMG_SLASH then
+						local damageRequired = 8
+						if attackerWeapon.realHoldType == "wos-begotten_dual" then --Lower damage required for dual wielding as damage per weapon is reduced while dual wielding
+							damageRequired = 6
+						end
+						if damage >= damageRequired then
+							local bloodBurstSlashMultiplier = 1
+							local bloodBurstSlashBonus = 0
+							local newBloodburst = 0
+							if attacker:HasBelief("bleeding_edge") then
+								if string.find(attackerWeapon.Category, "One Handed") then
+									bloodBurstSlashMultiplier = bloodBurstSlashMultiplier + 0.5
+								else 
+									bloodBurstSlashMultiplier = bloodBurstSlashMultiplier + 0.25
+								end
+							end
+								
+							if attacker:HasBelief("wind_warrior") then 
+								if string.find(attackerWeapon.Category, "Two Handed") or string.find(attackerWeapon.Category, "Great Weapon") or string.find(attackerWeapon.Category, "Scythe") or string.find(attackerWeapon.Category, "Polearm") then
+									bloodBurstSlashMultiplier = bloodBurstSlashMultiplier + 0.33
+								else
+									bloodBurstSlashMultiplier = bloodBurstSlashMultiplier + 0.15
+								end
+							end
+
+							local clothesItem = attacker:GetClothesEquipped();
+							if clothesItem and clothesItem.attributes and table.HasValue(clothesItem.attributes, "bloodletter") then
+								bloodBurstSlashMultiplier = bloodBurstSlashMultiplier + 0.25
+							end
+							
+							if attacker:HasBelief("windcutter") and damageInfo:GetInflictor().isJavelin and damageInfo:GetInflictor().Base ~= "sword_swepbase" then 
+								bloodBurstSlashBonus = bloodBurstSlashBonus + 10
+								newBloodburst = math.Clamp(math.Round(bloodBurstValue + math.max(bloodBurstSlashBonus + damage * bloodBurstSlashMultiplier, 55)), 0, 125);
+							else
+								newBloodburst = math.Clamp(math.Round(bloodBurstValue + bloodBurstSlashBonus + damage * bloodBurstSlashMultiplier), 0, 125);
+							end
+							
+							local bloodBurstFilter = RecipientFilter()
+							bloodBurstFilter:AddPlayer(attacker)
+							if bloodBurstValue < 50 then
+								if newBloodburst >= 100 then
+									entity:EmitSound("deadlanders/bloodburst/bloodburst_highready.wav", 75, 75, 1, CHAN_AUTO, 0, 0, bloodBurstFilter);
+								elseif newBloodburst >= 50 then
+									entity:EmitSound("deadlanders/bloodburst/bloodburst_highready.wav", 75, 140, 0.8, CHAN_AUTO, 0, 0, bloodBurstFilter);
+								end
+							elseif bloodBurstValue < 100 and newBloodburst >= 100 then
+								entity:EmitSound("deadlanders/bloodburst/bloodburst_highready.wav", 75, 75, 1, CHAN_AUTO, 0, 0, bloodBurstFilter);
+							end
+							entity.bloodBurst[attackerKey] = newBloodburst
+							entity:SetNetVar("bloodburst_"..attackerKey, newBloodburst)			
+						end
+					elseif damageInfo:GetDamageType() == DMG_VEHICLE and bloodBurstValue >= 25 then
+			
+						local strikeText = "deftly strikes out at";
+
+						if damageInfo:GetInflictor().isJavelin and damageInfo:GetInflictor().Base ~= "sword_swepbase" then
+							local weapon = damageInfo:GetInflictor().PrintName or damageInfo:GetInflictor():GetClass();
+							strikeText = "deftly throws their "..weapon.." at";
+						end
+						
+						local hitGroup = Clockwork.kernel:GetRagdollHitGroup(entity, damageInfo:GetDamagePosition())
+						local limb = "chest"
+						if hitGroup == HITGROUP_LEFTARM or hitGroup == HITGROUP_RIGHTARM  then
+							limb = "arm"
+						elseif hitGroup == HITGROUP_LEFTLEG or hitGroup == HITGROUP_RIGHTLEG then
+							limb = "leg"
+						elseif hitGroup == HITGROUP_CHEST then
+							limb = "chest"
+						elseif hitGroup == HITGROUP_STOMACH then
+							limb = "stomach"
+						else
+							limb = "neck"
+						end
+						if bloodBurstValue >= 100 or (attacker:HasBelief("pincushion") and attackerWeapon.isDagger and bloodBurstValue >= 50) then
+							entity:EmitSound("deadlanders/bloodburst/bloodburst_high.wav", 75, 100);
+							for k, v in pairs(ents.FindInSphere(entity:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2)) do
+								if v:IsPlayer() then
+									if attacker:HasBelief("hemomancer") then
+										Clockwork.chatBox:Add(v, attacker, "me", strikeText.." "..Clockwork.player:FormatRecognisedText(v, "%s", entity).."'s "..limb..", severing an artery with a brutal spray of blood!", entity:GetPos(), config.Get("talk_radius"):Get() * 2);
+									else
+										Clockwork.chatBox:Add(v, attacker, "me", strikeText.." "..Clockwork.player:FormatRecognisedText(v, "%s", entity).."'s "..limb..", goring them in a cloud of blood!", entity:GetPos(), config.Get("talk_radius"):Get() * 2);
+									end
+								end
+							end
+						
+							if !attacker.opponent then
+								entity:ModifyBloodLevel(-666);
+								local injuries = cwMedicalSystem:GetInjuries(entity);
+								if attacker:HasBelief("hemomancer") and !(injuries[hitGroup]["arterybleed"]) then
+									entity:AddInjury(cwMedicalSystem.cwHitGroupToString[hitGroup], "arterybleed");
+								end
+							end
+						else
+							entity:EmitSound("deadlanders/bloodburst/bloodburst_low.wav", 75, 100);
+							for k, v in pairs(ents.FindInSphere(entity:GetPos(), Clockwork.config:Get("talk_radius"):Get() * 2)) do
+								if v:IsPlayer() then
+									Clockwork.chatBox:Add(v, attacker, "me", strikeText.." "..Clockwork.player:FormatRecognisedText(v, "%s", entity).."'s "..limb..", goring them in a cloud of blood!", entity:GetPos(), config.Get("talk_radius"):Get() * 2);
+								end
+							end
+
+							if !attacker.opponent then
+								entity:ModifyBloodLevel(-(150 + 3.5 * math.min(bloodBurstValue, 100)))
+							end
+						end
+						local damagePosition = damageInfo:GetDamagePosition();
+						Clockwork.kernel:CreateBloodEffects(damagePosition, 1, entity);
+						
+						
+						entity.bloodBurst[attackerKey] = nil
+						entity:SetNetVar("bloodburst_"..attackerKey, nil)
 					end
 				end
 				
@@ -2014,6 +2192,12 @@ function cwBeliefs:PrePlayerCharacterCreated(player, character)
 		end
 	elseif faction == "The Third Inquisition" then
 		level = level + 19;
+	elseif faction == "Deadlander" then
+		if subfaction == "Raiders" then
+			level = level + 6;
+		elseif subfaction == "Tuners" then
+			level = level + 12;
+		end
 	elseif faction == "Smog City Pirate" then
 		if subfaction == "Machinists" then
 			level = level + 7;
@@ -2395,6 +2579,17 @@ function cwBeliefs:PlayerDeath(player, inflictor, attacker, damageInfo)
 					elseif attacker:HasBelief("sister") then
 						if attacker:GetCharacterData("level", 1) > player:GetCharacterData("level", 1) then
 							killXP = killXP * 2;
+						end
+					end
+					
+					if attacker:HasBelief("path_of_the_pale_rider") or attacker:HasBelief("path_of_the_eternal_heavens") then
+						local bloodLevel = player:GetCharacterData("BloodLevel")
+						if bloodLevel <= 4750 and bloodLevel > 4250 then
+							damageXP = damageXP * 1.33
+						elseif bloodLevel <= 4250 and bloodLevel > 3500 then
+							damageXP = damageXP * 1.67
+						elseif bloodLevel <= 3500 then
+							damageXP = damageXP * 2
 						end
 					end
 

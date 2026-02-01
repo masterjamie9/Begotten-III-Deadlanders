@@ -2394,10 +2394,11 @@ function Schema:SacrificePlayer(player, sacrificer, method, bShared)
 			["Faith of the Light"] = 4,
 			["Faith of the Family"] = 2,
 			["Faith of the Dark"] = 1,
+			["Faith of the Winds"] = 2,
 		};
 		faithModifier = faithModifiers[player:GetFaith()] or 2;
 		
-		if player:GetSubfaith() == "Faith of the Sister" then
+		if player:GetSubfaith() == "Faith of the Sister" or player:GetSubfaith() == "Path of the Pale Rider" then
 			faithModifier = 1;
 		end
 		

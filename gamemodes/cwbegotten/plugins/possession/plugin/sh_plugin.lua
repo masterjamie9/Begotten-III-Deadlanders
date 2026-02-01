@@ -162,8 +162,13 @@ function cwPossession:StartCommand(player, ucmd)
 						if (hook.Run("PlayerCanGetUp", victim)) then
 							local get_up_time = 5;
 							
-							if cwBeliefs and victim:HasBelief("dexterity") then
-								get_up_time = get_up_time * 0.67;
+							if cwBeliefs then 
+								if victim:HasBelief("dexterity") then
+									get_up_time = get_up_time * 0.67;
+								end
+								if victim:HasBelief("sleight_of_hand") then
+									get_up_time = get_up_time * 0.75;
+								end
 							end
 							
 							Clockwork.player:SetUnragdollTime(victim, get_up_time);

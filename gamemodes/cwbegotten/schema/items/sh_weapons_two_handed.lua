@@ -295,3 +295,39 @@ local ITEM = Clockwork.item:New("weapon_base");
 	
 	ITEM.components = {breakdownType = "meltdown", items = {"iron_chunks", "iron_chunks"}}; -- use "breakdown" for other type
 ITEM:Register();
+
+local ITEM = Clockwork.item:New("weapon_base");
+	ITEM.name = "Deadlander Swordstaff";
+	ITEM.model = "models/begotten/weapons/swordstaff.mdl";
+	ITEM.weight = 3;
+	ITEM.uniqueID = "begotten_2h_swordstaff";
+	ITEM.category = "Melee";
+	ITEM.description = "A highly effective poleweapon used by Deadlander Khanate warriors. It is said that the Khanate Riders trained how to kill with this weapon before they could even walk.";
+	ITEM.iconoverride = "materials/begotten/ui/itemicons/swordstaff.png"
+	ITEM.meleeWeapon = true;
+	ITEM.isAttachment = true;
+	ITEM.attachmentBone = "ValveBiped.Bip01_Spine2";
+	ITEM.attachmentOffsetAngles = Angle(189.94, 84.53, 104.42);
+	ITEM.attachmentOffsetVector = Vector(-2.83, 2.83, -40.31);
+	
+	ITEM.itemSpawnerInfo = {category = "Melee", rarity = 850, supercrateOnly = true};
+	
+	ITEM.components = {breakdownType = "meltdown", items = {"fine_steel_chunks", "steel_chunks", "steel_chunks", "wood", "wood"}}; -- use "breakdown" for other type
+ITEM:Register();
+
+local ITEM = Clockwork.item:New("weapon_base");
+	ITEM.name = "Deadlander Long Jian";
+	ITEM.model = "models/begotten/weapons/goose/sokkassword.mdl";
+	ITEM.weight = 2.5;
+	ITEM.uniqueID = "begotten_2h_steel_longjian";
+	ITEM.category = "Melee";
+	ITEM.description = "A ceremonial longsword of Deadlander origin. Blades such as this one are often wielded by the wealthiest and most venerated swordsmen amongst the Khan's horde.";
+	ITEM.meleeWeapon = true;
+	ITEM.isAttachment = true;
+	ITEM.attachmentBone = "ValveBiped.Bip01_Spine2";
+	ITEM.attachmentOffsetAngles = Angle(84.32, 359.34, 285.16);
+	ITEM.attachmentOffsetVector = Vector(8.49, 1.9, 26.87);
+	
+	ITEM.components = {breakdownType = "meltdown", items = {"fine_steel_chunks", "steel_chunks", "steel_chunks", "wood"}}; -- use "breakdown" for other type
+	ITEM.itemSpawnerInfo = {category = "Melee", rarity = 850, supercrateOnly = true};
+ITEM:Register();
