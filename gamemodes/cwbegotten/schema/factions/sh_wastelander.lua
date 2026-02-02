@@ -1136,7 +1136,7 @@ local FACTION = Clockwork.faction:New("Deadlander");
 	FACTION.useFullName = false;
 	FACTION.disabled = false; -- For events.
 	FACTION.hidden = false;
-	FACTION.enlist = true;
+	FACTION.enlist = false;
 	FACTION.material = "begotten/faction/faction_logo_deadlander";
 	FACTION.color = Color(207, 207, 207);
 	FACTION.description = "The Eastern Deadlanders are made up of multiple hordes numbering between hundreds or thousands. \nThese nomadic raiders have managed to survive in the Undergod's territories through the use of mobile camps, never staying in one place for long. \nThough the Deadlands lack food and water, their troves of Old World technology allow them to forge ancient machines, The Vehicle. \nUsing their fleet of motorcycles and cars, these merciless raiders have become a thorn in the Emperor's side. The Head Khaan carries a bounty of over 100,000 Coins.";
@@ -1173,15 +1173,18 @@ local FACTION = Clockwork.faction:New("Deadlander");
 	-- Called when a player is transferred to the faction.
 	function FACTION:OnTransferred(player, faction, name)
 		if (faction.name ~= "Wanderer") then
+			if player:GetSubfaction() ~= "Kinisger" then
+				return false;
+			end
 			return false;
 		end;
 		
-		if (!Clockwork.player:IsWhitelisted(player, "Deadlander")) then
+		--[[if (!Clockwork.player:IsWhitelisted(player, "Deadlander")) then
 			Clockwork.player:SetWhitelisted(player, "Deadlander", true);
-		end;
+		end;]] --You do not get whitelisted when you are enlisted by a Deadlander.
 	end;
 
-		if SERVER then
+	if SERVER then
 		function FACTION:CanPromote(player, target, faction, subfaction)
 		end
 		

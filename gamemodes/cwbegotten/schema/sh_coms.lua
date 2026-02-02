@@ -487,6 +487,192 @@ local COMMAND = Clockwork.command:New("Initiate")
 	end
 COMMAND:Register()
 
+local COMMAND = Clockwork.command:New("Convert")
+	COMMAND.tip = "Use an Elysian Catalyst to offer a character to convert to the Faith of the Winds and join the Deadlander Horde."
+	COMMAND.flags = CMD_DEFAULT;
+	COMMAND.alias = {"PlyConvert", "CharConvert"};
+	COMMAND.faction = "Deadlander";
+
+	-- Called when the command has been run.
+	function COMMAND:OnRun(player, arguments)
+		if player:GetFaction() ~= "Deadlander" then
+			Schema:EasyText(player, "chocolate", "You are not the correct faction to do this!");
+
+			return false;
+		end
+	
+		local target = Clockwork.entity:GetPlayer(player:GetEyeTraceNoCursor().Entity);
+		local inventory = player:GetInventory();
+		if config.GetVal("enable_deadlander_conversion") then
+			if (target and target:Alive()) then
+				if (target:GetShootPos():Distance(player:GetShootPos()) <= 192) then
+					if (Clockwork.inventory:HasItemCountByID(inventory, "elysian_catalyst", 1)) then
+						local faction = "Deadlander";
+						local factionTable = Clockwork.faction:GetStored()[faction];
+						local targetFaction = target:GetFaction();
+						local targetSubfaction = target:GetSubfaction();
+						
+						if player:IsAdmin() or (player:GetFaction() == faction and factionTable and Schema:GetRankTier(faction, player:GetCharacterData("rank", 1)) >= 3) then
+							local lastZone = player:GetCharacterData("LastZone");
+							
+							if targetFaction == faction then
+								Schema:EasyText(player, "grey", target:Name().." is already a Deadlander Nomad!");
+
+								return;
+							end
+						
+							if targetFaction == "Wanderer" then
+								local playerName = player:Name();
+							
+								Clockwork.dermaRequest:RequestConfirmation(target, "To thread the Path", playerName.." offers you a place amongst the ranks of the Deadlander Nomads. You need only abandon your old Gods and accept upon yourself the Faith of the Winds.", function()
+									targetFaction = target:GetFaction();
+									
+									if (targetFaction == "Wanderer" and target:Alive()) then
+										local bSuccess, fault = Clockwork.faction:GetStored()[faction]:OnTransferred(target, Clockwork.faction:GetStored()[targetFaction]);
+										
+										if (bSuccess != false) then
+											if (Clockwork.inventory:HasItemCountByID(inventory, "elysian_catalyst", 1)) then
+												target:SetCharacterData("Faction", faction, true);
+												target:SetCharacterData("Subfaction", "Raiders", true);
+												target:SetCharacterData("rank", 1);
+												target:SetCharacterData("rankOverride", nil);
+												
+												if cwBeliefs then
+													--local max_poise = target:GetMaxPoise();
+													--local poise = target:GetNWInt("meleeStamina");
+													local max_stamina = target:GetMaxStamina();
+													local max_stability = target:GetMaxStability();
+													local stamina = target:GetNWInt("Stamina", 100);
+
+													local beliefTrees = cwBeliefs.beliefTrees.stored;
+													local targetBeliefs = target:GetCharacterData("beliefs", {});
+													local oldSubfaith = target:GetSubfaith();
+													local playerName = target:GetName();
+													local darkPoints = 0
+													if oldSubfaith == "Primevalism" or "Satanism" then
+														darkPoints = 1
+													end
+													local points = target:GetCharacterData("points", 0) - darkPoints;
+
+													for k, beliefTree in pairs(beliefTrees) do
+														if beliefTree.requiredFaiths and table.HasValue(beliefTree.requiredFaiths, oldFaith) then
+															for k2, v2 in pairs(beliefTree.beliefs) do
+																for k3, v3 in pairs(v2) do
+																	for k4, v4 in pairs(targetBeliefs) do
+																		if k3 == k4 and v4 == true then
+																			targetBeliefs[k4] = false;
+																			points = points + 1;
+																		end
+																	end
+																end
+															end
+
+															if beliefTree.hasFinisher and targetBeliefs[k .. "_finisher"] then
+																targetBeliefs[k .. "_finisher"] = false;
+															end
+														end
+													end
+
+													if (points < 0) then
+														points = 0
+														target:SetSacramentLevel(target:GetCharacterData("level", 1) + 1)
+													end
+
+													target:SetCharacterData("points", points);
+													target:SetCharacterData("Faith", "Faith of the Winds", true);
+													if oldSubfaith == "Primevalism" or oldSubfaith == "Satanism" then
+														target.cwCharacter.subfaith = "Path of the Pale Rider"
+														targetBeliefs["path_of_the_pale_rider"] = true
+													else
+														target.cwCharacter.subfaith = nil
+													end
+													target:SetCharacterData("beliefs", targetBeliefs);
+													
+													target:SetMaxHealth(target:GetMaxHealth());
+													target:SetLocalVar("maxStability", max_stability);
+													--target:SetLocalVar("maxMeleeStamina", max_poise);
+													--target:SetNWInt("meleeStamina", math.min(poise, max_poise));
+													target:SetLocalVar("Max_Stamina", max_stamina);
+													target:SetCharacterData("Max_Stamina", max_stamina);
+													target:SetNWInt("Stamina", math.min(stamina, max_stamina));
+													target:SetCharacterData("Stamina", math.min(stamina, max_stamina));
+													
+													hook.Run("RunModifyPlayerSpeed", target, target.cwInfoTable, true);
+												end
+												
+												local targetAngles = target:EyeAngles();
+												local targetPos = target:GetPos();
+												
+												Clockwork.player:LoadCharacter(target, Clockwork.player:GetCharacterID(target));
+												
+												target:SetPos(targetPos);
+												target:SetEyeAngles(targetAngles);
+												
+												player:TakeItemByID("elysian_catalyst");
+												Clockwork.player:NotifyAll(playerName.." has recruited "..target:Name().." into the Deadlander Horde!");
+											else
+												Schema:EasyText(target, "firebrick", playerName.." failed to convert and recruit you to the Deadlander Horde.");
+												Schema:EasyText(player, "firebrick", "Your conversion and recruitment failed as you did not have an Elysian Catalyst!");
+											end
+										end;
+									end
+								end)
+								
+								Schema:EasyText(player, "green", "You have invited "..target:Name().." to convert and join the Deadlander Horde!");
+								Clockwork.kernel:PrintLog(LOGTYPE_MINOR, player:Name().." has invited "..target:Name().." to join the Deadlander Horde!");
+							elseif targetFaction == "Children of Satan" and targetSubfaction == "Kinisger" then
+								local playerName = player:Name();
+							
+								Clockwork.dermaRequest:RequestConfirmation(target, "To thread the Path", playerName.." offers you a place amongst the ranks of the Deadlander Nomads. You need only lie to their face that you shall convert to their pitiful false faith.", function()
+									targetFaction = target:GetNetVar("kinisgerOverride") or target:GetFaction();
+									
+									if (targetFaction == "Wanderer" and target:Alive()) then
+										local bSuccess, fault = Clockwork.faction:GetStored()[faction]:OnTransferred(target, Clockwork.faction:GetStored()[targetFaction]);
+										
+										if (bSuccess != false) then
+											if (Clockwork.inventory:HasItemCountByID(inventory, "elysian_catalyst", 1)) then
+												target:SetCharacterData("kinisgerOverride", "Deadlander");
+												target:SetNetVar("kinisgerOverride", "Deadlander");
+												target:SetCharacterData("kinisgerOverrideSubfaction", "Raiders");
+												target:SetNetVar("kinisgerOverrideSubfaction", "Raiders");
+											
+												player:TakeItemByID("elysian_catalyst");
+												Clockwork.player:NotifyAll(playerName.." has recruited "..target:Name().." into the Deadlander Horde!");
+											else
+												Schema:EasyText(target, "firebrick", playerName.." failed to convert and recruit you to the Deadlander Horde.");
+												Schema:EasyText(player, "firebrick", "Your conversion and recruitment failed as you do not have an Elysian Catalyst!");
+											end
+										end;
+									end
+								end)
+								
+								Schema:EasyText(player, "green", "You have invited "..target:Name().." to convert and join the Deadlander Horde!");
+								Clockwork.kernel:PrintLog(LOGTYPE_MINOR, player:Name().." has invited "..target:Name().." to join the Deadlander Horde!");
+							elseif (targetFaction == "Children of Satan" and targetSubfaction ~= "Kinisger") or targetSubfaction == "Praeventor" or targetSubfaction == "Outrider" then
+								-- Bogus text to prevent metagame.
+								Schema:EasyText(target, "red", player:Name().." has tried to offer you to convert and join the Deadlander Horde, but as a member of a faction you are unable to accept! They have been sent a fake message saying you were invited.");
+								Schema:EasyText(player, "green", "You have invited "..target:Name().." to convert and join the Deadlander Horde!");
+							else
+								Schema:EasyText(player, "firebrick", target:Name().." is not the right faction to be recruited into this faction!");
+							end
+						else
+							Schema:EasyText(player, "firebrick", "You do not have permissions to recruit new nomads!");
+						end;
+					else
+						Schema:EasyText(player, "firebrick", "You must offer an Elysian Catalyst to convert a character!");
+					end;
+				else
+					Schema:EasyText(player, "firebrick", "This character is too far away!");
+				end;
+			else
+				Schema:EasyText(player, "firebrick", "You must look at a character!");
+			end
+		else
+			Schema:EasyText(player, "grey", "Deadlander conversion is disabled!");
+		end
+	end
+COMMAND:Register()
+
 local COMMAND = Clockwork.command:New("SetCustomRank")
 	COMMAND.tip = "Set a character's custom rank. If blank, it will be reset. The optional rank index should correspond to what their actual rank would be (i.e. 2 for Acolyte)."
 	COMMAND.text = "<string Character> [string Rank] [number RankIndex]"
