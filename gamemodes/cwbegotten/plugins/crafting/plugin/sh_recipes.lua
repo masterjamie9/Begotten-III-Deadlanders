@@ -387,6 +387,36 @@ function cwRecipes:ClockworkInitialized()
 		function RECIPE:EndCraft(player)
 		end;
 	RECIPE:Register()
+	
+	RECIPE = cwRecipes.recipes:New("celestial_steel_ingot");
+		RECIPE.name = "Celestial Steel Ingot";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"master_blacksmith", "carried_by_the_winds"};
+		RECIPE.requiredFaiths = {"Faith of the Winds"};
+		RECIPE.requirements = {
+			["fine_steel_ingot"] = {amount = 2},
+			["elysian_catalyst"] = {amount = 1},
+			["charcoal"] = {amount = 2},
+		};
+		RECIPE.result = {
+			["celestial_steel_ingot"] = {amount = 1},
+		};
+		RECIPE.category = "Other"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 4
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 35;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
 
 	RECIPE = cwRecipes.recipes:New("hellforged_steel_ingot");
 		RECIPE.name = "Hellforged Steel Ingot";
@@ -423,6 +453,36 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"master_blacksmith", "deceitful_snake"};
 		RECIPE.requiredFaiths = {"Faith of the Family"};
+		RECIPE.requirements = {
+			["fine_steel_ingot"] = {amount = 2},
+			["belphegor_catalyst"] = {amount = 1},
+			["charcoal"] = {amount = 2},
+		};
+		RECIPE.result = {
+			["hellforged_steel_ingot"] = {amount = 1},
+		};
+		RECIPE.category = "Other"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 4
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 35;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+	
+	RECIPE = cwRecipes.recipes:New("celestial_hellforged_steel_ingot");
+		RECIPE.name = "(Celestial) Hellforged Steel Ingot";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"master_blacksmith", "hemomancer"};
+		RECIPE.requiredFaiths = {"Faith of the Winds"};
 		RECIPE.requirements = {
 			["fine_steel_ingot"] = {amount = 2},
 			["belphegor_catalyst"] = {amount = 1},
@@ -3897,7 +3957,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"mechanic"};
 		RECIPE.excludedFactions = {"Goreic Warrior"};
-		RECIPE.requiredFaiths = {"Faith of the Dark"};
+		RECIPE.requiredFaiths = {"Faith of the Dark", "Faith of the Winds"};
 		RECIPE.requirements = {
 			["iron_ingot"] = {amount = 3},
 			["wood"] = {amount = 1},
@@ -4789,7 +4849,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "(2x) Throwing Axe";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"craftsman"};
-		RECIPE.requiredFaiths = {"Faith of the Family"};
+		RECIPE.requiredFaiths = {"Faith of the Family", "Faith of the Winds"};
 		RECIPE.requirements = {
 			["iron_ingot"] = {amount = 1},
 			["wood"] = {amount = 2},
@@ -4818,7 +4878,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "(3x) Throwing Dagger";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"craftsman"};
-		RECIPE.requiredFaiths = {"Faith of the Dark"};
+		RECIPE.requiredFaiths = {"Faith of the Dark", "Faith of the Winds"};
 		RECIPE.requirements = {
 			["iron_ingot"] = {amount = 1},
 			["wood"] = {amount = 1},
@@ -6015,7 +6075,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiredBeliefs = {"artisan"};
 		RECIPE.requiredFactions = {"Deadlander"};
 		RECIPE.requirements = {
-			["steel_ingot"] = {amount = 3},
+			["steel_ingot"] = {amount = 4},
 			["leather"] = {amount = 1},
 			["wood"] = {amount = 3},
 		};
@@ -11097,6 +11157,754 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.craftTime = 8
 		RECIPE.craftVerb = "smithing"
 		RECIPE.experience = 50;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+	
+	RECIPE = cwRecipes.recipes:New("deadlander_rider_lamellar");
+		RECIPE.name = "Deadlander Rider Lamellar";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"mechanic"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["cloth"] = {amount = 2},
+			["leather"] = {amount = 2},
+			["steel_ingot"] = {amount = 2},	
+		};
+		RECIPE.result = {
+			["deadlander_rider_lamellar"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "begotten/items/first_aid.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "assembling"
+		RECIPE.experience = 40;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("khuzait_helmet_k");
+		RECIPE.name = "Deadlander Rider Helmet";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"mechanic"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["iron_ingot"] = {amount = 1},
+			["steel_ingot"] = {amount = 1},	
+		};
+		RECIPE.result = {
+			["khuzait_helmet_k"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 30;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("khuzait_helmet_k_upgrade");
+		RECIPE.name = "(Upgrade) Deadlander Rider Helmet";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"mechanic"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["deadraiderhelm"] = {amount = 1},
+			["steel_ingot"] = {amount = 1},	
+		};
+		RECIPE.result = {
+			["khuzait_helmet_k"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 15;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("deadraiderhelm");
+		RECIPE.name = "Deadlander Raider Helmet";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"mechanic"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["iron_ingot"] = {amount = 1},
+			["cloth"] = {amount = 1},	
+		};
+		RECIPE.result = {
+			["deadraiderhelm"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 25;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("steppe_warrior_armor");
+		RECIPE.name = "Steppe Warrior Armor";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"mechanic"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["iron_ingot"] = {amount = 4},
+			["leather"] = {amount = 3},
+			["cloth"] = {amount = 1},		
+		};
+		RECIPE.result = {
+			["steppe_warrior_armor"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 35;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("deadlander_Officer_lamellar");
+		RECIPE.name = "Deadlander Officer Lamellar";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"artisan"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["cloth"] = {amount = 3},
+			["leather"] = {amount = 2},
+			["fine_steel_ingot"] = {amount = 1},
+			["steel_ingot"] = {amount = 2},	
+		};
+		RECIPE.result = {
+			["deadlander_officer_lamellar"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 90;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("wind_walker_lamellar");
+		RECIPE.name = "Wind Walker Lamellar";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"artisan"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["cloth"] = {amount = 5},
+			["fine_steel_ingot"] = {amount = 1},
+			["steel_ingot"] = {amount = 2},
+			["celestial_sigil_stone"] = {amount = 1},		
+		};
+		RECIPE.result = {
+			["wind_walker_lamellar"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 165;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("deadlander_Officer_lamellar_upgrade");
+		RECIPE.name = "(Upgrade) Deadlander Officer Lamellar";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"artisan"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["steppe_warrior_armor"] = {amount = 1},
+			["leather"] = {amount = 2},
+			["fine_steel_ingot"] = {amount = 1},
+		};
+		RECIPE.result = {
+			["deadlander_officer_lamellar"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 40;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("khuzait_lord_helmet_c");
+		RECIPE.name = "Deadlander Officer Helmet";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"artisan"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["cloth"] = {amount = 1},
+			["iron_ingot"] = {amount = 1},
+			["fine_steel_ingot"] = {amount = 1},	
+		};
+		RECIPE.result = {
+			["khuzait_lord_helmet_c"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 60;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("khuzait_lord_helmet_c_upgrade");
+		RECIPE.name = "(Upgrade) Deadlander Officer Helmet";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"artisan"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["khuzait_helmet_k"] = {amount = 1},
+			["iron_ingot"] = {amount = 1},
+			["steel_ingot"] = {amount = 1},	
+		};
+		RECIPE.result = {
+			["khuzait_lord_helmet_c"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 40;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("kheshig_helmet");
+		RECIPE.name = "Kheshig Heavy Helmet";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"artisan"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["cloth"] = {amount = 1},
+			["leather"] = {amount = 1},
+			["steel_ingot"] = {amount = 1},
+			["celestial_steel_ingot"] = {amount = 1},
+		};
+		RECIPE.result = {
+			["kheshig_helmet"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 65;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("kheshig_lamellar");
+		RECIPE.name = "Kheshig Lamellar";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"artisan"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["leather"] = {amount = 3},
+			["steel_ingot"] = {amount = 3},
+			["celestial_steel_ingot"] = {amount = 1},	
+		};
+		RECIPE.result = {
+			["kheshig_lamellar"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 150;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("khanhelm");
+		RECIPE.name = "Helmet of the Khan";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"artisan"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["celestial_sigil_stone"] = {amount = 1},
+			["khuzait_lord_helmet_c"] = {amount = 1},
+			["gold_ingot"] = {amount = 1},
+		};
+		RECIPE.result = {
+			["khanhelm"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 125;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("armor_of_the_dread_khan");
+		RECIPE.name = "Armor of the Dread Khan";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"artisan"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["celestial_sigil_stone"] = {amount = 1},
+			["leather"] = {amount = 3},
+			["steel_ingot"] = {amount = 2},
+			["celestial_steel_ingot"] = {amount = 1},
+			["deadlander_officer_lamellar"] = {amount = 1},
+		};
+		RECIPE.result = {
+			["armor_of_the_dread_khan"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 250;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("trapper_hat");
+		RECIPE.name = "Trapper's Hat";
+		RECIPE.requiresSmithy = false;
+		RECIPE.requiredBeliefs = {"craftsman"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["leather"] = {amount = 1},
+			["cloth"] = {amount = 3},
+		};
+		RECIPE.result = {
+			["trapper_hat"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "begotten/items/first_aid.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "assembling"
+		RECIPE.experience = 15;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("deadlander_harness");
+		RECIPE.name = "Deadlander Harness";
+		RECIPE.requiresSmithy = false;
+		RECIPE.requiredBeliefs = {"craftsman"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["leather"] = {amount = 2},
+			["cloth"] = {amount = 2},
+		};
+		RECIPE.result = {
+			["deadlander_harness"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "begotten/items/first_aid.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "assembling"
+		RECIPE.experience = 25;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+	
+	RECIPE = cwRecipes.recipes:New("openshemagh");
+		RECIPE.name = "Deadlander Shemagh";
+		RECIPE.requiresSmithy = false;
+		RECIPE.requiredBeliefs = {"craftsman"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["cloth"] = {amount = 3},
+		};
+		RECIPE.result = {
+			["openshemagh"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "begotten/items/first_aid.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "assembling"
+		RECIPE.experience = 12;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("maskshemagh");
+		RECIPE.name = "Masked Deadlander Shemagh";
+		RECIPE.requiresSmithy = false;
+		RECIPE.requiredBeliefs = {"craftsman"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["cloth"] = {amount = 1},
+			["openshemagh"] = {amount = 1},
+		};
+		RECIPE.result = {
+			["maskshemagh"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "begotten/items/first_aid.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "assembling"
+		RECIPE.experience = 3;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("golden_horde_plate");
+		RECIPE.name = "Golden Horde Plate";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"artisan"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["deadlander_rider_lamellar"] = {amount = 1},
+			["fine_steel_ingot"] = {amount = 1},
+			["steel_ingot"] = {amount = 2},
+			["blood_sigil_stone"] = {amount = 1},
+		};
+		RECIPE.result = {
+			["golden_horde_plate"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 100;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("blood_pact_lamellar");
+		RECIPE.name = "Blood Pact Lamellar";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"artisan"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["hellforged_steel_ingot"] = {amount = 2},
+			["fine_steel_ingot"] = {amount = 2},
+			["steel_ingot"] = {amount = 2},
+			["leather"] = {amount = 2},
+			["cloth"] = {amount = 1},
+		};
+		RECIPE.result = {
+			["blood_pact_lamellar"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 235;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("steel_longjian");
+		RECIPE.name = "Deadlander Long Jian";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"artisan"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["steel_ingot"] = {amount = 3},
+			["fine_steel_ingot"] = {amount = 1},
+			["wood"] = {amount = 1},
+		};
+		RECIPE.result = {
+			["begotten_2h_steel_longjian"] = {amount = 1},
+		};
+		RECIPE.category = "Weapons"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 75;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("swordstaff");
+		RECIPE.name = "Deadlander Swordstaff";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"artisan"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["steel_ingot"] = {amount = 3},
+			["fine_steel_ingot"] = {amount = 1},
+			["wood"] = {amount = 4},
+		};
+		RECIPE.result = {
+			["begotten_2h_swordstaff"] = {amount = 1},
+		};
+		RECIPE.category = "Weapons"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 75;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("celestial_soulslayer");
+		RECIPE.name = "Celestial Soulslayer";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"artisan"};
+		RECIPE.requiredFaiths = {"Faith of the Winds"};
+		RECIPE.requirements = {
+			["celestial_steel_ingot"] = {amount = 4},
+			["celestial_sigil_stone"] = {amount = 1},
+		};
+		RECIPE.result = {
+			["begotten_2h_great_celestialsoulslayer"] = {amount = 1},
+		};
+		RECIPE.category = "Weapons"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 130;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("butterfly_sword");
+		RECIPE.name = "Deadlander Butterfly Sword";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"artisan"};
+		RECIPE.requiredFaction = {"Deadlander"};
+		RECIPE.requirements = {
+			["steel_ingot"] = {amount = 2},
+			["iron_ingot"] = {amount = 1},
+			["wood"] = {amount = 1},
+		};
+		RECIPE.result = {
+			["begotten_1h_butterflysword"] = {amount = 1},
+		};
+		RECIPE.category = "Weapons"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 50;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("iron_jian");
+		RECIPE.name = "Deadlander Iron Jian";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"mechanic"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["iron_ingot"] = {amount = 3},
+			["wood"] = {amount = 1},
+		};
+		RECIPE.result = {
+			["begotten_1h_ironjian"] = {amount = 1},
+		};
+		RECIPE.category = "Weapons"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 25;
 		
 		function RECIPE:OnCraft(player)
 		end;
