@@ -322,6 +322,7 @@ local ITEM = Clockwork.item:New("weapon_base");
 	ITEM.uniqueID = "begotten_2h_steel_longjian";
 	ITEM.category = "Melee";
 	ITEM.description = "A ceremonial longsword of Deadlander origin. Blades such as this one are often wielded by the wealthiest and most venerated swordsmen amongst the Khan's horde.";
+	ITEM.iconoverride = "materials/begotten/ui/itemicons/steel_longjian.png"
 	ITEM.meleeWeapon = true;
 	ITEM.isAttachment = true;
 	ITEM.attachmentBone = "ValveBiped.Bip01_Spine2";
