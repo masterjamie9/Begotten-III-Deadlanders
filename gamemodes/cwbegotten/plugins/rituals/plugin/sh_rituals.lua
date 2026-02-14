@@ -28,7 +28,7 @@ end
 local RITUAL = cwRituals.rituals:New("purifying_stone_rite");
 	RITUAL.name = "(T2) Purifying Stone Rite";
 	RITUAL.description = "Imbueing something with not only purity, but the ability to spread its purified nature to its surroundings is an act of faith practiced by few. Performing this ritual summons a Purifying Stone item. Removes 10 corruption.";
-	RITUAL.onerequiredbelief = {"man_become_beast", "one_with_the_druids", "daring_trout", "shieldwall", "shedskin", "flagellant", "acolyte", "soothsayer", "heretic"}; -- Tier II Shared Ritual
+	RITUAL.onerequiredbelief = {"man_become_beast", "one_with_the_druids", "daring_trout", "shieldwall", "shedskin", "flagellant", "acolyte", "soothsayer", "heretic", "to_balance_the_scales", "to_tip_the_scales"}; -- Tier II Shared Ritual
 	
 	RITUAL.requirements = {"light_catalyst", "up_catalyst", "trinity_catalyst"};
 	RITUAL.result = {
@@ -54,7 +54,7 @@ RITUAL:Register()
 RITUAL = cwRituals.rituals:New("yellow_banner_of_quelling");
 	RITUAL.name = "(T2) Yellow Banner of Quelling";
 	RITUAL.description = "The children flee when they spot the invisible banner. Let the Satanic filth cower when they realize they are now chained to these mortal lands that they have blighted for so long. Performing this ritual prevents helljaunting in a large radius and cloaking in a smaller radius around you for 30 minutes. Be warned that the Children of Satan will be made aware of your presence! Incurs 5 corruption.";
-	RITUAL.onerequiredbelief = {"man_become_beast", "one_with_the_druids", "daring_trout", "shieldwall", "shedskin", "flagellant", "acolyte"}; -- Tier II Light/Family Ritual
+	RITUAL.onerequiredbelief = {"man_become_beast", "one_with_the_druids", "daring_trout", "shieldwall", "shedskin", "flagellant", "acolyte", "to_balance_the_scales"}; -- Tier II Light/Family Ritual
 	
 	RITUAL.requirements = {"purifying_stone", "xolotl_catalyst", "down_catalyst"};
 
@@ -93,7 +93,7 @@ RITUAL:Register()
 RITUAL = cwRituals.rituals:New("xolotl_catalyst");
 	RITUAL.name = "(T2) Xolotl Catalyst Rite";
 	RITUAL.description = "Energy harnessed into stone. It could be used for something greater. Performing this ritual summons a Xolotl Catalyst item. Incurs 5 corruption.";
-	RITUAL.onerequiredbelief = {"man_become_beast", "one_with_the_druids", "daring_trout", "shieldwall", "shedskin", "flagellant", "acolyte", "soothsayer", "heretic"}; -- Tier II Shared Ritual
+	RITUAL.onerequiredbelief = {"man_become_beast", "one_with_the_druids", "daring_trout", "shieldwall", "shedskin", "flagellant", "acolyte", "soothsayer", "heretic", "to_balance_the_scales", "to_tip_the_scales"}; -- Tier II Shared Ritual
 	
 	RITUAL.requirements = {"down_catalyst", "up_catalyst", "ice_catalyst"};
 	RITUAL.result = {
@@ -254,7 +254,7 @@ RITUAL:Register()
 RITUAL = cwRituals.rituals:New("fire_sigil_stone_rite");
 	RITUAL.name = "(T3) Fire Sigil Stone Rite";
 	RITUAL.description = "Create a sigil of flame. Performing this ritual summons a Fire Sigil Stone item. Incurs 5 corruption.";
-	RITUAL.onerequiredbelief = {"sorcerer", "watchful_raven", "emissary", "extinctionist", "hemomancer"}; -- Tier III Shared Ritual
+	RITUAL.onerequiredbelief = {"sorcerer", "watchful_raven", "emissary", "extinctionist", "hemomancer", "carried_by_the_winds"}; -- Tier III Shared Ritual
 	
 	RITUAL.requirements = {"light_catalyst", "belphegor_catalyst", "xolotl_catalyst"};
 	RITUAL.result = {
@@ -277,7 +277,7 @@ RITUAL:Register()
 RITUAL = cwRituals.rituals:New("ice_sigil_stone_rite");
 	RITUAL.name = "(T3) Ice Sigil Stone Rite";
 	RITUAL.description = "Create a sigil of ice. Performing this ritual summons an Ice Sigil Stone item. Incurs 5 corruption.";
-	RITUAL.onerequiredbelief = {"sorcerer", "watchful_raven", "emissary", "extinctionist", "hemomancer"}; -- Tier III Shared Ritual
+	RITUAL.onerequiredbelief = {"sorcerer", "watchful_raven", "emissary", "extinctionist", "hemomancer", "carried_by_the_winds"}; -- Tier III Shared Ritual
 	
 	RITUAL.requirements = {"ice_catalyst", "ice_catalyst", "xolotl_catalyst"};
 	RITUAL.result = {

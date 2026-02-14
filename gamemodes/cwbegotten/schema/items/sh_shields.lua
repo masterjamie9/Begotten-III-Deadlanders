@@ -550,7 +550,8 @@ local ITEM = Clockwork.item:New("shield_base");
 	ITEM.bulletConditionScale = 0.25;
 	ITEM.conditionScale = 0.50;
     
-    ITEM.components = {breakdownType = "meltdown", items = {"fine_steel_chunks", "steel_chunks", "leather", "wood"}};
+    ITEM.components = {breakdownType = "meltdown", items = {"steel_chunks", "steel_chunks", "steel_chunks", "leather", "wood"}};
+	ITEM.requiredFactions = {"Deadlander"};
 ITEM:Register();
 
 local ITEM = Clockwork.item:New("shield_base");

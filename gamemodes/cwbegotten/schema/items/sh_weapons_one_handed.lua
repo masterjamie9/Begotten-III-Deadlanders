@@ -1089,7 +1089,7 @@ local ITEM = Clockwork.item:New("weapon_base");
 	ITEM.weight = 1.1;
 	ITEM.uniqueID = "begotten_1h_ironjian";
 	ITEM.category = "Melee";
-	ITEM.description = "A crudely made yet robust iron sword, equally suited to slashing or stabbing.";
+	ITEM.description = "A surprisingly nimble iron sword of eastern make. It performs better in stabbing than slashing.";
 	ITEM.iconoverride = "materials/begotten/ui/itemicons/iron_jian.png"
 	ITEM.meleeWeapon = true;
 	ITEM.isAttachment = true;
@@ -1103,5 +1103,5 @@ local ITEM = Clockwork.item:New("weapon_base");
 	ITEM.canUseShields = true;
 	
 	ITEM.components = {breakdownType = "meltdown", items = {"iron_chunks", "iron_chunks", "wood"}}; -- use "breakdown" for other type
-	--ITEM.itemSpawnerInfo = {category = "Melee", rarity = 4500, bNoSupercrate = true};
+	--ITEM.itemSpawnerInfo = {category = "Melee", rarity = 9000, bNoSupercrate = true};
 ITEM:Register();

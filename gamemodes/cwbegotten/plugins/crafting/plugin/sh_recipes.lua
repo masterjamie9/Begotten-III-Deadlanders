@@ -11292,8 +11292,8 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiredFactions = {"Deadlander"};
 		RECIPE.requirements = {
 			["iron_ingot"] = {amount = 4},
-			["leather"] = {amount = 3},
-			["cloth"] = {amount = 1},		
+			["leather"] = {amount = 1},
+			["cloth"] = {amount = 2},		
 		};
 		RECIPE.result = {
 			["steppe_warrior_armor"] = {amount = 1},
@@ -11315,13 +11315,42 @@ function cwRecipes:ClockworkInitialized()
 		end;
 	RECIPE:Register()
 
+	RECIPE = cwRecipes.recipes:New("steppe_warrior_armor_upgrade");
+		RECIPE.name = "Steppe Warrior Armor (Upgrade)";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"mechanic"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["iron_ingot"] = {amount = 4},
+			["deadlander_harness"] = {amount = 1},	
+		};
+		RECIPE.result = {
+			["steppe_warrior_armor"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "generic_ui/smelt_success_02.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "smithing"
+		RECIPE.experience = 10;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
+
 	RECIPE = cwRecipes.recipes:New("deadlander_Officer_lamellar");
 		RECIPE.name = "Deadlander Officer Lamellar";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
 		RECIPE.requiredFactions = {"Deadlander"};
 		RECIPE.requirements = {
-			["cloth"] = {amount = 3},
+			["cloth"] = {amount = 2},
 			["leather"] = {amount = 2},
 			["fine_steel_ingot"] = {amount = 1},
 			["steel_ingot"] = {amount = 2},	
@@ -11384,7 +11413,8 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.requiredFactions = {"Deadlander"};
 		RECIPE.requirements = {
 			["steppe_warrior_armor"] = {amount = 1},
-			["leather"] = {amount = 2},
+			["cloth"] = {amount = 1},
+			["leather"] = {amount = 1},
 			["fine_steel_ingot"] = {amount = 1},
 		};
 		RECIPE.result = {
@@ -11647,6 +11677,36 @@ function cwRecipes:ClockworkInitialized()
 		function RECIPE:EndCraft(player)
 		end;
 	RECIPE:Register()
+
+	RECIPE = cwRecipes.recipes:New("deadlander_rider_lamellar_upgrade");
+		RECIPE.name = "Deadlander Rider Lamellar (Upgrade)";
+		RECIPE.requiresSmithy = true;
+		RECIPE.requiredBeliefs = {"mechanic"};
+		RECIPE.requiredFactions = {"Deadlander"};
+		RECIPE.requirements = {
+			["cloth"] = {amount = 1},
+			["deadlander_harness"] = {amount = 1},
+			["steel_ingot"] = {amount = 2},	
+		};
+		RECIPE.result = {
+			["deadlander_rider_lamellar"] = {amount = 1},
+		};
+		RECIPE.category = "Armor"
+		RECIPE.finishSound = "begotten/items/first_aid.wav";
+		RECIPE.failSound = "buttons/button2.wav"
+		RECIPE.craftTime = 8
+		RECIPE.craftVerb = "assembling"
+		RECIPE.experience = 15;
+		
+		function RECIPE:OnCraft(player)
+		end;
+		function RECIPE:OnFail(player)
+		end;
+		function RECIPE:StartCraft(player)
+		end;
+		function RECIPE:EndCraft(player)
+		end;
+	RECIPE:Register()
 	
 	RECIPE = cwRecipes.recipes:New("openshemagh");
 		RECIPE.name = "Deadlander Shemagh";
@@ -11861,7 +11921,7 @@ function cwRecipes:ClockworkInitialized()
 		RECIPE.name = "Deadlander Butterfly Sword";
 		RECIPE.requiresSmithy = true;
 		RECIPE.requiredBeliefs = {"artisan"};
-		RECIPE.requiredFaction = {"Deadlander"};
+		RECIPE.requiredFactions = {"Deadlander"};
 		RECIPE.requirements = {
 			["steel_ingot"] = {amount = 2},
 			["iron_ingot"] = {amount = 1},
@@ -11890,7 +11950,7 @@ function cwRecipes:ClockworkInitialized()
 	RECIPE = cwRecipes.recipes:New("iron_jian");
 		RECIPE.name = "Deadlander Iron Jian";
 		RECIPE.requiresSmithy = true;
-		RECIPE.requiredBeliefs = {"mechanic"};
+		RECIPE.requiredBeliefs = {"craftsman"};
 		RECIPE.requiredFactions = {"Deadlander"};
 		RECIPE.requirements = {
 			["iron_ingot"] = {amount = 3},

@@ -249,6 +249,7 @@ local ITEM = Clockwork.item:New("bodygroup_base")
     ITEM.useSound = "armor/plate_damage_02.wav";
     ITEM.overlay = "begotten/zomboverlay/new/gorekingschosenhelmet";
 	ITEM.requiredRanks = {"Dread Khan"};
+	ITEM.requiredbeliefs = {"hauberk"};
 
     ITEM.conditionScale = 0.75 -- item degrades 1.5x faster with damage related condition loss
 

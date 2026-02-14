@@ -871,7 +871,7 @@ ITEM.bluntScale = 0.95; -- reduces blunt damage by 5%
 ITEM.pierceScale = 0.95; -- reduces pierce damage by 5%
 ITEM.slashScale = 0.90; -- reduces slash damage by 10%
 ITEM.insulation = 60;
-ITEM.components = {breakdownType = "breakdown", items = {"leather", "leather", "cloth", "cloth"}, xp = 15};
+ITEM.components = {breakdownType = "breakdown", items = {"leather", "cloth", "cloth"}, xp = 15};
 
 -- Called when a replacement is needed for a player.
 function ITEM:GetReplacement(player)
@@ -901,7 +901,7 @@ ITEM.iconoverride = "begotten/ui/itemicons/suede.png"
 ITEM.category = "Armor"
 ITEM.conditionScale = 0.8
 ITEM.hitParticle = "MetalSpark";
-ITEM.protection = 45
+ITEM.protection = 50
 ITEM.type = "plate";
 ITEM.weight = 3.5;
 ITEM.weightclass = "Light";
@@ -909,6 +909,8 @@ ITEM.description = "The yellow dyed robes of the Golden Horde, an ancestral army
 ITEM.useSound = "npc/combine_soldier/zipline_clothing2.wav";
 ITEM.attributes = {"bloodletter"};
 ITEM.excludedFactions = {"Goreic Warrior"};
+ITEM.requiredFaiths = {"Faith of the Winds"};
+ITEM.kinisgerOverride = true;
 
 ITEM.effectiveLimbs = {
     [HITGROUP_GENERIC] = true,
@@ -924,7 +926,7 @@ ITEM.effectiveLimbs = {
 ITEM.bluntScale = 0.90; -- reduces blunt damage by 10%
 ITEM.pierceScale = 0.90; -- reduces pierce damage by 10%
 ITEM.slashScale = 0.80; -- reduces slash damage by 20%
-ITEM.bulletScale = 0.90; -- reduces bullet damage by 10%
+ITEM.bulletScale = 0.85; -- reduces bullet damage by 10%
 ITEM.insulation = 60;
 ITEM.components = {breakdownType = "breakdown", items = {"fine_steel_chunks", "leather", "cloth", "cloth"}, xp = 30};
 
@@ -1017,7 +1019,7 @@ ITEM.iconoverride = "begotten/ui/itemicons/windarmor.png"
 ITEM.category = "Armor"
 ITEM.conditionScale = 0.65
 ITEM.hitParticle = "GlassImpact";
-ITEM.protection = 57
+ITEM.protection = 60
 ITEM.type = "chainmail";
 ITEM.weight = 5.5;
 ITEM.weightclass = "Medium";
@@ -1025,6 +1027,7 @@ ITEM.description = "An enchanted rider's lamellar imbued with catalystic energy 
 ITEM.useSound = "armormovement/body-armor-b4.WAV.mp3";
 ITEM.excludedFactions = {"Goreic Warrior"};
 ITEM.requiredbeliefs = {"carried_by_the_winds"};
+ITEM.kinisgerOverride = true;
 
 ITEM.attributes = {"windwalker"}
 
@@ -1049,7 +1052,7 @@ ITEM.slashScale = 0.70; -- reduces slash damage by 30%
 ITEM.bulletScale = 0.85; -- reduces bullet damage by 15%
 ITEM.insulation = 35;
 
-ITEM.components = {breakdownType = "meltdown", items = {"steel_chunks", "steel_chunks", "steel_chunks", "iron_chunks", "leather", "leather", "cloth"}};
+ITEM.components = {breakdownType = "meltdown", items = {"steel_chunks", "steel_chunks", "steel_chunks", "iron_chunks", "cloth", "cloth", "cloth"}};
 
 -- Called when a replacement is needed for a player.
 function ITEM:GetReplacement(player)
@@ -1086,6 +1089,7 @@ ITEM.weightclass = "Heavy";
 ITEM.type = "chainmail";
 ITEM.description = "The armor of a Deadlander Khesig: a combination of reinforced leather and celestial steel lamellar. Affectionately called the 'Big-rig' by its users.";
 ITEM.useSound = "armormovement/body-armor-b4.WAV.mp3";
+ITEM.excludedFactions = {"Goreic Warrior"};
 
 ITEM.requiredbeliefs = {"hauberk"};
 
@@ -1147,6 +1151,7 @@ ITEM.weightclass = "Medium";
 ITEM.description = "An ornamental brass armor reinforced with celestial steel, engraved carefully with iconography of the Khan and his importance. The ultimate symbol of authority.";
 ITEM.useSound = "armormovement/body-armor-b4.WAV.mp3";
 ITEM.requiredRanks = {"Dread Khan"};
+ITEM.excludedFactions = {"Goreic Warrior"};
 
 ITEM.effectiveLimbs = {
 	[HITGROUP_GENERIC] = true,
